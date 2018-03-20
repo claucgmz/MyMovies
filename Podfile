@@ -8,5 +8,6 @@ target 'MyMovies' do
   # Pods for MyMovies
   #A tool to enforce Swift style and conventions, loosely based on GitHub's Swift Style Guide.
   pod 'SwiftLint'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 end

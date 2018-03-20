@@ -6,6 +6,36 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="LVa-rS-0on">
+            <objects>
+                <viewController id="xAx-0H-qdA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VtY-7T-fTI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY MOVIES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVh-VP-VfL">
+                                <rect key="frame" x="140" y="110" width="95" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iVh-VP-VfL" firstAttribute="top" secondItem="pG6-A6-5gA" secondAttribute="top" constant="90" id="fnU-65-uT3"/>
+                            <constraint firstItem="iVh-VP-VfL" firstAttribute="centerX" secondItem="VtY-7T-fTI" secondAttribute="centerX" id="thA-fz-uvm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pG6-A6-5gA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9iW-QO-Urs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63" y="146"/>
+        </scene>
+    </scenes>
 </document>
