@@ -15,7 +15,6 @@ class MovieCollectionCell: UICollectionViewCell {
     if let url = URL(string: APIManager.baseImageURL+movie.posterPath) {
       movieImage.af_setImage(withURL: url)
     }
-    
     self.layer.cornerRadius = 8.0
   }
 }
