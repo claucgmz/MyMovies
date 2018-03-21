@@ -32,4 +32,18 @@ struct MyMoviesRepository {
         })
     }
   }
+  
+  static func getMovie(with id: Int) -> Promise <[String: Any]> {
+    return Promise { fulfill, reject in
+      Alamofire.request(MyMoviesRouter.getMovie(id: id))
+        .validate()
+        .responseJSON(completionHandler: { response in
+          if let json = response.result.value as? [String: Any] {
+            fulfill(json)
+          } else if let error = response.error {
+            reject(error)
+          }
+        })
+    }
+  }
 }

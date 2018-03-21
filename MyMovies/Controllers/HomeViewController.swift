@@ -43,7 +43,11 @@ class HomeViewController: UIViewController {
         return
       }
       if sender is Movie {
-        controller.movie = sender as? Movie
+        guard let movie = sender as? Movie else {
+          return
+        }
+        controller.movieId = movie.id
+        controller.genres = movie.genres
       }
     }
   }

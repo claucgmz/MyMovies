@@ -22,4 +22,15 @@ struct MyMoviesService {
       })
   }
   
+  static func getMovie(with id: Int) -> Promise<Movie?> {
+    return MyMoviesRepository.getMovie(with: id)
+      .then(execute: { json -> Movie? in
+        guard let movie = Mapper<Movie>().map(JSON: json) else {
+          return nil
+        }
+        print(movie)
+        return movie
+      })
+  }
+  
 }
