@@ -41,7 +41,7 @@ class MovieDetailViewController: UIViewController {
     titleLabel.text = movie.title
     overviewLabel.text = movie.sinopsis + movie.sinopsis + movie.sinopsis
     
-    if let url = URL(string: APIManager.baseImageURLdetail+movie.posterPath) {
+    if let url = URL(string: APIManager.baseImageURLdetail+movie.backPath) {
       movieImageView.af_setImage(withURL: url)
     }
     

@@ -12,6 +12,7 @@ struct Movie: Mappable {
   var id: Int!
   var title: String!
   var posterPath = ""
+  var backPath = ""
   var sinopsis: String!
   var releaseDate = Date()
   var genres = [Genre]()
@@ -33,6 +34,7 @@ struct Movie: Mappable {
     id          <- map["id"]
     title       <- map["title"]
     posterPath  <- map["poster_path"]
+    backPath    <- map["backdrop_path"]
     sinopsis    <- map["overview"]
     releaseDate <- (map["releaseDate"], DateTransform())
     genres      <- (map["genre_ids"], EnumTransform<Genre>())
