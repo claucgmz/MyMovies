@@ -28,7 +28,6 @@ class MovieDetailViewController: UIViewController {
     }
     
     MyMoviesService.getMovie(with: movieId).then(execute: { movie -> Void in
-      print(self.genres)
       self.movie = movie
       self.movie.genres = self.genres
       self.updateUI()
@@ -46,7 +45,7 @@ class MovieDetailViewController: UIViewController {
       movieImageView.af_setImage(withURL: url)
     }
     
-    genresLabel.text = movie.genresString
+    genresLabel.text = movie.genresString.uppercased()
     taglineLabel.text = !movie.tagline.isEmpty ? "\"\(movie.tagline)\"" : ""
     runtimeLabel.text = movie.runtime > 0 ? "\(movie.runtime) min." : ""
   }
