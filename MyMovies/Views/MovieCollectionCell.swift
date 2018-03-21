@@ -12,7 +12,7 @@ import AlamofireImage
 class MovieCollectionCell: UICollectionViewCell {
   @IBOutlet private weak var movieImage: UIImageView!
   func configure(with movie: Movie) {
-    if let url = URL(string: APIManager.baseImageURL+movie.posterPath) {
+    if let url = URL(string: APIManager.baseImageURLthumbnail+movie.posterPath) {
       movieImage.af_setImage(withURL: url)
     }
     self.layer.cornerRadius = 8.0

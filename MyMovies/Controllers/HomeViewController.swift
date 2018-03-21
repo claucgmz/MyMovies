@@ -32,6 +32,21 @@ class HomeViewController: UIViewController {
       print(error)
     })
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
+      return
+    }
+    switch identifier {
+    case .movieDetail:
+      guard let controller = segue.destination as? MovieDetailViewController else {
+        return
+      }
+      if sender is Movie {
+        controller.movie = sender as? Movie
+      }
+    }
+  }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -91,5 +106,8 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let movie = movieCollectionViews[collectionView.tag].movies[indexPath.row]
+    performSegue(withIdentifier: SegueIdentifier.movieDetail.rawValue, sender: movie)
+  }
 }
