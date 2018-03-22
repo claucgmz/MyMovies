@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Cosmos
 
 class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var movieImageView: UIImageView!
@@ -17,12 +18,14 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var runtimeLabel: UILabel!
   @IBOutlet private weak var genresLabel: UILabel!
   @IBOutlet private weak var overviewLabel: UILabel!
+  @IBOutlet private weak var cosmosView: CosmosView!
   private var movie: Movie!
   var genres = [Genre]()
   var movieId: Int?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    cosmosViewActions()
     guard let movieId = movieId else {
       return
     }
@@ -34,7 +37,16 @@ class MovieDetailViewController: UIViewController {
     }).catch(execute: { error in
       print(error)
     })
+  }
+  
+  private func cosmosViewActions() {
+    cosmosView.didFinishTouchingCosmos = { rating in
+      print(rating)
+    }
     
+    cosmosView.didTouchCosmos = { rating in
+      print(rating)
+    }
   }
   
   private func updateUI() {
@@ -48,5 +60,9 @@ class MovieDetailViewController: UIViewController {
     genresLabel.text = movie.genresString.uppercased()
     taglineLabel.text = !movie.tagline.isEmpty ? "\"\(movie.tagline)\"" : ""
     runtimeLabel.text = movie.runtime > 0 ? "\(movie.runtime) min." : ""
+  }
+  
+  private func updateRating() {
+    cosmosView.rating = 0
   }
 }
