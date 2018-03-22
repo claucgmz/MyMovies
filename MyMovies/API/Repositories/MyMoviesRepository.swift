@@ -46,4 +46,11 @@ struct MyMoviesRepository {
         })
     }
   }
+  
+  static func getUserRating(for movieId: Int)  -> Promise <[String: Any]>{
+    return Promise { fullfill, reject in
+      
+      
+    }
+  }
 }

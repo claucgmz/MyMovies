@@ -33,4 +33,8 @@ struct MyMoviesService {
       })
   }
   
+  static func getUserRating(for movieId: Int) {
+    
+  }
+  
 }

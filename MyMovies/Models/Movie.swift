@@ -19,6 +19,7 @@ struct Movie: Mappable {
   var runtime = 0
   var tagline = ""
   var status = ""
+  var userRating = UserRating()
   
   var genresString: String {
     return genres.reduce("", { text, genre in
