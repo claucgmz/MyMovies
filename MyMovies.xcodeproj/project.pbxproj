@@ -15,6 +15,8 @@
 		5F07A3B220617F6D00209566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07A3B020617F6D00209566 /* LaunchScreen.storyboard */; };
 		5F07A3C2206183CB00209566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07A3C1206183CB00209566 /* Main.storyboard */; };
 		9BAF5B632061951000E93F18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF5B622061951000E93F18 /* GoogleService-Info.plist */; };
+		9BAF5BC020641BF300E93F18 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF5BBF20641BF300E93F18 /* File.swift */; };
+		9BAF5BC220641E4F00E93F18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF5BC120641E4F00E93F18 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		5F07A3C1206183CB00209566 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		87E7C78499CDCA6FAF96B226 /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BAF5B622061951000E93F18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9BAF5BBF20641BF300E93F18 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		9BAF5BC120641E4F00E93F18 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MyMovies/Models/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		F4B599BB78984E04C939B115 /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		F9E4490373A6500A5BC86FE6 /* Pods-MyMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +95,7 @@
 		5F07A3B92061816100209566 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9BAF5BBF20641BF300E93F18 /* File.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 		5F07A3BA2061816E00209566 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BAF5BC120641E4F00E93F18 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -277,12 +283,22 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -299,7 +315,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BAF5BC220641E4F00E93F18 /* LoginViewController.swift in Sources */,
 				5F07A3AD20617F6D00209566 /* MyMovies.xcdatamodeld in Sources */,
+				9BAF5BC020641BF300E93F18 /* File.swift in Sources */,
 				5F07A3A520617F6D00209566 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQB7945LTG;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nearsoft.MyMovies;
@@ -455,7 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQB7945LTG;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nearsoft.MyMovies;

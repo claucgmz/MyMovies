@@ -10,4 +10,7 @@ target 'MyMovies' do
   pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+#Facebook login 
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
 end
