@@ -32,8 +32,14 @@ class LoginViewController: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(grantedPermissions: _, _, let token):
-                print("success")
-                
+                let credential = FacebookAuthProvider.credential(withAccessToken: token.authenticationToken)
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    if let error = error {
+                        print("\(error)")
+                        return
+                    }
+                    print("\(String(describing: user?.email))")
+                }
             }
         }
     }
