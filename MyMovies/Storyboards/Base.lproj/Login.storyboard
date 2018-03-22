@@ -24,9 +24,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-JP-lSg">
-                                <rect key="frame" x="117" y="392" width="141" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-JP-lSg">
+                                <rect key="frame" x="94.5" y="312.5" width="186" height="42"/>
+                                <color key="backgroundColor" red="0.087783060967922211" green="0.50096160173416138" blue="0.97878533601760864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Login with Facebook"/>
                                 <connections>
                                     <action selector="facebookLoginWithSender:" destination="xAx-0H-qdA" eventType="touchUpInside" id="8vE-bi-wsP"/>
@@ -35,8 +36,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iVh-VP-VfL" firstAttribute="top" secondItem="pG6-A6-5gA" secondAttribute="top" constant="90" id="fnU-65-uT3"/>
-                            <constraint firstItem="iVh-VP-VfL" firstAttribute="centerX" secondItem="VtY-7T-fTI" secondAttribute="centerX" id="thA-fz-uvm"/>
+                            <constraint firstItem="iVh-VP-VfL" firstAttribute="centerX" secondItem="VtY-7T-fTI" secondAttribute="centerX" id="CfQ-NO-uSf"/>
+                            <constraint firstItem="iVh-VP-VfL" firstAttribute="top" secondItem="pG6-A6-5gA" secondAttribute="top" constant="90" id="ITC-7E-dt5"/>
+                            <constraint firstItem="uEF-JP-lSg" firstAttribute="centerX" secondItem="VtY-7T-fTI" secondAttribute="centerX" id="OKM-Fg-Quj"/>
+                            <constraint firstItem="uEF-JP-lSg" firstAttribute="centerY" secondItem="VtY-7T-fTI" secondAttribute="centerY" id="u9G-ds-5LD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pG6-A6-5gA"/>
                     </view>
