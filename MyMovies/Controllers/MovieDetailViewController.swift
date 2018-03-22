@@ -30,6 +30,10 @@ class MovieDetailViewController: UIViewController {
       return
     }
     
+    MyMoviesRepository.getUserRating(for: movieId).then(execute: {rating -> Void in
+        self.cosmosView.rating = Double(rating)
+    })
+    
     MyMoviesService.getMovie(with: movieId).then(execute: { movie -> Void in
       self.movie = movie
       self.movie.genres = self.genres
@@ -41,6 +45,10 @@ class MovieDetailViewController: UIViewController {
   
   private func cosmosViewActions() {
     cosmosView.didFinishTouchingCosmos = { rating in
+      guard let movieId = self.movieId else {
+        return
+      }
+      MyMoviesRepository.save(rating: UserRating(rating: Int(rating)), movieId: movieId)
       print(rating)
     }
     

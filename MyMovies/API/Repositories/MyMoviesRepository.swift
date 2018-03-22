@@ -53,11 +53,26 @@ struct MyMoviesRepository {
     }
   }
   
-  static func getUserRating(for movieId: Int)  -> Promise <[String: Any]>{
-    return Promise { fullfill, reject in
-      
-      
+  static func getUserRating(for movieId: Int) -> Promise <Int> {
+    return Promise { fulfill, _ in
+      let id = "\(movieId)"
+      ratingsRef.child(id).observeSingleEvent(of: .value, with: { snapshot in
+        let data = snapshot.value as? Int ?? 0
+        fulfill(data)
+      })
     }
   }
-
+  
+  static func save(movieList: MovieList) {
+    movielistsRef.child(movieList.id).setValue(movieList.toDictionary())
+  }
+  
+  static func delete(movieList: MovieList) {
+    movielistsRef.child(movieList.id)
+  }
+  
+  static func save(rating: UserRating, movieId: Int) {
+    let id = "\(movieId)"
+    ratingsRef.child(id).setValue(rating.rating)
+  }
 }

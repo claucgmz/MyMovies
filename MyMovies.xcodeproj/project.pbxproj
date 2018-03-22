@@ -32,6 +32,7 @@
 		5FCC4C502064102C002CD20E /* UserRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C4F2064102C002CD20E /* UserRating.swift */; };
 		5FCC4C522064150E002CD20E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC4C512064150E002CD20E /* GoogleService-Info.plist */; };
 		5FCC4C54206415FB002CD20E /* FirebasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C53206415FB002CD20E /* FirebasePath.swift */; };
+		5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C55206417A4002CD20E /* MovieList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		5FCC4C4F2064102C002CD20E /* UserRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRating.swift; sourceTree = "<group>"; };
 		5FCC4C512064150E002CD20E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FCC4C53206415FB002CD20E /* FirebasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePath.swift; sourceTree = "<group>"; };
+		5FCC4C55206417A4002CD20E /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		87E7C78499CDCA6FAF96B226 /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B599BB78984E04C939B115 /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		F9E4490373A6500A5BC86FE6 /* Pods-MyMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				5FB08EB92061A77400DDDC65 /* Movie.swift */,
 				5FCC4C4F2064102C002CD20E /* UserRating.swift */,
+				5FCC4C55206417A4002CD20E /* MovieList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				5FB08EC52061AFC200DDDC65 /* MovieCollectionViewCell.swift in Sources */,
 				5FB08EBC2061A95400DDDC65 /* MyMoviesService.swift in Sources */,
 				5FB08EB820619A1000DDDC65 /* HomeViewController.swift in Sources */,
+				5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */,
 				5F1A169F20632081007B272E /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

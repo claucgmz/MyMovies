@@ -28,13 +28,19 @@ struct MyMoviesService {
         guard let movie = Mapper<Movie>().map(JSON: json) else {
           return nil
         }
-        print(movie)
         return movie
       })
   }
   
-  static func getUserRating(for movieId: Int) {
-    
+  static func getUserRating(for movieId: Int) -> Promise<Int?> {
+    return MyMoviesService.getUserRating(for: movieId)
+    .then(execute: { rating -> Int? in
+      guard let rating = rating else {
+        return 0
+      }
+      
+      return rating
+    })
   }
   
 }
