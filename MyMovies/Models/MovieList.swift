@@ -6,13 +6,22 @@
 //  Copyright © 2018 Claudia Carrillo. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
 
-struct MovieList {
+struct MovieList: Mappable {
   var id = UUID().uuidString
   var name = ""
   var moviesIds = [Int]()
   
+  init?(map: Map) {
+  }
+  
+  mutating func mapping(map: Map) {
+    id        <- map["id"]
+    name      <- map["name"]
+    moviesIds <- map["moviesIds"]
+  }
+
   func toDictionary() -> [String: Any] {
     return [
       "id": id,

@@ -32,6 +32,14 @@ struct MyMoviesService {
       })
   }
   
+  static func getUserMovieLists() -> Promise<[MovieList]> {
+    return MyMoviesRepository.getUserMovieLists()
+    .then(execute: { json -> [MovieList] in
+      let movies = Mapper<MovieList>().mapArray(JSONArray: json)
+      return movies
+    })
+  }
+  
   static func getUserRating(for movieId: Int) -> Promise<Int?> {
     return MyMoviesService.getUserRating(for: movieId)
     .then(execute: { rating -> Int? in

@@ -63,6 +63,22 @@ struct MyMoviesRepository {
     }
   }
   
+  static func getUserMovieLists() -> Promise <[[String: Any]]> {
+    return Promise { fulfill, _ in
+      movielistsRef.observe(.value, with: { snapshot in
+        let data = snapshot.value as? [String: Any] ?? [:]
+        var movieListDataArray: [[String: Any]] = []
+        for snData in data {
+          if let movieListData = snData.value as? [String:Any] {
+            movieListDataArray.append(movieListData)
+          }
+        }
+        
+        fulfill(movieListDataArray)
+      })
+    }
+  }
+  
   static func save(movieList: MovieList) {
     movielistsRef.child(movieList.id).setValue(movieList.toDictionary())
   }
