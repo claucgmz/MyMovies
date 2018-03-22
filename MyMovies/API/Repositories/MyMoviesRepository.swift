@@ -8,8 +8,14 @@
 
 import Alamofire
 import PromiseKit
+import FirebaseDatabase
 
 struct MyMoviesRepository {
+  //Firebase Database
+  static var databaseRef = Database.database().reference()
+  static let movielistsRef = Database.database().reference(withPath: FirebasePath.lists.rawValue)
+  static let ratingsRef = Database.database().reference(withPath: FirebasePath.ratings.rawValue)
+  
   static func getRequest(for type: MovieType, page: Int) -> URLRequestConvertible {
     switch type {
     case .featured:
@@ -53,4 +59,5 @@ struct MyMoviesRepository {
       
     }
   }
+
 }

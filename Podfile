@@ -18,4 +18,8 @@ target 'MyMovies' do
   pod 'ObjectMapper'
   #Cosmos, a star rating control for iOS and tvOS
   pod 'Cosmos'
+  #Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  
 end
