@@ -295,6 +295,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hYX-BA-gfy" id="7KM-TM-oLd"/>
+                                    <outlet property="delegate" destination="hYX-BA-gfy" id="IlP-3i-wg6"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>

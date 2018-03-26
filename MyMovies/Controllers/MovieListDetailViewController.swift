@@ -7,29 +7,43 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class MovieListDetailViewController: UIViewController {
+  @IBOutlet private weak var tableView: UITableView!
+  private var movies = [MovieBrief]()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+extension MovieListDetailViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return movies.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = (tableView.dequeueReusableCell(withIdentifier: MovieCell.reusableId, for: indexPath) as? MovieCell)!
+    let movie = movies[indexPath.row]
+    cell.configure(with: movie, delegate: self)
+    return cell
+  }
+}
 
-        // Do any additional setup after loading the view.
-    }
+extension MovieListDetailViewController: UITableViewDelegate {
+  
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension MovieListDetailViewController: SwipeTableViewCellDelegate {
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+    guard orientation == .right else { return nil }
+    
+    let deleteAction = SwipeAction(style: .destructive, title: "Delete") { _, indexPath in
+      self.movies.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    return [deleteAction]
+  }
 }
