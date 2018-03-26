@@ -24,7 +24,6 @@ struct DBHandler {
             movielistDictArray.append(movieData)
           }
         }
-        
         fullfill(movielistDictArray)
       })
     }

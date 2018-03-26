@@ -26,8 +26,7 @@ class MovieFormViewController: UIViewController {
       return
     }
 
-    var list = MovieList()
-    list.name = listName
+    let list = MovieList(name: listName)
     DBHandler.updateList(list)
     navigationController?.popViewController(animated: true)
   }

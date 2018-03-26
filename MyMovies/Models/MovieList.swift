@@ -7,11 +7,28 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct MovieList: DBModel {
+struct MovieList: DBModel, Mappable {
   var id = UUID().uuidString
   var name = ""
   var movies = [MovieBrief]()
+  
+  init?(map: Map) {
+    
+  }
+  
+  init(name: String) {
+    self.name = name
+  }
+  
+  mutating func mapping(map: Map) {
+    id     <- map["id"]
+    name  <- map["name"]
+    var movies: Array<MovieBrief> = []
+    movies  <- map["movies"]
+    self.movies = movies
+  }
   
   func toDictionary() -> [String: Any] {
     return [

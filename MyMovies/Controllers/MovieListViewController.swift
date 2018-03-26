@@ -9,12 +9,14 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
+  @IBOutlet private weak var tableView: UITableView!
   private var movieLists = [MovieList]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    Handler.getLists().then(execute: { movies -> Void in
-      print(movies)
+    Handler.getLists().then(execute: { movieLists -> Void in
+      self.movieLists = movieLists
+      self.tableView.reloadData()
     })
   }
 }
@@ -25,7 +27,10 @@ extension MovieListViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    let cell = (tableView.dequeueReusableCell(withIdentifier: MovieListCell.reusableId, for: indexPath) as? MovieListCell)!
+    let list = movieLists[indexPath.row]
+    cell.configure(with: list)
+    return cell
   }
 
 }

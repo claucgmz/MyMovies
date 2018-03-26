@@ -33,7 +33,7 @@ struct Handler {
   
   static func getLists() -> Promise <[MovieList]> {
     return DBHandler.getLists().then(execute: { data -> [MovieList] in
-      return [MovieList]()
+      return ParseHandler.parseMovieLists(with: data)
     })
   }
 }

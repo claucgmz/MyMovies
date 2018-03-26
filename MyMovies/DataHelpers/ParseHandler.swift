@@ -34,10 +34,9 @@ struct ParseHandler {
     return rating
   }
   
-  static func parseMovies(with data: [String: Any]) -> [MovieBrief] {
-    print(data)
-    let movies = [MovieBrief]()
-   // movies = Mapper<Movie>.map(JSON: data)
-    return movies
+  static func parseMovieLists(with data: [[String: Any]]) -> [MovieList] {
+    var lists = [MovieList]()
+    lists = Mapper<MovieList>().mapArray(JSONArray: data)
+    return lists
   }
 }
