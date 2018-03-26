@@ -20,6 +20,7 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var overviewLabel: UILabel!
   @IBOutlet private weak var cosmosView: CosmosView!
   private var movie: Movie!
+  private var movieRating: Rating!
   var genres = [Genre]()
   var movieId: Int?
   
@@ -29,15 +30,22 @@ class MovieDetailViewController: UIViewController {
     guard let movieId = movieId else {
       return
     }
+    movieRating = Rating(id: String(movieId), stars: 0)
     
-    MyMoviesRepository.getUserRating(for: movieId).then(execute: {rating -> Void in
-        self.cosmosView.rating = Double(rating)
-    })
-    
-    MyMoviesService.getMovie(with: movieId).then(execute: { movie -> Void in
+    Handler.getMovie(withId: String(movieId)).then(execute: { movie -> Void in
       self.movie = movie
       self.movie.genres = self.genres
       self.updateUI()
+    }).catch(execute: { error in
+      print(error)
+    })
+    
+    Handler.getRating(for: String(movieId)).then(execute: { rating -> Void in
+      guard let rating = rating else {
+        return
+      }
+      self.movieRating = rating
+      self.cosmosView.rating = Double(self.movieRating.stars)
     }).catch(execute: { error in
       print(error)
     })
@@ -45,15 +53,8 @@ class MovieDetailViewController: UIViewController {
   
   private func cosmosViewActions() {
     cosmosView.didFinishTouchingCosmos = { rating in
-      guard let movieId = self.movieId else {
-        return
-      }
-      MyMoviesRepository.save(rating: UserRating(rating: Int(rating)), movieId: movieId)
-      print(rating)
-    }
-    
-    cosmosView.didTouchCosmos = { rating in
-      print(rating)
+      self.movieRating.stars = Int(rating)
+      DBHandler.setRating(self.movieRating)
     }
   }
   

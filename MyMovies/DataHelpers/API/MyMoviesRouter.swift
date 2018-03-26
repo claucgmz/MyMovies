@@ -12,7 +12,7 @@ enum MyMoviesRouter: URLRequestConvertible {
 
   case getFeatured(page: Int)
   case getUpcoming(page: Int)
-  case getMovie(id: Int)
+  case getMovie(id: String)
   
   var path: String {
     switch self {

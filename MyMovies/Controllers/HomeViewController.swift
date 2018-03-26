@@ -18,14 +18,14 @@ class HomeViewController: UIViewController {
   }
   
   private func getMovies() {
-    MyMoviesService.getMovies(for: .featured, page: 1).then(execute: { movies -> Void in
+    Handler.getMovies(for: .featured, page: 1).then(execute: { movies -> Void in
       self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
       self.tableView.reloadData()
     }).catch(execute: { error in
       print(error)
     })
     
-    MyMoviesService.getMovies(for: .upcoming, page: 1).then(execute: { movies -> Void in
+    Handler.getMovies(for: .upcoming, page: 1).then(execute: { movies -> Void in
       self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
       self.tableView.reloadData()
     }).catch(execute: { error in
@@ -46,6 +46,7 @@ class HomeViewController: UIViewController {
         guard let movie = sender as? Movie else {
           return
         }
+
         controller.movieId = movie.id
         controller.genres = movie.genres
       }
