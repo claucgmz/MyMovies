@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>828994255175-kbpuldtgf0g4ilk9u5u262j6p50ehsra.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.828994255175-kbpuldtgf0g4ilk9u5u262j6p50ehsra</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAk2b7pTlm6B0cBZfbT56OtN2wGQ4lFN_4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>828994255175</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>nearsoft.MyMovies</string>
+	<key>PROJECT_ID</key>
+	<string>mymovies-2daa3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mymovies-2daa3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:828994255175:ios:11814004250105ee</string>
+	<key>DATABASE_URL</key>
+	<string>https://mymovies-2daa3.firebaseio.com</string>
+</dict>
+</plist>

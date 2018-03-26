@@ -16,4 +16,10 @@ target 'MyMovies' do
   pod 'PromiseKit'
   #ObjectMapper is a framework written in Swift that makes it easy for you to convert your model objects (classes and structs) to and from JSON.
   pod 'ObjectMapper'
+  #Cosmos, a star rating control for iOS and tvOS
+  pod 'Cosmos'
+  #Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  
 end

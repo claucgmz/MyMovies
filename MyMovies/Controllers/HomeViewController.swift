@@ -18,19 +18,39 @@ class HomeViewController: UIViewController {
   }
   
   private func getMovies() {
-    MyMoviesService.getMovies(for: .featured, page: 1).then(execute: { movies -> Void in
+    Handler.getMovies(for: .featured, page: 1).then(execute: { movies -> Void in
       self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
       self.tableView.reloadData()
     }).catch(execute: { error in
       print(error)
     })
     
-    MyMoviesService.getMovies(for: .upcoming, page: 1).then(execute: { movies -> Void in
+    Handler.getMovies(for: .upcoming, page: 1).then(execute: { movies -> Void in
       self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
       self.tableView.reloadData()
     }).catch(execute: { error in
       print(error)
     })
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
+      return
+    }
+    switch identifier {
+    case .movieDetail:
+      guard let controller = segue.destination as? MovieDetailViewController else {
+        return
+      }
+      if sender is Movie {
+        guard let movie = sender as? Movie else {
+          return
+        }
+
+        controller.movieId = movie.id
+        controller.genres = movie.genres
+      }
+    }
   }
 }
 
@@ -41,7 +61,7 @@ extension HomeViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return movieCollectionViews[section].type.rawValue
+    return movieCollectionViews[section].type.rawValue.uppercased()
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,10 +82,11 @@ extension HomeViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     guard let header = view as? UITableViewHeaderFooterView else { return }
-    header.textLabel?.textColor = .black
-    header.textLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+    header.backgroundView?.backgroundColor = Color.lead
+    header.textLabel?.textColor = .white
+    header.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
     header.textLabel?.frame = header.frame
-    header.textLabel?.textAlignment = .left
+    header.textLabel?.textAlignment = .center
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -91,5 +112,8 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let movie = movieCollectionViews[collectionView.tag].movies[indexPath.row]
+    performSegue(withIdentifier: SegueIdentifier.movieDetail.rawValue, sender: movie)
+  }
 }
