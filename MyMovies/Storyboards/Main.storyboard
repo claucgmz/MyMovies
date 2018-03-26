@@ -107,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="-342" y="-651"/>
         </scene>
-        <!--Movie List View Controller-->
+        <!--My Movies-->
         <scene sceneID="opg-AZ-Kje">
             <objects>
                 <viewController id="1RB-Ye-dCN" customClass="MovieListViewController" customModule="MyMovies" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,7 +184,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EyN-fO-dCI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="esf-tD-fns"/>
+                    <navigationItem key="navigationItem" title="My Movies" id="esf-tD-fns"/>
                     <connections>
                         <outlet property="tableView" destination="FTd-4C-fI2" id="Q1W-nx-65z"/>
                     </connections>
@@ -201,6 +201,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="rEv-Gh-G2T"/>
                     </view>
                 </viewController>
