@@ -38,7 +38,7 @@ struct DBHandler {
     }
   }
   
-  static func updateList(_ list: DBModel) {
+  static func saveList(_ list: DBModel) {
     movielistsRef.child(list.id).setValue(list.toDictionary())
   }
   

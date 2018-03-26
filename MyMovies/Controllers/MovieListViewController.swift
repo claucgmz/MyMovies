@@ -34,6 +34,13 @@ class MovieListViewController: UIViewController {
         return
       }
       controller.delegate = self
+      if sender is MovieList {
+        guard let movieList = sender as? MovieList else {
+          return
+        }
+        
+        controller.movieList = movieList
+      }
     }
   }
 }
@@ -60,7 +67,10 @@ extension MovieListViewController: UITableViewDataSource {
 }
 
 extension MovieListViewController: UITableViewDelegate {
-
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let movieList = movieLists[indexPath.row]
+    performSegue(withIdentifier: SegueIdentifier.movieListForm.rawValue, sender: movieList)
+  }
 }
 
 extension MovieListViewController: MovieFormViewControllerDelegate {
