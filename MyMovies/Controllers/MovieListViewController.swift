@@ -14,10 +14,27 @@ class MovieListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    getMovies()
+  }
+  
+  private func getMovies() {
     Handler.getLists().then(execute: { movieLists -> Void in
       self.movieLists = movieLists
       self.tableView.reloadData()
     })
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
+      return
+    }
+    
+    if identifier == .movieListForm {
+      guard let controller = segue.destination as? MovieFormViewController else {
+        return
+      }
+      controller.delegate = self
+    }
   }
 }
 
@@ -32,5 +49,11 @@ extension MovieListViewController: UITableViewDataSource {
     cell.configure(with: list)
     return cell
   }
+  
+}
 
+extension MovieListViewController: MovieFormViewControllerDelegate {
+  func movieFormViewController(_ controller: MovieFormViewController) {
+    getMovies()
+  }
 }

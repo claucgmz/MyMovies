@@ -10,4 +10,5 @@ import Foundation
 
 enum SegueIdentifier: String {
   case movieDetail
+  case movieListForm
 }

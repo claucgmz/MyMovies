@@ -37,8 +37,8 @@ class HomeViewController: UIViewController {
     guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
       return
     }
-    switch identifier {
-    case .movieDetail:
+    
+    if identifier == .movieDetail {
       guard let controller = segue.destination as? MovieDetailViewController else {
         return
       }
@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
         guard let movie = sender as? Movie else {
           return
         }
-
+        
         controller.movieId = movie.id
         controller.genres = movie.genres
       }
