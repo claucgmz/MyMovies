@@ -15,6 +15,7 @@ class MovieFormView: UIView {
     self.setSubviewForAutoLayout(self.stackView)
     stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    stackView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.75).isActive = true
   }
   
   required init?(coder aDecoder: NSCoder) {
