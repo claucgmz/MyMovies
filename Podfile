@@ -21,5 +21,7 @@ target 'MyMovies' do
   #Firebase
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  # Swipeable UITableViewCell based on the stock Mail.app, implemented in Swift.
+  pod 'SwipeCellKit'
   
 end

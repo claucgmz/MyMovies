@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class MovieListCell: UITableViewCell {
+class MovieListCell: SwipeTableViewCell {
   @IBOutlet private weak var listNameLabel: UILabel!
   @IBOutlet private weak var totalMoviesLabel: UILabel!
   
-  func configure(with movieList: MovieList) {
+  func configure(with movieList: MovieList, delegate: SwipeTableViewCellDelegate) {
     listNameLabel.text = movieList.name
     totalMoviesLabel.text = "\(movieList.movies.count) movies"
+    self.delegate = delegate
   }
 }

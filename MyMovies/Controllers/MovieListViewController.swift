@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class MovieListViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
@@ -53,16 +54,8 @@ extension MovieListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = (tableView.dequeueReusableCell(withIdentifier: MovieListCell.reusableId, for: indexPath) as? MovieListCell)!
     let list = movieLists[indexPath.row]
-    cell.configure(with: list)
+    cell.configure(with: list, delegate: self)
     return cell
-  }
-  
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
-      DBHandler.removeList(movieLists[indexPath.row])
-      movieLists.remove(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .fade)
-    }
   }
 }
 
@@ -76,5 +69,17 @@ extension MovieListViewController: UITableViewDelegate {
 extension MovieListViewController: MovieFormViewControllerDelegate {
   func movieFormViewController(_ controller: MovieFormViewController) {
     getMovies()
+  }
+}
+
+extension MovieListViewController: SwipeTableViewCellDelegate {
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+    guard orientation == .right else { return nil }
+    let deleteAction = SwipeAction(style: .destructive, title: "Delete", handler: { _, indexPath in
+      DBHandler.removeList(self.movieLists[indexPath.row])
+      self.movieLists.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .fade)
+    })
+    return [deleteAction]
   }
 }
