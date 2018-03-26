@@ -30,4 +30,10 @@ struct Handler {
       return ParseHandler.parseRating(with: data)
     })
   }
+  
+  static func getLists() -> Promise <[MovieList]> {
+    return DBHandler.getLists().then(execute: { data -> [MovieList] in
+      return [MovieList]()
+    })
+  }
 }

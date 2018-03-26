@@ -33,4 +33,11 @@ struct ParseHandler {
     }
     return rating
   }
+  
+  static func parseMovies(with data: [String: Any]) -> [MovieBrief] {
+    print(data)
+    let movies = [MovieBrief]()
+   // movies = Mapper<Movie>.map(JSON: data)
+    return movies
+  }
 }

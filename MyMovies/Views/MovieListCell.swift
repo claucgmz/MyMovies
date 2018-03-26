@@ -14,6 +14,6 @@ class MovieListCell: UITableViewCell {
   
   func configure(with movieList: MovieList) {
     listNameLabel.text = movieList.name
-    totalMoviesLabel.text = "\(movieList.moviesIds.count) movies"
+    totalMoviesLabel.text = "\(movieList.movies.count) movies"
   }
 }

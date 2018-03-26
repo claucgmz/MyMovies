@@ -11,13 +11,13 @@ import Foundation
 struct MovieList: DBModel {
   var id = UUID().uuidString
   var name = ""
-  var moviesIds = [Int]()
+  var movies = [MovieBrief]()
   
   func toDictionary() -> [String: Any] {
     return [
       "id": id,
       "name": name,
-      "movieIds": moviesIds
+      "movie": movies
     ]
   }
 }
