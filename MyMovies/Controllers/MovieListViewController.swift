@@ -61,8 +61,8 @@ extension MovieListViewController: UITableViewDataSource {
 
 extension MovieListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let movieList = movieLists[indexPath.row]
-    performSegue(withIdentifier: SegueIdentifier.movieListForm.rawValue, sender: movieList)
+//    let movieList = movieLists[indexPath.row]
+//    performSegue(withIdentifier: SegueIdentifier.movieListForm.rawValue, sender: movieList)
   }
 }
 
@@ -75,11 +75,19 @@ extension MovieListViewController: MovieFormViewControllerDelegate {
 extension MovieListViewController: SwipeTableViewCellDelegate {
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
     guard orientation == .right else { return nil }
-    let deleteAction = SwipeAction(style: .destructive, title: "Delete", handler: { _, indexPath in
+    
+    let deleteAction = SwipeAction(style: .destructive, title: "Delete") { _, indexPath in
       DBHandler.removeList(self.movieLists[indexPath.row])
       self.movieLists.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .fade)
-    })
-    return [deleteAction]
+    }
+    
+    let editAction = SwipeAction(style: .default, title: "Edit") { _, indexPath in
+      let movieList = self.movieLists[indexPath.row]
+      self.performSegue(withIdentifier: SegueIdentifier.movieListForm.rawValue, sender: movieList)
+    }
+    editAction.hidesWhenSelected = true
+    
+    return [deleteAction, editAction]
   }
 }
