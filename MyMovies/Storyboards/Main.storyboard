@@ -311,6 +311,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QqI-ct-Kcf"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="xA1-z7-6sD" id="MRM-gT-7YD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dZ-hd-zyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

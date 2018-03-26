@@ -11,10 +11,16 @@ import SwipeCellKit
 
 class MovieListDetailViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
+  var movieList: MovieList?
   private var movies = [MovieBrief]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    guard let movieList = movieList else {
+      return
+    }
+    movies = movieList.movies
+    tableView.reloadData()
   }
 }
 

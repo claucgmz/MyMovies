@@ -42,6 +42,16 @@ class MovieListViewController: UIViewController {
         
         controller.movieList = movieList
       }
+    } else if identifier == .movieListDetail {
+      guard let controller = segue.destination as? MovieListDetailViewController else {
+        return
+      }
+      if sender is MovieList {
+        guard let movieList = sender as? MovieList else {
+          return
+        }
+        controller.movieList = movieList
+      }
     }
   }
 }
@@ -61,8 +71,8 @@ extension MovieListViewController: UITableViewDataSource {
 
 extension MovieListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    let movieList = movieLists[indexPath.row]
-//    performSegue(withIdentifier: SegueIdentifier.movieListForm.rawValue, sender: movieList)
+    let movieList = movieLists[indexPath.row]
+    performSegue(withIdentifier: SegueIdentifier.movieListDetail.rawValue, sender: movieList)
   }
 }
 
