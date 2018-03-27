@@ -11,4 +11,6 @@ import Foundation
 enum FirebasePath: String {
   case lists
   case ratings
+  case movies
+  case brief
 }

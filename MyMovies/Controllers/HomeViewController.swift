@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class HomeViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
@@ -18,19 +19,23 @@ class HomeViewController: UIViewController {
   }
   
   private func getMovies() {
-    Handler.getMovies(for: .featured, page: 1).then(execute: { movies -> Void in
-      self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
-      self.tableView.reloadData()
-    }).catch(execute: { error in
-      print(error)
-    })
+    Handler.getMovies(for: .featured, page: 1)
+      .then(execute: { movies -> Promise<[Movie]> in
+        self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
+        return Handler.getMovies(for: .upcoming, page: 1)
+      })
+      .recover(execute: { error -> [Movie] in
+        return [Movie]()
+      })
+      .then(execute: { movies -> Void in
+        self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
+      }).catch(execute: { error in
+        print(error)
+      })
+      .always {
+        self.tableView.reloadData()
+      }
     
-    Handler.getMovies(for: .upcoming, page: 1).then(execute: { movies -> Void in
-      self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
-      self.tableView.reloadData()
-    }).catch(execute: { error in
-      print(error)
-    })
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

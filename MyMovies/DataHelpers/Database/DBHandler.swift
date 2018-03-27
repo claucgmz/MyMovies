@@ -13,6 +13,7 @@ import PromiseKit
 struct DBHandler {
   static let movielistsRef = Database.database().reference(withPath: FirebasePath.lists.rawValue)
   static let ratingsRef = Database.database().reference(withPath: FirebasePath.ratings.rawValue)
+  static let moviesRef = Database.database().reference(withPath: FirebasePath.movies.rawValue)
   
   static func getLists() -> Promise <[[String: Any]]> {
     return Promise { fullfill, _ in
@@ -58,5 +59,13 @@ struct DBHandler {
   
   static func setRating(_ rating: DBModel) {
     ratingsRef.child(rating.id).setValue(rating.toDictionary())
+  }
+  
+  static func saveMovie(withId id: String, listId: String) {
+    moviesRef.child(id).child(FirebasePath.lists.rawValue).child(listId).setValue(true)
+  }
+  
+  static func saveMovieBrief(with movie: MovieBrief) {
+    //moviesRef.child(movie.id).child(FirebasePath.brief.rawValue).setValue(movie.)
   }
 }
