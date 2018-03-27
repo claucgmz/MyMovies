@@ -26,6 +26,11 @@
 		5FB08EC92061B91A00DDDC65 /* MovieCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB08EC82061B91A00DDDC65 /* MovieCollectionCell.swift */; };
 		5FB08ECB2061B93700DDDC65 /* UICollectionViewCell+ReusableId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB08ECA2061B93700DDDC65 /* UICollectionViewCell+ReusableId.swift */; };
 		5FB08ECD2061C56C00DDDC65 /* MovieType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB08ECC2061C56C00DDDC65 /* MovieType.swift */; };
+		9B9FE5952069E20300268FED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FE5942069E20300268FED /* User.swift */; };
+		9B9FE5972069EFA800268FED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FE5962069EFA700268FED /* LoginViewController.swift */; };
+		9B9FE5992069F2D700268FED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B9FE5982069F2D700268FED /* GoogleService-Info.plist */; };
+		9B9FE59C2069F3F800268FED /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FE59B2069F3F800268FED /* DataBaseManager.swift */; };
+		9B9FE59E2069F45F00268FED /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FE59D2069F45F00268FED /* DataBaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		5FB08ECA2061B93700DDDC65 /* UICollectionViewCell+ReusableId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ReusableId.swift"; sourceTree = "<group>"; };
 		5FB08ECC2061C56C00DDDC65 /* MovieType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieType.swift; sourceTree = "<group>"; };
 		87E7C78499CDCA6FAF96B226 /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B9FE5942069E20300268FED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B9FE5962069EFA700268FED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MyMovies/Controllers/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		9B9FE5982069F2D700268FED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9B9FE59B2069F3F800268FED /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		9B9FE59D2069F45F00268FED /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		F4B599BB78984E04C939B115 /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		F9E4490373A6500A5BC86FE6 /* Pods-MyMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +105,7 @@
 		5F07A3A320617F6D00209566 /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				9B9FE59A2069F3C400268FED /* DataBase */,
 				5FB08EAE2061964800DDDC65 /* API */,
 				5F07A3BD206182C100209566 /* Utilities */,
 				5F07A3BB2061819A00209566 /* Views */,
@@ -103,6 +114,7 @@
 				5F07A3B92061816100209566 /* Models */,
 				5F07A3A420617F6D00209566 /* AppDelegate.swift */,
 				5F07A3AE20617F6D00209566 /* Assets.xcassets */,
+				9B9FE5982069F2D700268FED /* GoogleService-Info.plist */,
 				5F07A3B320617F6D00209566 /* Info.plist */,
 				5F07A3AB20617F6D00209566 /* MyMovies.xcdatamodeld */,
 			);
@@ -112,6 +124,7 @@
 		5F07A3B92061816100209566 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9B9FE5942069E20300268FED /* User.swift */,
 				5FB08EB92061A77400DDDC65 /* Movie.swift */,
 			);
 			path = Models;
@@ -128,6 +141,7 @@
 		5F07A3BB2061819A00209566 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B9FE5962069EFA700268FED /* LoginViewController.swift */,
 				5FB08EC42061AFC200DDDC65 /* MovieCollectionViewCell.swift */,
 				5FB08EC62061B55400DDDC65 /* MovieCollectionView.swift */,
 				5FB08EC82061B91A00DDDC65 /* MovieCollectionCell.swift */,
@@ -188,6 +202,15 @@
 				5FB08EB52061993300DDDC65 /* MyMoviesRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		9B9FE59A2069F3C400268FED /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				9B9FE59B2069F3F800268FED /* DataBaseManager.swift */,
+				9B9FE59D2069F45F00268FED /* DataBaseService.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		E995865D8B1091DC02969405 /* Pods */ = {
@@ -264,6 +287,7 @@
 			files = (
 				5F07A3B220617F6D00209566 /* LaunchScreen.storyboard in Resources */,
 				5F07A3AF20617F6D00209566 /* Assets.xcassets in Resources */,
+				9B9FE5992069F2D700268FED /* GoogleService-Info.plist in Resources */,
 				5F07A3AA20617F6D00209566 /* Login.storyboard in Resources */,
 				5F07A3C2206183CB00209566 /* Main.storyboard in Resources */,
 			);
@@ -327,15 +351,37 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -351,15 +397,19 @@
 			files = (
 				5FB08ECB2061B93700DDDC65 /* UICollectionViewCell+ReusableId.swift in Sources */,
 				5FB08EC92061B91A00DDDC65 /* MovieCollectionCell.swift in Sources */,
+				9B9FE59E2069F45F00268FED /* DataBaseService.swift in Sources */,
 				5FB08EBA2061A77400DDDC65 /* Movie.swift in Sources */,
 				5FB08EC72061B55400DDDC65 /* MovieCollectionView.swift in Sources */,
 				5FB08EB62061993300DDDC65 /* MyMoviesRepository.swift in Sources */,
 				5FB08EC32061AF8200DDDC65 /* UITableViewCell+ReusableId.swift in Sources */,
+				9B9FE59C2069F3F800268FED /* DataBaseManager.swift in Sources */,
 				5FB08ECD2061C56C00DDDC65 /* MovieType.swift in Sources */,
 				5FB08EB22061964800DDDC65 /* APIManager.swift in Sources */,
+				9B9FE5952069E20300268FED /* User.swift in Sources */,
 				5FB08EB32061964800DDDC65 /* MyMoviesRouter.swift in Sources */,
 				5F07A3AD20617F6D00209566 /* MyMovies.xcdatamodeld in Sources */,
 				5F07A3A520617F6D00209566 /* AppDelegate.swift in Sources */,
+				9B9FE5972069EFA800268FED /* LoginViewController.swift in Sources */,
 				5FB08EC52061AFC200DDDC65 /* MovieCollectionViewCell.swift in Sources */,
 				5FB08EBC2061A95400DDDC65 /* MyMoviesService.swift in Sources */,
 				5FB08EB820619A1000DDDC65 /* HomeViewController.swift in Sources */,

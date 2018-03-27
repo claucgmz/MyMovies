@@ -16,4 +16,13 @@ target 'MyMovies' do
   pod 'PromiseKit'
   #ObjectMapper is a framework written in Swift that makes it easy for you to convert your model objects (classes and structs) to and from JSON.
   pod 'ObjectMapper'
+  #Firebase Authentication
+  pod 'Firebase/Auth'
+  #Firebase DataBase
+  pod 'Firebase/Database'
+  #Facebook login
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  #Facebook Share
+  pod 'FacebookShare'
 end

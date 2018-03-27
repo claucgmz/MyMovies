@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class User {
+class User: Mappable {
+    
     var id = ""
     var email = ""
     var facebookId = ""
@@ -17,10 +19,15 @@ class User {
         return URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")!
     }
     
-    init(id: String, email: String, facebookId: String) {
-        self.id = id
-        self.email = email
-        self.facebookId = facebookId
+    required init?(map: Map){
+        
     }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        email <- map["email"]
+        facebookId <- map["facebookId"]
+    }
+    
 }
 
