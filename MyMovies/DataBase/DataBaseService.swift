@@ -12,6 +12,7 @@ import FirebaseDatabase
 class DataBaseService{
     
     private static let _shared = DataBaseService()
+    private let usersDataBase = "users"
     
     static var shared : DataBaseService{
         return _shared
@@ -22,6 +23,6 @@ class DataBaseService{
     }
     
     var usersRef : DatabaseReference{
-        return mainRef.child("users")
+        return mainRef.child(usersDataBase)
     }
 }
