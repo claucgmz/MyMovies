@@ -61,8 +61,8 @@ struct DBHandler {
     ratingsRef.child(rating.id).setValue(rating.toDictionary())
   }
   
-  static func saveMovie(withId id: String, listId: String) {
-    moviesRef.child(id).child(FirebasePath.lists.rawValue).child(listId).setValue(true)
+  static func saveMovie(movie: MovieBrief, listId: String) {
+    //moviesRef.child(id).child(FirebasePath.lists.rawValue).child(listId).setValue(true)
   }
   
   static func saveMovieBrief(with movie: MovieBrief) {

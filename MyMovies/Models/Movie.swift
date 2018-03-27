@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct Movie: Mappable, MovieBrief {
+struct Movie: Mappable {
   var id: Int!
   var title: String!
   var posterPath = ""

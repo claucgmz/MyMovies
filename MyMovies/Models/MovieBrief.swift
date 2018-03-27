@@ -7,9 +7,27 @@
 //
 
 import Foundation
+import ObjectMapper
 
-protocol MovieBrief {
-  var id: Int! { get set }
-  var title: String! { get set }
-  var posterPath: String { get set }
+struct MovieBrief: DBModel, Mappable {
+  var id = ""
+  var title = ""
+  var posterPath = ""
+  
+  init?(map: Map) {
+  }
+  
+  mutating func mapping(map: Map) {
+    id         <- map["id"]
+    title      <- map["title"]
+    posterPath <- map["poster_path"]
+  }
+  
+  func toDictionary() -> [String: Any] {
+    return [
+      "id": id,
+      "title": title,
+      "poster_path": posterPath
+    ]
+  }
 }
