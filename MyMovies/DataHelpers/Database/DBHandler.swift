@@ -32,12 +32,13 @@ struct DBHandler {
   
   static func getList(withId id: String) -> Promise <[String: Any]> {
     return Promise { fulfill, _ in
-      movielistsRef.child(id).observeSingleEvent(of: .value, with: { snapshot in
+      moviesRef.queryOrdered(byChild: "lists/"+id).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
         fulfill(data)
       })
     }
   }
+
   
   static func saveList(_ list: DBModel) {
     movielistsRef.child(list.id).setValue(list.toDictionary())
@@ -73,7 +74,6 @@ struct DBHandler {
       })
     }
   }
-  
   
   static func saveMovie(movie: MovieBrief, listId: String) {
     //moviesRef.child(id).child(FirebasePath.lists.rawValue).child(listId).setValue(true)

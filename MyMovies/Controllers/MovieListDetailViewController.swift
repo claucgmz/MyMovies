@@ -19,6 +19,9 @@ class MovieListDetailViewController: UIViewController {
     guard let movieList = movieList else {
       return
     }
+    
+    Handler.getList(withId: movieList.id)
+    
     movies = movieList.movies
     tableView.reloadData()
   }
