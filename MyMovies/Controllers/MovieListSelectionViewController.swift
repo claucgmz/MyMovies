@@ -55,6 +55,7 @@ class MovieListSelectionViewController: UIViewController {
       return
     }
     DBHandler.saveMovieList(for: movieId, lists: addedLists)
+    navigationController?.popViewController(animated: true)
   }
 }
 
