@@ -87,6 +87,6 @@ struct DBHandler {
   }
   
   static func saveMovieBrief(_ movieBrief: MovieBrief) {
-    briefRef.child(movieBrief.id).setValue(movieBrief.toDictionary())
+    moviesRef.child(movieBrief.id).child(FirebasePath.brief.rawValue).setValue(movieBrief.toDictionary())
   }
 }
