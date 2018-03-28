@@ -8,6 +8,7 @@
 
 import UIKit
 import SwipeCellKit
+import PromiseKit
 
 class MovieListDetailViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
@@ -21,9 +22,11 @@ class MovieListDetailViewController: UIViewController {
     }
     
     Handler.getMovies(forList: movieList.id)
-    
-    movies = movieList.movies
-    tableView.reloadData()
+      .then(execute: { briefs -> Void in
+        self.movies = briefs
+      }).always {
+        self.tableView.reloadData()
+    }
   }
 }
 
