@@ -14,6 +14,7 @@ struct DBHandler {
   static let movielistsRef = Database.database().reference(withPath: FirebasePath.lists.rawValue)
   static let ratingsRef = Database.database().reference(withPath: FirebasePath.ratings.rawValue)
   static let moviesRef = Database.database().reference(withPath: FirebasePath.movies.rawValue)
+  static let briefRef = Database.database().reference(withPath: FirebasePath.brief.rawValue)
   
   static func getLists() -> Promise <[[String: Any]]> {
     return Promise { fullfill, _ in
@@ -85,5 +86,7 @@ struct DBHandler {
     }
   }
   
-  
+  static func saveMovieBrief(_ movieBrief: MovieBrief) {
+    briefRef.child(movieBrief.id).setValue(movieBrief.toDictionary())
+  }
 }

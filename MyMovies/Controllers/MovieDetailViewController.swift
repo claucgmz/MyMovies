@@ -85,6 +85,14 @@ class MovieDetailViewController: UIViewController {
         return
       }
       controller.movieId = movie.idString
+      controller.delegate = self
     }
+  }
+}
+
+extension MovieDetailViewController: MovieListSelectionViewControllerDelegate {
+  func movieListSelectionViewControllerDidFinishSaving(_ controller: UIViewController) {
+    let brief = MovieBrief(id: movie.idString, title: movie.title, posterPath: movie.posterPath)
+    DBHandler.saveMovieBrief(brief)
   }
 }

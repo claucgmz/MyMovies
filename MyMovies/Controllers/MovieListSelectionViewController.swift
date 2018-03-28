@@ -8,18 +8,22 @@
 
 import UIKit
 
+protocol MovieListSelectionViewControllerDelegate: class {
+  func movieListSelectionViewControllerDidFinishSaving(_ controller: UIViewController)
+}
+
 class MovieListSelectionViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
   private var movieLists = [MovieList]()
   private var movieListId: String?
   private var addedLists = [String]()
+  weak var delegate: MovieListSelectionViewControllerDelegate?
   var movieId: String?
   var movieSave: MovieSave?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     getMovies()
-    getMovieData()
   }
   
   private func getMovies() {
@@ -37,15 +41,7 @@ class MovieListSelectionViewController: UIViewController {
       self.tableView.reloadData()
     }
   }
-  
-  private func getMovieData() {
-    
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
-  
+
   @IBAction private func cancelButtonAction(_ sender: Any) {
     navigationController?.popViewController(animated: true)
   }
@@ -56,6 +52,7 @@ class MovieListSelectionViewController: UIViewController {
     }
     DBHandler.saveMovieList(for: movieId, lists: addedLists)
     navigationController?.popViewController(animated: true)
+    delegate?.movieListSelectionViewControllerDidFinishSaving(self)
   }
 }
 

@@ -17,6 +17,12 @@ struct MovieBrief: DBModel, Mappable {
   init?(map: Map) {
   }
   
+  init(id: String, title: String, posterPath: String) {
+    self.id = id
+    self.title = title
+    self.posterPath = posterPath
+  }
+  
   mutating func mapping(map: Map) {
     id         <- map["id"]
     title      <- map["title"]
