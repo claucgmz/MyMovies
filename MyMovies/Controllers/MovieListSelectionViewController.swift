@@ -35,7 +35,6 @@ class MovieListSelectionViewController: UIViewController {
     })
     .always {
       self.tableView.reloadData()
-      print(self.addedLists)
     }
   }
   
@@ -55,7 +54,7 @@ class MovieListSelectionViewController: UIViewController {
     guard let movieId = movieId else {
       return
     }
-    //DBHandler.saveMovieList(for: movieId, lists: addedLists)
+    DBHandler.saveMovieList(for: movieId, lists: addedLists)
   }
 }
 
@@ -67,21 +66,19 @@ extension MovieListSelectionViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = (tableView.dequeueReusableCell(withIdentifier: SelectableMovieListCell.reusableId, for: indexPath) as? SelectableMovieListCell)!
     let movieList = movieLists[indexPath.row]
-    let isSelected = addedLists.contains(movieList.id)
-    cell.configure(with: movieList, isSelected: isSelected)
+    cell.configure(with: movieList, isSelected: addedLists.contains(movieList.id))
     return cell
   }
 }
 
 extension MovieListSelectionViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    if addedLists[movieLists[indexPath.row].id] != nil {
-//      addedLists.removeValue(forKey: movieLists[indexPath.row].id)
-//    } else {
-//      addedLists[movieLists[indexPath.row].id] = true
-//    }
-    
-    print(addedLists)
-    tableView.reloadData()
+    let movieId = movieLists[indexPath.row].id
+    if let index = addedLists.index(of: movieId) {
+      addedLists.remove(at: index)
+    } else {
+      addedLists.append(movieId)
+    }
+    tableView.reloadRows(at: [indexPath], with: .fade)
   }
 }
