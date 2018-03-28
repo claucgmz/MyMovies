@@ -39,4 +39,11 @@ struct ParseHandler {
     lists = Mapper<MovieList>().mapArray(JSONArray: data)
     return lists
   }
+  
+  static func parseMovieSave(with data: [String: Any]) -> MovieSave? {
+    guard let movie = Mapper<MovieSave>().map(JSON: data) else {
+      return nil
+    }
+    return movie
+  }
 }

@@ -74,4 +74,17 @@ class MovieDetailViewController: UIViewController {
   private func updateRating() {
     cosmosView.rating = 0
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
+      return
+    }
+    
+    if identifier == .movieListSelection {
+      guard let controller = segue.destination as? MovieListSelectionViewController else {
+        return
+      }
+      controller.movieId = movie.idString
+    }
+  }
 }

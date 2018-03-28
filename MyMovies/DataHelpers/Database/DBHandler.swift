@@ -21,8 +21,8 @@ struct DBHandler {
         let data = snapshot.value as? [String: Any] ?? [:]
         var movielistDictArray: [[String: Any]] = []
         for snData in data {
-          if let movieData = snData.value as? [String: Any] {
-            movielistDictArray.append(movieData)
+          if let movieListData = snData.value as? [String: Any] {
+            movielistDictArray.append(movieListData)
           }
         }
         fullfill(movielistDictArray)
@@ -60,6 +60,16 @@ struct DBHandler {
   static func setRating(_ rating: DBModel) {
     ratingsRef.child(rating.id).setValue(rating.toDictionary())
   }
+  
+  static func getMovieData(withId id: String) -> Promise <[String: Any]> {
+    return Promise { fullfill, _ in
+      moviesRef.child(id).observeSingleEvent(of: .value, with: { snapshot in
+        let data = snapshot.value as? [String: Any] ?? [:]
+        fullfill(data)
+      })
+    }
+  }
+  
   
   static func saveMovie(movie: MovieBrief, listId: String) {
     //moviesRef.child(id).child(FirebasePath.lists.rawValue).child(listId).setValue(true)

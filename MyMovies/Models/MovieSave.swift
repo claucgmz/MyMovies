@@ -7,16 +7,27 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct MovieSave: DBModel {
-  var id: String
-  var lists = [String]()
+struct MovieSave: DBModel, Mappable {  
+  var id: String = ""
+  var lists = [String: Bool]()
   var movieBrief: MovieBrief?
   
-  func toDictionary() -> [String : Any] {
-    return [
-      "id": id
-    ]
+  init?(map: Map) {
   }
   
+  mutating func mapping(map: Map) {
+    id         <- map["id"]
+    lists      <- map["lists"]
+    movieBrief <- map["movieBrief"]
+  }
+  
+  func toDictionary() -> [String: Any] {
+    return [
+      "id": id,
+      "lists": lists,
+      "movieBrief": movieBrief?.toDictionary ?? [:]
+    ]
+  }
 }

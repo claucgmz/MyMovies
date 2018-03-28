@@ -10,12 +10,16 @@ import UIKit
 
 class MovieListSelectionViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
+  var movieId: String?
+  private var movieListId: String?
   private var movieLists = [MovieList]()
-  var movieListId: String?
+  private var addedLists: [String: Bool] = [:]
+  var movieSave: MovieSave?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     getMovies()
+    getMovieData()
   }
   
   private func getMovies() {
@@ -23,6 +27,21 @@ class MovieListSelectionViewController: UIViewController {
       self.movieLists = movieLists
       self.tableView.reloadData()
     })
+    guard let movieId = movieId else {
+      return
+    }
+    Handler.getMovieData(withId: movieId).then(execute: { movieData -> Void in
+      guard let movieData = movieData else {
+        return
+      }
+      print(movieData)
+      self.movieSave = movieData
+      self.addedLists = movieData.lists
+    })
+  }
+  
+  private func getMovieData() {
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -46,14 +65,21 @@ extension MovieListSelectionViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = (tableView.dequeueReusableCell(withIdentifier: SelectableMovieListCell.reusableId, for: indexPath) as? SelectableMovieListCell)!
     let movieList = movieLists[indexPath.row]
-    cell.configure(with: movieList, isSelected: movieList.id == movieListId)
+    let isSelected = addedLists[movieList.id] != nil
+    cell.configure(with: movieList, isSelected: isSelected)
     return cell
   }
 }
 
 extension MovieListSelectionViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    movieListId = movieLists[indexPath.row].id
+    if addedLists[movieLists[indexPath.row].id] != nil {
+      addedLists.removeValue(forKey: movieLists[indexPath.row].id)
+    } else {
+      addedLists[movieLists[indexPath.row].id] = true
+    }
+    
+    print(addedLists)
     tableView.reloadData()
   }
 }
