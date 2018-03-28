@@ -37,6 +37,12 @@ struct Handler {
     })
   }
   
+  static func getMovieLists(for movieId: String) -> Promise <[String]> {
+    return DBHandler.getMovieLists(for: movieId).then(execute: { data -> [String] in
+      return ParseHandler.parseDictionaryKeysToArray(with: data)
+    })
+  }
+  
   static func getMovieData(withId id: String) -> Promise <MovieSave?> {
     return DBHandler.getMovieData(withId: id).then(execute: { data -> MovieSave? in
       return ParseHandler.parseMovieSave(with: data)

@@ -39,6 +39,15 @@ struct DBHandler {
     }
   }
   
+  static func getMovieLists(for movieId: String) -> Promise <[String: Any]> {
+    return Promise { fullfill, _ in
+      moviesRef.child(movieId).child(FirebasePath.lists.rawValue).observeSingleEvent(of: .value, with: { snapshot in
+        let data = snapshot.value as? [String: Any] ?? [:]
+        fullfill(data)
+      })
+    }
+  }
+  
   static func saveList(_ list: DBModel) {
     movielistsRef.child(list.id).setValue(list.toDictionary())
   }
