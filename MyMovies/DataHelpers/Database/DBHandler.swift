@@ -57,6 +57,10 @@ struct DBHandler {
     }
   }
   
+  static func saveMovieList(for movieId: String, lists: [String: Bool]) {
+    moviesRef.child(movieId).child(FirebasePath.lists.rawValue).setValue(lists)
+  }
+  
   static func setRating(_ rating: DBModel) {
     ratingsRef.child(rating.id).setValue(rating.toDictionary())
   }

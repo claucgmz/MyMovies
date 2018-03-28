@@ -621,7 +621,11 @@
                                 <action selector="cancelButtonAction:" destination="yvH-bf-VZH" id="8rv-xH-CNp"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4LH-cX-sxD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4LH-cX-sxD">
+                            <connections>
+                                <action selector="saveButtonAction:" destination="yvH-bf-VZH" id="MNA-Ww-s6I"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ste-0U-5ft" id="4lZ-pT-B6c"/>

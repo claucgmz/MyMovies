@@ -34,10 +34,11 @@ class MovieListSelectionViewController: UIViewController {
       guard let movieData = movieData else {
         return
       }
-      print(movieData)
       self.movieSave = movieData
       self.addedLists = movieData.lists
-    })
+    }).always {
+      self.tableView.reloadData()
+    }
   }
   
   private func getMovieData() {
@@ -53,7 +54,10 @@ class MovieListSelectionViewController: UIViewController {
   }
   
   @IBAction private func saveButtonAction(_ sender: Any) {
-    
+    guard let movieId = movieId else {
+      return
+    }
+    DBHandler.saveMovieList(for: movieId, lists: addedLists)
   }
 }
 
