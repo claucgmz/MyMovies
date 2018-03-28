@@ -40,6 +40,21 @@ struct DBHandler {
   }
 
   
+  static func getMovieLists(for movieId: String) -> Promise <[String: Any]> {
+    return Promise { fullfill, _ in
+      moviesRef.child(movieId).child(FirebasePath.lists.rawValue).observeSingleEvent(of: .value, with: { snapshot in
+        let data = snapshot.value as? [String: Any] ?? [:]
+        fullfill(data)
+      })
+    }
+  }
+  
+  static func saveMovieList(for movieId: String, lists: [String]) {
+      return moviesRef.child(movieId).child(FirebasePath.lists.rawValue).setValue(lists.toDictionary(with: { _ in
+        return true
+      }))
+  }
+  
   static func saveList(_ list: DBModel) {
     movielistsRef.child(list.id).setValue(list.toDictionary())
   }
@@ -56,10 +71,6 @@ struct DBHandler {
         fullfill(data)
       })
     }
-  }
-  
-  static func saveMovieList(for movieId: String, lists: [String: Bool]) {
-    moviesRef.child(movieId).child(FirebasePath.lists.rawValue).setValue(lists)
   }
   
   static func setRating(_ rating: DBModel) {

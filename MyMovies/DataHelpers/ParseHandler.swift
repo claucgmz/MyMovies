@@ -46,4 +46,8 @@ struct ParseHandler {
     }
     return movie
   }
+  
+  static func parseDictionaryKeysToArray(with data: [String: Any]) -> [String] {
+    return Array(data.keys)
+  }
 }
