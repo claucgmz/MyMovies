@@ -10,7 +10,7 @@ import Foundation
 
 enum FirebasePath: String {
   case lists
-  case ratings
+  case rating
   case movies
   case brief
 }

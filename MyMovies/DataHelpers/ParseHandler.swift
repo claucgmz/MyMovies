@@ -27,13 +27,6 @@ struct ParseHandler {
     return movies
   }
   
-  static func parseRating(with data: [String: Any]) -> Rating? {
-    guard let rating = Mapper<Rating>().map(JSON: data) else {
-      return nil
-    }
-    return rating
-  }
-  
   static func parseMovieLists(with data: [[String: Any]]) -> [MovieList] {
     var lists = [MovieList]()
     lists = Mapper<MovieList>().mapArray(JSONArray: data)

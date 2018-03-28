@@ -25,9 +25,9 @@ struct Handler {
     })
   }
   
-  static func getRating(for id: String) -> Promise <Rating?> {
-    return DBHandler.getRating(for: id).then(execute: { data -> Rating? in
-      return ParseHandler.parseRating(with: data)
+  static func getRating(for id: String) -> Promise <Int> {
+    return DBHandler.getRating(for: id).then(execute: { data in
+      return data
     })
   }
   
