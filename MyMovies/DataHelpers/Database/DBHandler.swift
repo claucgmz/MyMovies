@@ -31,11 +31,17 @@ struct DBHandler {
     }
   }
 
-  static func getMovies(for listId: String)  -> Promise <[String: Any]> {
+  static func getMovies(for listId: String) -> Promise <[[String: Any]]> {
     return Promise { fulfill, _ in
       moviesRef.queryOrdered(byChild: "lists/"+listId).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
-        fulfill(data)
+        var movieDictArray: [[String: Any]] = []
+        for snData in data {
+          if let movieData = snData.value as? [String: Any] {
+            movieDictArray.append(movieData)
+          }
+        }
+        fulfill(movieDictArray)
       })
     }
   }

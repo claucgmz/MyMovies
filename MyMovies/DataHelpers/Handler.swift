@@ -43,10 +43,9 @@ struct Handler {
     })
   }
   
-  static func getMovies(forList listId: String) -> Promise<Any> {
-    return DBHandler.getMovies(for: listId).then(execute: { data -> Void in
-      print(data)
-      return
+  static func getMovies(forList listId: String) -> Promise <[MovieBrief]> {
+    return DBHandler.getMovies(for: listId).then(execute: { data -> [MovieBrief] in
+      return ParseHandler.parseMovieBrief(with: data)
     })
   }
   

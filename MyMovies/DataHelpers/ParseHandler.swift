@@ -47,6 +47,12 @@ struct ParseHandler {
     return movie
   }
   
+  static func parseMovieBrief(with data: [[String: Any]]) -> [MovieBrief] {
+    var briefs = [MovieBrief]()
+    briefs = Mapper<MovieBrief>().mapArray(JSONArray: data)
+    return briefs
+  }
+  
   static func parseDictionaryKeysToArray(with data: [String: Any]) -> [String] {
     return Array(data.keys)
   }

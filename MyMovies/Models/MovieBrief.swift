@@ -24,9 +24,9 @@ struct MovieBrief: DBModel, Mappable {
   }
   
   mutating func mapping(map: Map) {
-    id         <- map["id"]
-    title      <- map["title"]
-    posterPath <- map["poster_path"]
+    id         <- map["brief.id"]
+    title      <- map["brief.title"]
+    posterPath <- map["brief.poster_path"]
   }
   
   func toDictionary() -> [String: Any] {
