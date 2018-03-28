@@ -20,7 +20,7 @@ class MovieListDetailViewController: UIViewController {
       return
     }
     
-    Handler.getList(withId: movieList.id)
+    Handler.getMovies(forList: movieList.id)
     
     movies = movieList.movies
     tableView.reloadData()

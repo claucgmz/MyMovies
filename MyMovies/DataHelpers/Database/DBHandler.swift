@@ -29,17 +29,16 @@ struct DBHandler {
       })
     }
   }
-  
-  static func getList(withId id: String) -> Promise <[String: Any]> {
+
+  static func getMovies(for listId: String)  -> Promise <[String: Any]> {
     return Promise { fulfill, _ in
-      moviesRef.queryOrdered(byChild: "lists/"+id).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { snapshot in
+      moviesRef.queryOrdered(byChild: "lists/"+listId).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
         fulfill(data)
       })
     }
   }
 
-  
   static func getMovieLists(for movieId: String) -> Promise <[String: Any]> {
     return Promise { fullfill, _ in
       moviesRef.child(movieId).child(FirebasePath.lists.rawValue).observeSingleEvent(of: .value, with: { snapshot in
@@ -86,11 +85,5 @@ struct DBHandler {
     }
   }
   
-  static func saveMovie(movie: MovieBrief, listId: String) {
-    //moviesRef.child(id).child(FirebasePath.lists.rawValue).child(listId).setValue(true)
-  }
   
-  static func saveMovieBrief(with movie: MovieBrief) {
-    //moviesRef.child(movie.id).child(FirebasePath.brief.rawValue).setValue(movie.)
-  }
 }
