@@ -7,7 +7,19 @@
 		<key>MyMovies.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5F07A3A020617F6D00209566</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+=======
 			<integer>1</integer>
+>>>>>>> c7206e94c918dbcec60553beab3b543d0ac11bf5
 		</dict>
 	</dict>
 </dict>
