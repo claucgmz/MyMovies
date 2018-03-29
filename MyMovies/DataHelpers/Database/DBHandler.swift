@@ -69,6 +69,10 @@ struct DBHandler {
     movielistsRef.child(list.id).removeValue()
   }
   
+  static func removeMovie(withId movieId: String ,from listId: String) {
+    moviesRef.child(movieId).child(FirebasePath.lists.rawValue).child(listId).removeValue()
+  }
+  
   static func getRating(for movieId: String) -> Promise <Int> {
     return Promise { resolve in
       moviesRef.child(movieId).child(FirebasePath.rating.rawValue).observeSingleEvent(of: .value, with: { snapshot in

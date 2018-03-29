@@ -59,7 +59,13 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
     guard orientation == .right else { return nil }
     
     let deleteAction = SwipeAction(style: .destructive, title: "Delete") { _, indexPath in
+      guard let list = self.movieList else {
+        return
+      }
+      
+      let movieId = self.movies[indexPath.row].id
       self.movies.remove(at: indexPath.row)
+      DBHandler.removeMovie(withId: movieId, from: list.id)
       tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
