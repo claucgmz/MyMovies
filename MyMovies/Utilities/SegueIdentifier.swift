@@ -13,4 +13,5 @@ enum SegueIdentifier: String {
   case movieListForm
   case movieListDetail
   case movieListSelection
+  case movieDetailFromList
 }
