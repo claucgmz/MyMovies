@@ -24,5 +24,6 @@ target 'MyMovies' do
   # Swipeable UITableViewCell based on the stock Mail.app, implemented in Swift.
   pod 'SwipeCellKit'
   
+
 end
 
