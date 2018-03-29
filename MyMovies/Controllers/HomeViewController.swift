@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
         return Handler.getMovies(for: .upcoming, page: 1)
       })
-      .recover(execute: { error -> [Movie] in
+      .recover(execute: { _ -> [Movie] in
         return [Movie]()
       })
       .then(execute: { movies -> Void in

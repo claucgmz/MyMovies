@@ -9,9 +9,12 @@
 import UIKit
 import SwipeCellKit
 import PromiseKit
+import Cosmos
 
 class MovieListDetailViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
+  @IBOutlet private weak var cosmosView: CosmosView!
+  
   var movieList: MovieList?
   private var movies = [MovieBrief]()
   

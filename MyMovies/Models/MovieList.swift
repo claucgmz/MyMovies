@@ -25,7 +25,7 @@ struct MovieList: DBModel, Mappable {
   mutating func mapping(map: Map) {
     id     <- map["id"]
     name  <- map["name"]
-    var movies: Array<MovieBrief> = []
+    var movies = [MovieBrief]()
     movies  <- map["movies"]
     self.movies = movies
   }

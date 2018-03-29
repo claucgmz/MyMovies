@@ -289,6 +289,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="cosmosView" destination="2lq-8Z-zoW" id="thY-T2-PjG"/>
                                             <outlet property="posterImage" destination="rjH-FD-PF7" id="WK0-Lu-Fdr"/>
                                             <outlet property="titleLabel" destination="SGZ-iT-xgM" id="Sxn-M2-uue"/>
                                         </connections>
