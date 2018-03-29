@@ -11,7 +11,7 @@ import PromiseKit
 
 struct Handler {
   static func getMovie(withId id: String) -> Promise <Movie?> {
-    return APIHandler.getMovie(withId: id).then(execute: { data -> Movie? in
+    return APIHandler.getMovie(withId: id).then({ data -> Promise <Movie?> in
       guard let movie = ParseHandler.parseMovie(with: data) else {
         return nil
       }

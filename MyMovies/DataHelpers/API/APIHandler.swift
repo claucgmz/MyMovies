@@ -12,28 +12,28 @@ import PromiseKit
 
 struct APIHandler {
   static func getMovies(for type: MovieType, page: Int = 1) -> Promise <[String: Any]> {
-    return Promise { fulfill, reject in
+    return Promise { resolve in
       Alamofire.request(MyMoviesRouter.getMovies(type: type, page: page))
         .validate()
         .responseJSON(completionHandler: { response in
           if let json = response.result.value as? [String: Any] {
-            fulfill(json)
+            resolve.fulfill(json)
           } else if let error = response.error {
-            reject(error)
+            resolve.reject(error)
           }
         })
     }
   }
   
   static func getMovie(withId id: String) -> Promise <[String: Any]> {
-    return Promise { fulfill, reject in
+    return Promise { resolve in
       Alamofire.request(MyMoviesRouter.getMovie(id: id))
         .validate()
         .responseJSON(completionHandler: { response in
           if let json = response.result.value as? [String: Any] {
-            fulfill(json)
+            resolve.fulfill(json)
           } else if let error = response.error {
-            reject(error)
+            resolve.reject(error)
           }
         })
     }

@@ -13,7 +13,7 @@ target 'MyMovies' do
   #AlamofireImage is an image component library for Alamofire
   pod 'AlamofireImage'
   #Promises for Swift & ObjC 
-  pod 'PromiseKit'
+  pod 'PromiseKit', '~> 6.0'
   #ObjectMapper is a framework written in Swift that makes it easy for you to convert your model objects (classes and structs) to and from JSON.
   pod 'ObjectMapper'
   #Cosmos, a star rating control for iOS and tvOS
