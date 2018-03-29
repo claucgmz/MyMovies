@@ -35,6 +35,24 @@ class MovieListDetailViewController: UIViewController {
       print (error)
     })
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
+      return
+    }
+    
+    if identifier == .movieDetailFromList {
+      guard let controller = segue.destination as? MovieDetailViewController else {
+        return
+      }
+      if sender is MovieBrief {
+        guard let movie = sender as? MovieBrief else {
+          return
+        }
+        controller.movieId = Int(movie.id)
+      }
+    }
+  }
 }
 
 extension MovieListDetailViewController: UITableViewDataSource {
@@ -51,7 +69,10 @@ extension MovieListDetailViewController: UITableViewDataSource {
 }
 
 extension MovieListDetailViewController: UITableViewDelegate {
-  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let movie = movies[indexPath.row]
+    performSegue(withIdentifier: SegueIdentifier.movieDetailFromList.rawValue, sender: movie)
+  }
 }
 
 extension MovieListDetailViewController: SwipeTableViewCellDelegate {
@@ -59,7 +80,13 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
     guard orientation == .right else { return nil }
     
     let deleteAction = SwipeAction(style: .destructive, title: "Delete") { _, indexPath in
+      guard let list = self.movieList else {
+        return
+      }
+      
+      let movieId = self.movies[indexPath.row].id
       self.movies.remove(at: indexPath.row)
+      DBHandler.removeMovie(withId: movieId, from: list.id)
       tableView.deleteRows(at: [indexPath], with: .fade)
     }
     

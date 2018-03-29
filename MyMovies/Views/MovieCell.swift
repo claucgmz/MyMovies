@@ -20,15 +20,18 @@ class MovieCell: SwipeTableViewCell {
     if let url = URL(string: APIManager.baseImageURLthumbnail+movie.posterPath) {
       posterImage.af_setImage(withURL: url)
     }
-    cosmosView.rating = Double(movie.rating)
-    cosmosViewActions()
+    update(Double(movie.rating))
+    cosmosViewActions(for: movie.id)
     self.delegate = delegate
   }
   
-  private func cosmosViewActions() {
+  func update(_ rating: Double) {
+    cosmosView.rating = rating
+  }
+  
+  private func cosmosViewActions(for movieId: String) {
     cosmosView.didFinishTouchingCosmos = { rating in
-      print(rating)
-      //DBHandler.setRating(for: self.movie.idString, rating: Int(rating))
+      DBHandler.setRating(for: movieId, rating: Int(rating))
     }
   }
   

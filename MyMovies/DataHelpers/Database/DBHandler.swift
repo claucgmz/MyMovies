@@ -63,10 +63,28 @@ struct DBHandler {
   
   static func saveList(_ list: DBModel) {
     movielistsRef.child(list.id).setValue(list.toDictionary())
+    moviesRef.queryOrdered(byChild: "lists/"+list.id).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { snapshot in
+      let data = snapshot.value as? [String: Any] ?? [:]
+      for snData in data {
+        if let movieData = snData.value as? [String: Any] {
+          print (movieData)
+        }
+      }
+    })
   }
   
   static func removeList(_ list: DBModel ) {
     movielistsRef.child(list.id).removeValue()
+    moviesRef.queryOrdered(byChild: "lists/"+list.id).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { snapshot in
+      let data = snapshot.value as? [String: Any] ?? [:]
+      for snData in data {
+        moviesRef.child(snData.key).child(FirebasePath.lists.rawValue).child(list.id).removeValue()
+      }
+    })
+  }
+  
+  static func removeMovie(withId movieId: String, from listId: String) {
+    moviesRef.child(movieId).child(FirebasePath.lists.rawValue).child(listId).removeValue()
   }
   
   static func getRating(for movieId: String) -> Promise <Int> {

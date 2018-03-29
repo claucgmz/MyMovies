@@ -314,6 +314,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="xA1-z7-6sD" id="MRM-gT-7YD"/>
+                        <segue destination="V24-5j-fdA" kind="show" identifier="movieDetailFromList" id="KJV-l8-e65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dZ-hd-zyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -557,7 +558,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-8a-VmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460" y="-651.2743628185907"/>
+            <point key="canvasLocation" x="1628" y="-651"/>
         </scene>
         <!--Select List-->
         <scene sceneID="iaT-rj-4F3">
@@ -634,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWX-tN-a7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1217" y="-651"/>
+            <point key="canvasLocation" x="2598" y="-651"/>
         </scene>
         <!--Home-->
         <scene sceneID="SjU-MS-3QT">
@@ -680,4 +681,7 @@
         <image name="add" width="50" height="50"/>
         <image name="list" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KJV-l8-e65"/>
+    </inferredMetricsTieBreakers>
 </document>
