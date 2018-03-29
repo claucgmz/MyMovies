@@ -11,9 +11,9 @@ import Foundation
 class DataBaseManager {
     static let shared = DataBaseManager()
     
-    func getUser(onSuccess: @escaping (Dictionary<String,String>) -> Void, onFailure: @escaping (Error?) -> Void) {
+    func getUser(onSuccess: @escaping ( Dictionary<String, String>) -> Void, onFailure: @escaping (Error?) -> Void) {
         DataBaseService.shared.usersRef.observeSingleEvent(of: .value) { snapshot in
-            if let user = snapshot.value as? Dictionary<String,String> {
+            if let user = snapshot.value as? Dictionary<String, String> {
                 onSuccess(user)
             }
         }

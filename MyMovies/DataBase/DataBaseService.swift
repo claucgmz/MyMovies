@@ -9,20 +9,20 @@
 import Foundation
 import FirebaseDatabase
 
-class DataBaseService{
+class DataBaseService {
     
     private static let _shared = DataBaseService()
     private let usersDataBase = "users"
     
-    static var shared : DataBaseService{
+    static var shared: DataBaseService {
         return _shared
     }
     
-    var mainRef : DatabaseReference{
+    var mainRef: DatabaseReference {
         return Database.database().reference()
     }
     
-    var usersRef : DatabaseReference{
+    var usersRef: DatabaseReference {
         return mainRef.child(usersDataBase)
     }
 }

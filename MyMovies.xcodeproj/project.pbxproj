@@ -31,6 +31,8 @@
 		9B9FE5992069F2D700268FED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B9FE5982069F2D700268FED /* GoogleService-Info.plist */; };
 		9B9FE59C2069F3F800268FED /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FE59B2069F3F800268FED /* DataBaseManager.swift */; };
 		9B9FE59E2069F45F00268FED /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FE59D2069F45F00268FED /* DataBaseService.swift */; };
+		9BC23F08206BF8780046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F07206BF8780046156C /* AuthHandler.swift */; };
+		9BC23F0A206C9DE90046156C /* ProjectPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F09206C9DE90046156C /* ProjectPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		9B9FE5982069F2D700268FED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B9FE59B2069F3F800268FED /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		9B9FE59D2069F45F00268FED /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
+		9BC23F07206BF8780046156C /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
+		9BC23F09206C9DE90046156C /* ProjectPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPath.swift; sourceTree = "<group>"; };
 		F4B599BB78984E04C939B115 /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		F9E4490373A6500A5BC86FE6 /* Pods-MyMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +109,8 @@
 		5F07A3A320617F6D00209566 /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				9BC23F07206BF8780046156C /* AuthHandler.swift */,
+				9BC23F09206C9DE90046156C /* ProjectPath.swift */,
 				9B9FE59A2069F3C400268FED /* DataBase */,
 				5FB08EAE2061964800DDDC65 /* API */,
 				5F07A3BD206182C100209566 /* Utilities */,
@@ -340,7 +346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "${SRCROOT}/Pods/SwiftLint/swiftlint";
 		};
 		A0D118EA03E073602D51794B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -395,11 +401,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC23F0A206C9DE90046156C /* ProjectPath.swift in Sources */,
 				5FB08ECB2061B93700DDDC65 /* UICollectionViewCell+ReusableId.swift in Sources */,
 				5FB08EC92061B91A00DDDC65 /* MovieCollectionCell.swift in Sources */,
 				9B9FE59E2069F45F00268FED /* DataBaseService.swift in Sources */,
 				5FB08EBA2061A77400DDDC65 /* Movie.swift in Sources */,
 				5FB08EC72061B55400DDDC65 /* MovieCollectionView.swift in Sources */,
+				9BC23F08206BF8780046156C /* AuthHandler.swift in Sources */,
 				5FB08EB62061993300DDDC65 /* MyMoviesRepository.swift in Sources */,
 				5FB08EC32061AF8200DDDC65 /* UITableViewCell+ReusableId.swift in Sources */,
 				9B9FE59C2069F3F800268FED /* DataBaseManager.swift in Sources */,
