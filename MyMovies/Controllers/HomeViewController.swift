@@ -20,22 +20,19 @@ class HomeViewController: UIViewController {
   
   private func getMovies() {
     Handler.getMovies(for: .featured, page: 1)
-      .then(execute: { movies -> Promise<[Movie]> in
+      .then ({ movies -> Promise<[Movie]> in
         self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
         return Handler.getMovies(for: .upcoming, page: 1)
       })
-      .recover(execute: { _ -> [Movie] in
-        return [Movie]()
-      })
-      .then(execute: { movies -> Void in
+      .map ({ movies in
         self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
-      }).catch(execute: { error in
-        print(error)
       })
-      .always {
+      .done {
         self.tableView.reloadData()
       }
-    
+      .catch({ error -> Void in
+        print(error)
+      })
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

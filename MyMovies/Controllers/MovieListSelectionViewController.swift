@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import PromiseKit
 
 protocol MovieListSelectionViewControllerDelegate: class {
   func movieListSelectionViewControllerDidFinishSaving(_ controller: UIViewController)
 }
 
 class MovieListSelectionViewController: UIViewController {
-  @IBOutlet private weak var tableView: UITableView!
+  @IBOutlet private weak var listTableView: UITableView!
   private var movieLists = [MovieList]()
   private var movieListId: String?
   private var addedLists = [String]()
@@ -31,15 +32,19 @@ class MovieListSelectionViewController: UIViewController {
       return
     }
     
-    Handler.getLists().then(execute: { lists in
-      self.movieLists = lists
-      return Handler.getMovieLists(for: movieId)
-    }).then(execute: { lists in
-      self.addedLists = lists
-    })
-    .always {
-      self.tableView.reloadData()
-    }
+    Handler.getLists()
+      .then ({ lists -> Promise <[String]> in
+        self.movieLists = lists
+        return Handler.getMovieLists(for: movieId)
+      })
+      .map ({ lists in
+        self.addedLists = lists
+      })
+      .done {
+        self.listTableView.reloadData()
+      }
+      .catch({ _ -> Void in
+      })
   }
 
   @IBAction private func cancelButtonAction(_ sender: Any) {

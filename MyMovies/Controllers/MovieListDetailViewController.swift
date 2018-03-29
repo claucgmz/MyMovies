@@ -25,11 +25,15 @@ class MovieListDetailViewController: UIViewController {
     }
     
     Handler.getMovies(forList: movieList.id)
-      .then(execute: { briefs -> Void in
-        self.movies = briefs
-      }).always {
+    .map({ briefs -> Void in
+      self.movies = briefs
+    })
+      .done {
         self.tableView.reloadData()
     }
+    .catch({ error in
+      print (error)
+    })
   }
 }
 

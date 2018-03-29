@@ -31,20 +31,22 @@ class MovieDetailViewController: UIViewController {
       return
     }
     
-    Handler.getMovie(withId: String(movieId)).then(execute: { movie -> Promise <Int> in
-      self.movie = movie
-      self.movie.genres = self.genres
-      self.updateUI()
-      return Handler.getRating(for: String(movieId))
-    })
-      .then(execute: { rating -> Void in
+    Handler.getMovie(withId: String(movieId))
+      .then ({ movie -> Promise<Int> in
+        self.movie = movie
+        self.movie.genres = self.genres
+        self.updateUI()
+        return Handler.getRating(for: String(movieId))
+      })
+      .map ({ rating -> Void  in
         self.cosmosView.rating = Double(rating)
       })
-      .catch(execute: { error in
-        print(error)
-      }).always {
+      .done {
         self.updateUI()
-    }
+      }
+      .catch({ error -> Void in
+        print(error)
+      })
   }
   
   private func cosmosViewActions() {

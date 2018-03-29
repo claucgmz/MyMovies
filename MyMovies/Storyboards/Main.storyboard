@@ -629,7 +629,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="ste-0U-5ft" id="4lZ-pT-B6c"/>
+                        <outlet property="listTableView" destination="ste-0U-5ft" id="Z33-ih-jWr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWX-tN-a7F" userLabel="First Responder" sceneMemberID="firstResponder"/>

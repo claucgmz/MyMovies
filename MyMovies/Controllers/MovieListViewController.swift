@@ -19,9 +19,14 @@ class MovieListViewController: UIViewController {
   }
   
   private func getMovies() {
-    Handler.getLists().then(execute: { movieLists -> Void in
+    Handler.getLists().map({ movieLists -> Void in
       self.movieLists = movieLists
-      self.tableView.reloadData()
+    })
+      .done {
+        self.tableView.reloadData()
+    }
+    .catch({ error in
+      print(error)
     })
   }
   

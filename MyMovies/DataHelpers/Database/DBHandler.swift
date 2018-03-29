@@ -17,7 +17,7 @@ struct DBHandler {
   static let briefRef = Database.database().reference(withPath: FirebasePath.brief.rawValue)
   
   static func getLists() -> Promise <[[String: Any]]> {
-    return Promise { fullfill, _ in
+    return Promise { resolve in
       movielistsRef.observe(.value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
         var movielistDictArray: [[String: Any]] = []
@@ -26,13 +26,13 @@ struct DBHandler {
             movielistDictArray.append(movieListData)
           }
         }
-        fullfill(movielistDictArray)
+        resolve.fulfill(movielistDictArray)
       })
     }
   }
-
+  
   static func getMovies(for listId: String) -> Promise <[[String: Any]]> {
-    return Promise { fulfill, _ in
+    return Promise { resolve in
       moviesRef.queryOrdered(byChild: "lists/"+listId).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
         var movieDictArray: [[String: Any]] = []
@@ -41,24 +41,24 @@ struct DBHandler {
             movieDictArray.append(movieData)
           }
         }
-        fulfill(movieDictArray)
+        resolve.fulfill(movieDictArray)
       })
     }
   }
-
+  
   static func getMovieLists(for movieId: String) -> Promise <[String: Any]> {
-    return Promise { fullfill, _ in
+    return Promise { resolve in
       moviesRef.child(movieId).child(FirebasePath.lists.rawValue).observeSingleEvent(of: .value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
-        fullfill(data)
+        resolve.fulfill(data)
       })
     }
   }
   
   static func saveMovieList(for movieId: String, lists: [String]) {
-      return moviesRef.child(movieId).child(FirebasePath.lists.rawValue).setValue(lists.toDictionary(with: { _ in
-        return true
-      }))
+    return moviesRef.child(movieId).child(FirebasePath.lists.rawValue).setValue(lists.toDictionary(with: { _ in
+      return true
+    }))
   }
   
   static func saveList(_ list: DBModel) {
@@ -70,10 +70,10 @@ struct DBHandler {
   }
   
   static func getRating(for movieId: String) -> Promise <Int> {
-    return Promise { fullfill, _ in
+    return Promise { resolve in
       moviesRef.child(movieId).child(FirebasePath.rating.rawValue).observeSingleEvent(of: .value, with: { snapshot in
         let data = snapshot.value as? Int ?? 0
-        fullfill(data)
+        resolve.fulfill(data)
       })
     }
   }
@@ -83,10 +83,10 @@ struct DBHandler {
   }
   
   static func getMovieData(withId id: String) -> Promise <[String: Any]> {
-    return Promise { fullfill, _ in
+    return Promise { resolve in
       moviesRef.child(id).observeSingleEvent(of: .value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
-        fullfill(data)
+        resolve.fulfill(data)
       })
     }
   }
