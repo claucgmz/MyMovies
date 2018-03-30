@@ -594,7 +594,7 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="mzr-Dh-6wg">
                                     <rect key="frame" x="0.0" y="78" width="375" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectableMovieListCell" editingAccessoryType="checkmark" textLabel="Guy-Mo-EJU" rowHeight="50" style="IBUITableViewCellStyleDefault" id="M7S-MF-DQG" customClass="SelectableMovieListCell" customModule="MyMovies" customModuleProvider="target">
@@ -607,8 +607,8 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Guy-Mo-EJU">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="49.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -639,11 +639,13 @@
                     <navigationItem key="navigationItem" title="Select List" id="bbn-ZE-TJ1">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="hWW-c9-4PZ"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tTv-Te-RDR">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButtonAction:" destination="yvH-bf-VZH" id="8rv-xH-CNp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="4LH-cX-sxD">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveButtonAction:" destination="yvH-bf-VZH" id="MNA-Ww-s6I"/>
                             </connections>
