@@ -324,7 +324,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="j3X-F0-bmb">
             <objects>
-                <tabBarController id="ZjK-D6-BuI" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZjK-D6-BuI" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fYB-3I-C5d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -682,6 +682,6 @@
         <image name="list" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KJV-l8-e65"/>
+        <segue reference="IyU-bQ-IKW"/>
     </inferredMetricsTieBreakers>
 </document>
