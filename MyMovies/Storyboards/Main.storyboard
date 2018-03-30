@@ -238,7 +238,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-Sj-NPV">
                                                     <rect key="frame" x="10" y="10" width="322" height="79.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movies" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-FD-PF7">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-FD-PF7">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="79.5"/>
                                                             <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -327,7 +327,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QqI-ct-Kcf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Lists" id="lVo-X2-KVo"/>
+                    <navigationItem key="navigationItem" title="Lists" id="lVo-X2-KVo">
+                        <barButtonItem key="backBarButtonItem" title="My Movies" id="PvT-vs-zTZ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xA1-z7-6sD" id="MRM-gT-7YD"/>
                         <segue destination="V24-5j-fdA" kind="show" identifier="movieDetailFromList" id="KJV-l8-e65"/>
@@ -659,7 +661,7 @@
         <scene sceneID="SjU-MS-3QT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S04-0T-B3e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Sa2-sB-hK3"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="Sa2-sB-hK3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dTN-eO-gWc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -675,11 +677,11 @@
             </objects>
             <point key="canvasLocation" x="-1068" y="-652"/>
         </scene>
-        <!--Item-->
+        <!--My Movies-->
         <scene sceneID="gVR-9E-Mlf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O4t-qt-bFi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="SCp-Ow-aXV"/>
+                <navigationController title="My Movies" automaticallyAdjustsScrollViewInsets="NO" id="O4t-qt-bFi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Movies" image="movie" id="SCp-Ow-aXV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2GU-5m-Sl8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -697,8 +699,9 @@
     </scenes>
     <resources>
         <image name="add" width="50" height="50"/>
+        <image name="home" width="25" height="25"/>
         <image name="list" width="100" height="100"/>
-        <image name="movies" width="50" height="50"/>
+        <image name="movie" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KJV-l8-e65"/>
