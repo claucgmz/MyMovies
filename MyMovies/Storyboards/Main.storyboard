@@ -9,6 +9,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="h5f-xy-EuP">
@@ -366,14 +372,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBs-Pf-Jd6">
-                                                                        <rect key="frame" x="15" y="251.5" width="345" height="33.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <rect key="frame" x="15" y="259" width="345" height="26"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                                                        <color key="textColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Jr-fMo" customClass="CosmosView" customModule="Cosmos">
-                                                                        <rect key="frame" x="115" y="137.5" width="145" height="25"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Jr-fMo" customClass="CosmosView" customModule="Cosmos">
+                                                                        <rect key="frame" x="122.5" y="139" width="130" height="22"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -383,7 +388,7 @@
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                                                <real key="value" value="28"/>
+                                                                                <real key="value" value="22"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
                                                                                 <real key="value" value="1"/>
@@ -408,6 +413,8 @@
                                                                     <constraint firstAttribute="trailing" secondItem="GBs-Pf-Jd6" secondAttribute="trailing" constant="15" id="ELW-4c-xve"/>
                                                                     <constraint firstAttribute="bottom" secondItem="GBs-Pf-Jd6" secondAttribute="bottom" constant="15" id="OZ6-G1-J6I"/>
                                                                     <constraint firstItem="GBs-Pf-Jd6" firstAttribute="leading" secondItem="coC-ek-fUE" secondAttribute="leading" constant="15" id="iPG-WG-6tJ"/>
+                                                                    <constraint firstItem="daS-Jr-fMo" firstAttribute="centerY" secondItem="coC-ek-fUE" secondAttribute="centerY" id="jYz-ci-C5F"/>
+                                                                    <constraint firstItem="daS-Jr-fMo" firstAttribute="centerX" secondItem="coC-ek-fUE" secondAttribute="centerX" id="rMP-0p-Y8i"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -429,32 +436,32 @@
                                                         <rect key="frame" x="0.0" y="300" width="375" height="124"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tagline" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCu-LM-Yt2">
-                                                                <rect key="frame" x="15" y="15" width="345" height="33.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <rect key="frame" x="15" y="15" width="345" height="18"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                                <color key="textColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-X8-dBJ">
-                                                                <rect key="frame" x="15" y="64.5" width="345" height="21.5"/>
+                                                                <rect key="frame" x="15" y="49" width="345" height="39.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rd-is-byE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="21.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="39.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runtime" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwl-DW-fae" userLabel="Runtime">
-                                                                        <rect key="frame" x="172.5" y="0.0" width="172.5" height="21.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <rect key="frame" x="172.5" y="0.0" width="172.5" height="39.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ku8-cN-aKm">
-                                                                <rect key="frame" x="15" y="106" width="345" height="18"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <rect key="frame" x="15" y="108.5" width="345" height="15.5"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                                <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -475,10 +482,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmz-us-ef3">
                                                         <rect key="frame" x="0.0" y="424" width="375" height="248"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopsis" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smc-8G-8Jf">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopsis" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smc-8G-8Jf">
                                                                 <rect key="frame" x="15" y="20" width="345" height="213"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -558,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-8a-VmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="-651"/>
+            <point key="canvasLocation" x="1628" y="-651.2743628185907"/>
         </scene>
         <!--Select List-->
         <scene sceneID="iaT-rj-4F3">
@@ -682,6 +689,6 @@
         <image name="list" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KJV-l8-e65"/>
+        <segue reference="IyU-bQ-IKW"/>
     </inferredMetricsTieBreakers>
 </document>
