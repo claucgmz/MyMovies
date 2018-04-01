@@ -86,7 +86,7 @@ extension HomeViewController: UITableViewDataSource {
     guard let header = view as? UITableViewHeaderFooterView else { return }
     header.backgroundView?.backgroundColor = Color.lead
     header.textLabel?.textColor = Color.yellow
-    header.textLabel?.font = UIFont(name: "HelveticaNeue-Regular", size: 22.0)
+    header.textLabel?.font = UIFont(name: Font.regular.rawValue, size: 22.0)
     header.textLabel?.frame = header.frame
     header.textLabel?.textAlignment = .left
   }

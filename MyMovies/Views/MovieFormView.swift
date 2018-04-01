@@ -11,7 +11,7 @@ import UIKit
 class MovieFormView: UIView {
   public override init(frame: CGRect) {
     super.init(frame: frame)
-    self.backgroundColor = .black
+    self.backgroundColor = Color.lead
     self.setSubviewForAutoLayout(self.stackView)
     stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -25,7 +25,7 @@ class MovieFormView: UIView {
   let listNameTextField: UITextField = {
     let textField = UITextField()
     textField.placeholder = "Movie list name"
-    textField.font = UIFont(name: "AvenirNext-Regular", size: 17.0)
+    textField.font = UIFont(name: Font.regular.rawValue, size: 17.0)
     textField.textColor = .gray
     textField.minimumFontSize = 17.0
     textField.borderStyle = .roundedRect
@@ -34,12 +34,13 @@ class MovieFormView: UIView {
   
   let saveButton: UIButton = {
     let button = UIButton(type: .system)
-    button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 17.0)
+    button.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 17.0)
     button.setTitle("Save", for: .normal)
-    button.setTitleColor(.white, for: .normal)
+    button.setTitleColor(Color.main, for: .normal)
     button.backgroundColor = .clear
-    button.layer.borderColor = UIColor.white.cgColor
+    button.layer.borderColor = Color.main.cgColor
     button.layer.borderWidth = 1.0
+    button.layer.cornerRadius = 5
     return button
   }()
   
@@ -48,7 +49,7 @@ class MovieFormView: UIView {
     stackView.axis = .vertical
     stackView.distribution = .fillEqually
     stackView.alignment = .fill
-    stackView.spacing = 10.0
+    stackView.spacing = 20.0
     stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     return stackView
   }()

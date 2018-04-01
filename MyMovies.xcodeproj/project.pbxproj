@@ -47,6 +47,7 @@
 		5FB08ECD2061C56C00DDDC65 /* MovieType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB08ECC2061C56C00DDDC65 /* MovieType.swift */; };
 		5FBB06F92068E29B004E7F98 /* MovieBrief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBB06F82068E29B004E7F98 /* MovieBrief.swift */; };
 		5FBBB3F9206899CA0094F0A2 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBB3F8206899CA0094F0A2 /* Rating.swift */; };
+		5FBE8E762071959B00F19BD0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE8E752071959B00F19BD0 /* Font.swift */; };
 		5FCC4C522064150E002CD20E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC4C512064150E002CD20E /* GoogleService-Info.plist */; };
 		5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C55206417A4002CD20E /* MovieList.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		5FB08ECC2061C56C00DDDC65 /* MovieType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieType.swift; sourceTree = "<group>"; };
 		5FBB06F82068E29B004E7F98 /* MovieBrief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBrief.swift; sourceTree = "<group>"; };
 		5FBBB3F8206899CA0094F0A2 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		5FBE8E752071959B00F19BD0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		5FCC4C512064150E002CD20E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FCC4C55206417A4002CD20E /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		6AC85C35C42560A044A1437F /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				5F9D84862062C75F003E61DD /* SegueIdentifier.swift */,
 				5F9D84882062F2A2003E61DD /* Genre.swift */,
 				5F1A169E20632081007B272E /* Color.swift */,
+				5FBE8E752071959B00F19BD0 /* Font.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				5FBBB3F9206899CA0094F0A2 /* Rating.swift in Sources */,
 				5FB08EB820619A1000DDDC65 /* HomeViewController.swift in Sources */,
 				5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */,
+				5FBE8E762071959B00F19BD0 /* Font.swift in Sources */,
 				5F042590206EA162007A18EC /* Server.swift in Sources */,
 				5F1A169F20632081007B272E /* Color.swift in Sources */,
 			);
