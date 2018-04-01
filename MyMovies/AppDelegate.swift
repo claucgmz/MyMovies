@@ -25,9 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSAttributedStringKey.foregroundColor:
         UIColor.white ]
     UITabBar.appearance().barTintColor = UIColor.black.withAlphaComponent(0.8)
-    let tintColor = UIColor(red: 255/255.0, green: 238/255.0,
-                            blue: 136/255.0, alpha: 1.0)
-    UITabBar.appearance().tintColor = tintColor
+    UITabBar.appearance().tintColor = Color.yellow
   }
 
 }

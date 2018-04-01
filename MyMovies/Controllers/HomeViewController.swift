@@ -85,14 +85,14 @@ extension HomeViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     guard let header = view as? UITableViewHeaderFooterView else { return }
     header.backgroundView?.backgroundColor = Color.lead
-    header.textLabel?.textColor = Color.orange
-    header.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .regular)
+    header.textLabel?.textColor = Color.yellow
+    header.textLabel?.font = UIFont(name: "HelveticaNeue-Regular", size: 22.0)
     header.textLabel?.frame = header.frame
     header.textLabel?.textAlignment = .left
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 55
+    return 30
   }
 }
 
