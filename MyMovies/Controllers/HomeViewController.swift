@@ -85,7 +85,7 @@ extension HomeViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     guard let header = view as? UITableViewHeaderFooterView else { return }
     header.backgroundView?.backgroundColor = Color.lead
-    header.textLabel?.textColor = Color.green
+    header.textLabel?.textColor = Color.orange
     header.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .regular)
     header.textLabel?.frame = header.frame
     header.textLabel?.textAlignment = .left
