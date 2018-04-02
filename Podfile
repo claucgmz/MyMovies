@@ -27,6 +27,10 @@ target 'MyMovies' do
   # Facebook login
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  #A drop-in UITableView/UICollectionView superclass category for showing empty datasets whenever the view has no content to display https://www.cocoacontrols.com/control…
+  pod 'DZNEmptyDataSet'
+  #A clean and lightweight progress HUD for your iOS and tvOS app.
+  pod 'SVProgressHUD'
 
 end
 
