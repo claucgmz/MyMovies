@@ -10,6 +10,7 @@ import UIKit
 import SwipeCellKit
 import PromiseKit
 import Cosmos
+import DZNEmptyDataSet
 
 class MovieListDetailViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
@@ -20,6 +21,8 @@ class MovieListDetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.emptyDataSetSource = self
+    tableView.emptyDataSetDelegate = self
     guard let movieList = movieList else {
       return
     }
@@ -91,5 +94,20 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
     }
     
     return [deleteAction]
+  }
+}
+
+extension MovieListDetailViewController: DZNEmptyDataSetSource {
+  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    return UIImage(named: "movie")
+  }
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    return NSAttributedString(string: "You don't have any movies in this list.")
+  }
+}
+
+extension MovieListDetailViewController: DZNEmptyDataSetDelegate {
+  func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    return true
   }
 }

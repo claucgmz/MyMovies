@@ -8,6 +8,7 @@
 
 import UIKit
 import SwipeCellKit
+import DZNEmptyDataSet
 
 class MovieListViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
@@ -15,6 +16,8 @@ class MovieListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.emptyDataSetSource = self
+    tableView.emptyDataSetDelegate = self
     getMovies()
   }
   
@@ -104,5 +107,20 @@ extension MovieListViewController: SwipeTableViewCellDelegate {
     editAction.hidesWhenSelected = true
     
     return [deleteAction, editAction]
+  }
+}
+
+extension MovieListViewController: DZNEmptyDataSetSource {
+  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    return UIImage(named: "list")
+  }
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    return NSAttributedString(string: "You don't have any lists.")
+  }
+}
+
+extension MovieListViewController: DZNEmptyDataSetDelegate {
+  func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    return true
   }
 }
