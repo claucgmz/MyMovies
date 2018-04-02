@@ -48,10 +48,4 @@ struct Handler {
       return ParseHandler.parseMovieBrief(with: data)
     }
   }
-  
-  static func getMovieData(withId id: String) -> Promise <MovieSave?> {
-    return DBHandler.getMovieData(withId: id).map { data -> MovieSave? in
-      return ParseHandler.parseMovieSave(with: data)
-    }
-  }
 }
