@@ -32,14 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func customizeAppearance() {
-    UINavigationBar.appearance().barTintColor = UIColor.black
-    UINavigationBar.appearance().titleTextAttributes = [
+    let navigationAppearance = UINavigationBar.appearance()
+    navigationAppearance.barTintColor = UIColor.black
+    navigationAppearance.titleTextAttributes = [
       NSAttributedStringKey.foregroundColor:
-        UIColor.white ]
-    UITabBar.appearance().barTintColor = UIColor.black.withAlphaComponent(0.8)
-    let tintColor = UIColor(red: 255/255.0, green: 238/255.0,
-                            blue: 136/255.0, alpha: 1.0)
-    UITabBar.appearance().tintColor = tintColor
+        Color.yellow ]
+    navigationAppearance.tintColor = .white
+    
+    let tabBarAppearance = UITabBar.appearance()
+    tabBarAppearance.barTintColor = UIColor.black.withAlphaComponent(0.8)
+    tabBarAppearance.tintColor = Color.yellow
   }
     
     func initView(with storyboardName: String, viewControllerName: String) {

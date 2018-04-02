@@ -11,9 +11,11 @@ import Alamofire
 import PromiseKit
 
 struct APIHandler {
+  static let sessionManager = Server.manager
+  
   static func getMovies(for type: MovieType, page: Int = 1) -> Promise <[String: Any]> {
     return Promise { resolve in
-      Alamofire.request(MyMoviesRouter.getMovies(type: type, page: page))
+      sessionManager.request(MyMoviesRouter.getMovies(type: type, page: page))
         .validate()
         .responseJSON(completionHandler: { response in
           if let json = response.result.value as? [String: Any] {
@@ -27,7 +29,7 @@ struct APIHandler {
   
   static func getMovie(withId id: String) -> Promise <[String: Any]> {
     return Promise { resolve in
-      Alamofire.request(MyMoviesRouter.getMovie(id: id))
+      sessionManager.request(MyMoviesRouter.getMovie(id: id))
         .validate()
         .responseJSON(completionHandler: { response in
           if let json = response.result.value as? [String: Any] {
