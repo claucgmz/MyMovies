@@ -112,7 +112,7 @@ extension SearchViewController: UITableViewDataSource {
                 return doesCategoryMatch && movie.title.lowercased().contains(searchText.lowercased())
             }
         })
-         tableView.reloadData()
+        tableView.reloadData()
     }
     
     func searchBarIsEmpty() -> Bool {
