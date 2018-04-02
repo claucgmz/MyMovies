@@ -9,6 +9,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - Cosmos (15.0.0)
+  - DZNEmptyDataSet (1.8.1)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
@@ -74,6 +75,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.2.3):
     - PromiseKit/CorePromise
+  - SVProgressHUD (2.2.5)
   - SwiftLint (0.25.0)
   - SwipeCellKit (2.1.0)
 
@@ -81,6 +83,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - Cosmos (~> 15.0)
+  - DZNEmptyDataSet
   - FacebookCore
   - FacebookLogin
   - Firebase/Auth
@@ -88,6 +91,7 @@ DEPENDENCIES:
   - Firebase/Database
   - ObjectMapper
   - PromiseKit (~> 6.0)
+  - SVProgressHUD
   - SwiftLint
   - SwipeCellKit
 
@@ -96,6 +100,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: a6dbd3d0baa0cc8f51f8598f7508d5a09d0a9ade
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FBSDKCoreKit: e08ccfcefa7bc1347a07c276dac9bf6c7fe57024
@@ -112,9 +117,10 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PromiseKit: 62f37bb4900a9b0b7550d017e41497171d93face
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwipeCellKit: 80bdb188166484d8a0d813d9fd7748ad33181815
 
-PODFILE CHECKSUM: 9734de35a3e8ab86a0d0f13becdec44a94b100fd
+PODFILE CHECKSUM: 6f98684ea87237aac54dd62b1b0d49f0ec5bb1cb
 
 COCOAPODS: 1.4.0

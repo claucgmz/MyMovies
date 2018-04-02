@@ -703,7 +703,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ajd-n4-tgi" detailTextLabel="eeO-0U-oPV" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="Qha-zC-fst" customClass="MovieListCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ajd-n4-tgi" detailTextLabel="eeO-0U-oPV" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="Qha-zC-fst">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qha-zC-fst" id="I3T-Fp-gy7">
@@ -727,10 +727,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="listNameLabel" destination="ajd-n4-tgi" id="mZK-Xl-akU"/>
-                                            <outlet property="totalMoviesLabel" destination="eeO-0U-oPV" id="qR7-el-xZH"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
