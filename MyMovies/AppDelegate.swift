@@ -15,22 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     FirebaseApp.configure()
-    var storyboard: String
-    var initialViewController: String
-    
-    if AuthHandler.getCurrentAuth() != nil {
-        storyboard =  StoryboardPath.main.rawValue
-        initialViewController = ViewControllerPath.homeViewController.rawValue
-    } else {
-        storyboard =  StoryboardPath.login.rawValue
-        initialViewController = ViewControllerPath.loginViewController.rawValue
-    }
-    initView(with: storyboard, viewControllerName: initialViewController)
-    //AuthHandler.logOut()
+    verifyAuth()
     customizeAppearance()
     return true
   }
   
+    func verifyAuth() {
+      var storyboard: String
+      var initialViewController: String
+
+      if AuthHandler.getCurrentAuth() != nil {
+        storyboard =  StoryboardPath.main.rawValue
+        initialViewController = ViewControllerPath.homeViewController.rawValue
+      } else {
+        storyboard =  StoryboardPath.login.rawValue
+        initialViewController = ViewControllerPath.loginViewController.rawValue
+      }
+      initView(with: storyboard, viewControllerName: initialViewController)
+    }
+    
   func customizeAppearance() {
     UINavigationBar.appearance().barTintColor = UIColor.black
     UINavigationBar.appearance().titleTextAttributes = [

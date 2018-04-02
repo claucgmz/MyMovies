@@ -52,6 +52,8 @@
 		9BC23F10206E9C6E0046156C /* ProjectPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0F206E9C6E0046156C /* ProjectPath.swift */; };
 		9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F11206E9D850046156C /* LoginViewController.swift */; };
 		9BC23F14206EB3EF0046156C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC23F13206EB3EF0046156C /* GoogleService-Info.plist */; };
+		9BC23F4A207244990046156C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F49207244990046156C /* SearchViewController.swift */; };
+		9BC23F4F2072AD4B0046156C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC23F4E2072AD4B0046156C /* Search.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		9BC23F0F206E9C6E0046156C /* ProjectPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPath.swift; sourceTree = "<group>"; };
 		9BC23F11206E9D850046156C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9BC23F13206EB3EF0046156C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9BC23F49207244990046156C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9BC23F4E2072AD4B0046156C /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A5306B6B4365E67F657F979A /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -194,6 +198,7 @@
 				5F6E24B32069A7A700B203E9 /* MovieListDetailViewController.swift */,
 				5F029A722069FC8900DCED36 /* MovieListSelectionViewController.swift */,
 				9BC23F11206E9D850046156C /* LoginViewController.swift */,
+				9BC23F49207244990046156C /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				5F07A3A820617F6D00209566 /* Login.storyboard */,
 				5F07A3C1206183CB00209566 /* Main.storyboard */,
 				5F07A3B020617F6D00209566 /* LaunchScreen.storyboard */,
+				9BC23F4E2072AD4B0046156C /* Search.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				5F07A3AF20617F6D00209566 /* Assets.xcassets in Resources */,
 				5FCC4C522064150E002CD20E /* GoogleService-Info.plist in Resources */,
 				5F07A3AA20617F6D00209566 /* Login.storyboard in Resources */,
+				9BC23F4F2072AD4B0046156C /* Search.storyboard in Resources */,
 				5F07A3C2206183CB00209566 /* Main.storyboard in Resources */,
 				9BC23F14206EB3EF0046156C /* GoogleService-Info.plist in Resources */,
 			);
@@ -480,6 +487,7 @@
 				5F029A752069FFA300DCED36 /* SelectableMovieListCell.swift in Sources */,
 				5FB08EB22061964800DDDC65 /* APIManager.swift in Sources */,
 				5FB08EB32061964800DDDC65 /* MyMoviesRouter.swift in Sources */,
+				9BC23F4A207244990046156C /* SearchViewController.swift in Sources */,
 				5F9D84892062F2A2003E61DD /* Genre.swift in Sources */,
 				5F07A3A520617F6D00209566 /* AppDelegate.swift in Sources */,
 				5F9D84872062C75F003E61DD /* SegueIdentifier.swift in Sources */,
