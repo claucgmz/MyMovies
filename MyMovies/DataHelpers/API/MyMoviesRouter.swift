@@ -34,16 +34,19 @@ enum MyMoviesRouter: URLRequestConvertible {
   }
   
   var parameters: [String: Any] {
+    var parameters: [String: Any] = [:]
     switch self {
     case .getFeatured(let page):
-      return ["page": page, "api_key": APIManager.APIkey]
+      parameters = ["page": page]
     case .getUpcoming(let page):
-      return ["page": page, "api_key": APIManager.APIkey]
+      parameters = ["page": page]
     case .getMovie:
-      return ["api_key": APIManager.APIkey]
+      parameters = [:]
     case .getMovies(_, let page):
-      return ["page": page, "api_key": APIManager.APIkey]
+      parameters = ["page": page]
     }
+    parameters["api_key"] = APIManager.APIkey
+    return parameters
   }
   
   var method: HTTPMethod {

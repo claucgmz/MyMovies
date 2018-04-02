@@ -13,7 +13,7 @@ struct MovieList: DBModel, Mappable {
   var id = UUID().uuidString
   var name = ""
   var movies = [MovieBrief]()
-  
+
   init?(map: Map) {
     
   }
@@ -23,10 +23,10 @@ struct MovieList: DBModel, Mappable {
   }
   
   mutating func mapping(map: Map) {
-    id     <- map["id"]
-    name  <- map["name"]
+    id           <- map["id"]
+    name         <- map["name"]
     var movies = [MovieBrief]()
-    movies  <- map["movies"]
+    movies       <- map["movies"]
     self.movies = movies
   }
   

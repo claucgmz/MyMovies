@@ -21,6 +21,7 @@ class MovieFormViewController: UIViewController {
   
   override func loadView() {
     self.view = MovieFormView()
+    title = movieList != nil ? "Edit List" : "Add List"
   }
   
   override func viewDidLoad() {
