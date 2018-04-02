@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
     }
     
     func setupScopeBar() {
-        searchController.searchBar.scopeButtonTitles = ["All", "Category", "Movie", "Actor"]
+        searchController.searchBar.scopeButtonTitles = [Genre.all.description, Genre.action.description, Genre.adventure.description, Genre.comedy.description]
         searchController.searchBar.delegate = self
     }
     
@@ -103,9 +103,10 @@ extension SearchViewController: UITableViewDataSource {
     }
     // MARK: - Private instance methods
     
-    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+    func filterContentForSearchText(_ searchText: String, scope: String = Genre.all.description) {
         filteredMovies = movies.filter({(movie: Movie) -> Bool in
-            let doesCategoryMatch = ( scope == "All" ) || ( movie.title == scope )
+            let genres = movie.genresString.components(separatedBy: " | ")
+            let doesCategoryMatch = ( scope == Genre.all.description ) || ( genres.contains(scope))
             
             if searchBarIsEmpty() {
                 return doesCategoryMatch

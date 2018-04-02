@@ -26,6 +26,7 @@ enum Genre: Int {
   case thriller = 53
   case war = 10752
   case western = 37
+  case all = 0
   
   var description: String {
     switch self {
@@ -67,6 +68,8 @@ enum Genre: Int {
       return "War"
     case .western:
       return "Western"
+    case .all:
+      return "All"
     }
   }
 }
