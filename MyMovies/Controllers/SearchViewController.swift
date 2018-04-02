@@ -22,6 +22,7 @@ class SearchViewController: UIViewController {
         getMovies()
         setupSearchController()
         setupScopeBar()
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func setupSearchController() {
