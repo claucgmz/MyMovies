@@ -98,6 +98,10 @@ extension MovieListViewController: SwipeTableViewCellDelegate {
       DBHandler.removeList(self.movieLists[indexPath.row])
       self.movieLists.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .fade)
+      
+      if tableView.numberOfRows(inSection: 0) == 0 {
+        tableView.reloadData()
+      }
     }
     
     let editAction = SwipeAction(style: .default, title: "Edit") { _, indexPath in

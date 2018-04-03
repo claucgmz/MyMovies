@@ -91,6 +91,10 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
       self.movies.remove(at: indexPath.row)
       DBHandler.removeMovie(withId: movieId, from: list.id)
       tableView.deleteRows(at: [indexPath], with: .fade)
+      
+      if tableView.numberOfRows(inSection: 0) == 0 {
+        tableView.reloadData()
+      }
     }
     
     return [deleteAction]
