@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Reachability
+import ReachabilitySwift
 
 public protocol NetworkStatusListener : class {
     func networkStatusDidChange(status: Reachability.NetworkStatus)
@@ -29,7 +29,7 @@ class ReachabilityManager: NSObject {
     
     /// Called whenever there is a change in NetworkReachibility Status
     /// — parameter notification: Notification with the Reachability instance
-    func reachabilityChanged(notification: Notification) {
+    @objc func reachabilityChanged(notification: Notification) {
         
         let reachability = notification.object as! Reachability
         

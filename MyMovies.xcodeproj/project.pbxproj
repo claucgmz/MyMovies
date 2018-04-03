@@ -166,7 +166,7 @@
 		5F07A3A320617F6D00209566 /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
-				9BC23F7D207401750046156C /* ErrorHelpers */,
+				9BC23F7D207401750046156C /* NetworkHelpers */,
 				9BC23F0C206E9BB20046156C /* AuthHelpers */,
 				5FBBB3FA20689A720094F0A2 /* DataHelpers */,
 				5FCC4C512064150E002CD20E /* GoogleService-Info.plist */,
@@ -300,12 +300,12 @@
 			path = AuthHelpers;
 			sourceTree = "<group>";
 		};
-		9BC23F7D207401750046156C /* ErrorHelpers */ = {
+		9BC23F7D207401750046156C /* NetworkHelpers */ = {
 			isa = PBXGroup;
 			children = (
 				9BC23F82207416420046156C /* ReachabilityManager.swift */,
 			);
-			path = ErrorHelpers;
+			path = NetworkHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

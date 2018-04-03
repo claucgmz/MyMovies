@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReachabilitySwift
 
 extension LoginViewController: NetworkStatusListener {
     
@@ -22,6 +23,8 @@ extension LoginViewController: NetworkStatusListener {
         }
         
         // Update login button Enable/Disable status
-        loginButton.isEnabled = !(status == .notReachable)
+        DispatchQueue.main.async { 
+            self.loginButton.isEnabled = !(status == .notReachable)
+        }
     }
 }
