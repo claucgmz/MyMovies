@@ -32,6 +32,7 @@ class MovieListSelectionViewController: UIViewController {
       return
     }
     
+    self.toogleHUD(show: true)
     Handler.getLists()
       .then ({ lists -> Promise <[String]> in
         self.movieLists = lists
@@ -42,6 +43,7 @@ class MovieListSelectionViewController: UIViewController {
       })
       .done {
         self.listTableView.reloadData()
+        self.toogleHUD(show: false)
       }
       .catch({ _ -> Void in
       })

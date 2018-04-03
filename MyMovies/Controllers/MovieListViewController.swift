@@ -22,11 +22,13 @@ class MovieListViewController: UIViewController {
   }
   
   private func getMovies() {
+    self.toogleHUD(show: true)
     Handler.getLists().map({ movieLists -> Void in
       self.movieLists = movieLists
     })
-      .done {
+    .done {
         self.tableView.reloadData()
+        self.toogleHUD(show: false)
     }
     .catch({ error in
       print(error)
