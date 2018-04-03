@@ -54,4 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
     }
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        ReachabilityManager.shared.startMonitoring()
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        ReachabilityManager.shared.stopMonitoring()
+    }
 }

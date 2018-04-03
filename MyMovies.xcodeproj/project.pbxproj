@@ -55,7 +55,7 @@
 		9BC23F10206E9C6E0046156C /* ProjectPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0F206E9C6E0046156C /* ProjectPath.swift */; };
 		9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F11206E9D850046156C /* LoginViewController.swift */; };
 		9BC23F4A207244990046156C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F49207244990046156C /* SearchViewController.swift */; };
-		9BC23F812074034F0046156C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F802074034F0046156C /* NetworkManager.swift */; };
+		9BC23F83207416420046156C /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F82207416420046156C /* ReachabilityManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +110,7 @@
 		9BC23F0F206E9C6E0046156C /* ProjectPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPath.swift; sourceTree = "<group>"; };
 		9BC23F11206E9D850046156C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9BC23F49207244990046156C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		9BC23F802074034F0046156C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9BC23F82207416420046156C /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		A5306B6B4365E67F657F979A /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -300,7 +300,7 @@
 		9BC23F7D207401750046156C /* ErrorHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				9BC23F802074034F0046156C /* NetworkManager.swift */,
+				9BC23F82207416420046156C /* ReachabilityManager.swift */,
 			);
 			path = ErrorHelpers;
 			sourceTree = "<group>";
@@ -488,7 +488,6 @@
 				5F9D84852062BF3C003E61DD /* MovieDetailViewController.swift in Sources */,
 				5F029A732069FC8900DCED36 /* MovieListSelectionViewController.swift in Sources */,
 				5FA0F4FA2068D92F00633AA5 /* MovieListCell.swift in Sources */,
-				9BC23F812074034F0046156C /* NetworkManager.swift in Sources */,
 				9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */,
 				5FB08EC92061B91A00DDDC65 /* MovieCollectionCell.swift in Sources */,
 				5FB08EBA2061A77400DDDC65 /* Movie.swift in Sources */,
@@ -496,6 +495,7 @@
 				5FB08EC72061B55400DDDC65 /* MovieCollectionView.swift in Sources */,
 				5F93A433206B0208003A47CF /* MovieSave.swift in Sources */,
 				5FA0F4FC2068DB0300633AA5 /* MovieListViewController.swift in Sources */,
+				9BC23F83207416420046156C /* ReachabilityManager.swift in Sources */,
 				5F72844E20686C88009D0DBC /* Handler.swift in Sources */,
 				5F914CEB206C3C7F002B4CB7 /* FirebasePath.swift in Sources */,
 				5F6E24B22069A74600B203E9 /* MovieCell.swift in Sources */,
