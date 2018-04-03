@@ -56,6 +56,7 @@
 		9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F11206E9D850046156C /* LoginViewController.swift */; };
 		9BC23F4A207244990046156C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F49207244990046156C /* SearchViewController.swift */; };
 		9BC23F83207416420046156C /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F82207416420046156C /* ReachabilityManager.swift */; };
+		9BC23F8520741BB20046156C /* LoginViewController+NetworkStatusListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F8420741BB20046156C /* LoginViewController+NetworkStatusListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		9BC23F11206E9D850046156C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9BC23F49207244990046156C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9BC23F82207416420046156C /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		9BC23F8420741BB20046156C /* LoginViewController+NetworkStatusListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+NetworkStatusListener.swift"; sourceTree = "<group>"; };
 		A5306B6B4365E67F657F979A /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -242,6 +244,7 @@
 				5F1227092068BFB900D13352 /* UIView+Autolayout.swift */,
 				5F524AD8206C19D8009B623C /* Array+Dictionary.swift */,
 				5F0BCB362073296C00EEB63E /* UIViewController+HUD.swift */,
+				9BC23F8420741BB20046156C /* LoginViewController+NetworkStatusListener.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -412,7 +415,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -433,7 +436,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -509,6 +512,7 @@
 				9BC23F4A207244990046156C /* SearchViewController.swift in Sources */,
 				5F9D84892062F2A2003E61DD /* Genre.swift in Sources */,
 				5F07A3A520617F6D00209566 /* AppDelegate.swift in Sources */,
+				9BC23F8520741BB20046156C /* LoginViewController+NetworkStatusListener.swift in Sources */,
 				5F0BCB372073296C00EEB63E /* UIViewController+HUD.swift in Sources */,
 				5F9D84872062C75F003E61DD /* SegueIdentifier.swift in Sources */,
 				5F8CBBBB20684EA0000A6598 /* ParseHandler.swift in Sources */,

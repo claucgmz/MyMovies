@@ -32,7 +32,7 @@ target 'MyMovies' do
   #A clean and lightweight progress HUD for your iOS and tvOS app.
   pod 'SVProgressHUD'
   # Replacement for apple's Reachability sample
-  pod 'ReachabilitySwift'
+  pod 'ReachabilitySwift', '~> 3' 
 
 end
 
