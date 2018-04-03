@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
     
@@ -19,6 +20,8 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         getMovies()
         setupSearchController()
         setupScopeBar()
@@ -145,5 +148,20 @@ extension SearchViewController: UISearchResultsUpdating {
         let searchBar = searchController.searchBar
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+    }
+}
+    //Mark: - DZNEmptyDataSetSource Protocol
+extension SearchViewController: DZNEmptyDataSetSource {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "list")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Sorry, We couldn't find any review.")
+    }
+}
+
+extension SearchViewController: DZNEmptyDataSetDelegate {
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return true
     }
 }
