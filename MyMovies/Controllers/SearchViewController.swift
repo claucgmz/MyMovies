@@ -9,6 +9,7 @@
 import UIKit
 import PromiseKit
 import DZNEmptyDataSet
+import ReachabilitySwift
 
 class SearchViewController: UIViewController {
     
@@ -130,6 +131,14 @@ extension SearchViewController: UITableViewDataSource {
         let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
         return searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ReachabilityManager.shared.addListener(listener: self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        ReachabilityManager.shared.removeListener(listener: self)
+    }
 
 }
     // MARK: TableView Delegate
@@ -152,7 +161,7 @@ extension SearchViewController: UISearchResultsUpdating {
         filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 }
-    //Mark: - DZNEmptyDataSetSource Protocol
+    // MARK: - DZNEmptyDataSetSource Protocol
 extension SearchViewController: DZNEmptyDataSetSource {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "list")
@@ -165,5 +174,21 @@ extension SearchViewController: DZNEmptyDataSetSource {
 extension SearchViewController: DZNEmptyDataSetDelegate {
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         return true
+    }
+}
+    // MARK: - NetworkError Protocol
+extension SearchViewController: NetworkStatusListener {
+    
+    func networkStatusDidChange(status: Reachability.NetworkStatus) {
+    
+        switch status {
+        case .notReachable:
+            debugPrint("ViewController: Network became unreachable")
+        case .reachableViaWiFi:
+            debugPrint("ViewController: Network reachable through WiFi")
+        case .reachableViaWWAN:
+            debugPrint("ViewController: Network reachable through Cellular Data")
+        }
+        
     }
 }
