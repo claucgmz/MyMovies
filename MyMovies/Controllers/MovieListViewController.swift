@@ -8,6 +8,7 @@
 
 import UIKit
 import SwipeCellKit
+import DZNEmptyDataSet
 
 class MovieListViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
@@ -15,15 +16,19 @@ class MovieListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.emptyDataSetSource = self
+    tableView.emptyDataSetDelegate = self
     getMovies()
   }
   
   private func getMovies() {
+    self.toogleHUD(show: true)
     Handler.getLists().map({ movieLists -> Void in
       self.movieLists = movieLists
     })
-      .done {
+    .done {
         self.tableView.reloadData()
+        self.toogleHUD(show: false)
     }
     .catch({ error in
       print(error)
@@ -95,6 +100,10 @@ extension MovieListViewController: SwipeTableViewCellDelegate {
       DBHandler.removeList(self.movieLists[indexPath.row])
       self.movieLists.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .fade)
+      
+      if tableView.numberOfRows(inSection: 0) == 0 {
+        tableView.reloadData()
+      }
     }
     
     let editAction = SwipeAction(style: .default, title: "Edit") { _, indexPath in
@@ -104,5 +113,20 @@ extension MovieListViewController: SwipeTableViewCellDelegate {
     editAction.hidesWhenSelected = true
     
     return [deleteAction, editAction]
+  }
+}
+
+extension MovieListViewController: DZNEmptyDataSetSource {
+  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    return UIImage(named: "list")
+  }
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    return NSAttributedString(string: "You don't have any lists.")
+  }
+}
+
+extension MovieListViewController: DZNEmptyDataSetDelegate {
+  func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    return true
   }
 }

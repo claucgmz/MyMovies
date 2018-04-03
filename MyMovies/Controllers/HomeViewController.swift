@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
   }
   
   private func getMovies() {
+    self.toogleHUD(show: true)
     Handler.getMovies(for: .featured, page: 1)
       .then ({ movies -> Promise<[Movie]> in
         self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
@@ -29,6 +30,7 @@ class HomeViewController: UIViewController {
       })
       .done {
         self.tableView.reloadData()
+        self.toogleHUD(show: false)
       }
       .catch({ error -> Void in
         print(error)

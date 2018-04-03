@@ -16,6 +16,7 @@
 		5F07A3AF20617F6D00209566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F07A3AE20617F6D00209566 /* Assets.xcassets */; };
 		5F07A3B220617F6D00209566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07A3B020617F6D00209566 /* LaunchScreen.storyboard */; };
 		5F07A3C2206183CB00209566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07A3C1206183CB00209566 /* Main.storyboard */; };
+		5F0BCB372073296C00EEB63E /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BCB362073296C00EEB63E /* UIViewController+HUD.swift */; };
 		5F1227062068B23300D13352 /* MovieFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1227052068B23300D13352 /* MovieFormViewController.swift */; };
 		5F1227082068B93200D13352 /* MovieFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1227072068B93200D13352 /* MovieFormView.swift */; };
 		5F12270A2068BFB900D13352 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1227092068BFB900D13352 /* UIView+Autolayout.swift */; };
@@ -68,6 +69,7 @@
 		5F07A3B120617F6D00209566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F07A3B320617F6D00209566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F07A3C1206183CB00209566 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5F0BCB362073296C00EEB63E /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		5F1227052068B23300D13352 /* MovieFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFormViewController.swift; sourceTree = "<group>"; };
 		5F1227072068B93200D13352 /* MovieFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFormView.swift; sourceTree = "<group>"; };
 		5F1227092068BFB900D13352 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				5FB08ECA2061B93700DDDC65 /* UICollectionViewCell+ReusableId.swift */,
 				5F1227092068BFB900D13352 /* UIView+Autolayout.swift */,
 				5F524AD8206C19D8009B623C /* Array+Dictionary.swift */,
+				5F0BCB362073296C00EEB63E /* UIViewController+HUD.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				9BC23F4A207244990046156C /* SearchViewController.swift in Sources */,
 				5F9D84892062F2A2003E61DD /* Genre.swift in Sources */,
 				5F07A3A520617F6D00209566 /* AppDelegate.swift in Sources */,
+				5F0BCB372073296C00EEB63E /* UIViewController+HUD.swift in Sources */,
 				5F9D84872062C75F003E61DD /* SegueIdentifier.swift in Sources */,
 				5F8CBBBB20684EA0000A6598 /* ParseHandler.swift in Sources */,
 				5FBB06F92068E29B004E7F98 /* MovieBrief.swift in Sources */,

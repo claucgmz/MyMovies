@@ -30,7 +30,7 @@ class MovieDetailViewController: UIViewController {
     guard let movieId = movieId else {
       return
     }
-    
+    self.toogleHUD(show: true)
     Handler.getMovie(withId: String(movieId))
       .then ({ movie -> Promise<Int> in
         self.movie = movie
@@ -43,6 +43,7 @@ class MovieDetailViewController: UIViewController {
       })
       .done {
         self.updateUI()
+        self.toogleHUD(show: false)
       }
       .catch({ error -> Void in
         print(error)
