@@ -103,7 +103,7 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
 
 extension MovieListDetailViewController: DZNEmptyDataSetSource {
   func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-    return UIImage(named: "movie")
+    return UIImage(named: "movie-b")
   }
   func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
     return NSAttributedString(string: "You don't have any movies in this list.")
