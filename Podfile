@@ -31,6 +31,8 @@ target 'MyMovies' do
   pod 'DZNEmptyDataSet'
   #A clean and lightweight progress HUD for your iOS and tvOS app.
   pod 'SVProgressHUD'
+  # Replacement for apple's Reachability sample
+  pod 'ReachabilitySwift'
 
 end
 
