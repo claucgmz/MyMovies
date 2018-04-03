@@ -27,12 +27,14 @@ class MovieListDetailViewController: UIViewController {
       return
     }
     
+    self.toogleHUD(show: true)
     Handler.getMovies(forList: movieList.id)
     .map({ briefs -> Void in
       self.movies = briefs
     })
-      .done {
-        self.tableView.reloadData()
+    .done {
+      self.tableView.reloadData()
+      self.toogleHUD(show: false)
     }
     .catch({ error in
       print (error)
