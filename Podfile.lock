@@ -75,6 +75,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.2.3):
     - PromiseKit/CorePromise
+  - ReachabilitySwift (3)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.25.0)
   - SwipeCellKit (2.1.0)
@@ -91,6 +92,7 @@ DEPENDENCIES:
   - Firebase/Database
   - ObjectMapper
   - PromiseKit (~> 6.0)
+  - ReachabilitySwift (~> 3)
   - SVProgressHUD
   - SwiftLint
   - SwipeCellKit
@@ -117,10 +119,11 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PromiseKit: 62f37bb4900a9b0b7550d017e41497171d93face
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwipeCellKit: 80bdb188166484d8a0d813d9fd7748ad33181815
 
-PODFILE CHECKSUM: 6f98684ea87237aac54dd62b1b0d49f0ec5bb1cb
+PODFILE CHECKSUM: 289b461480a5c1565fb2764cea544dbc1d360eda
 
 COCOAPODS: 1.4.0

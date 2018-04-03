@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     FirebaseApp.configure()
     verifyAuth()
+   // AuthHandler.logOut()
     customizeAppearance()
     return true
   }
@@ -54,4 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
     }
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        ReachabilityManager.shared.startMonitoring()
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        ReachabilityManager.shared.stopMonitoring()
+    }
 }
