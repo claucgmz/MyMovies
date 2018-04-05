@@ -388,7 +388,7 @@
                                                                         <color key="textColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Jr-fMo" customClass="CosmosView" customModule="Cosmos">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Jr-fMo" customClass="CosmosView" customModule="Cosmos">
                                                                         <rect key="frame" x="122.5" y="94.5" width="130" height="22"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -787,6 +787,6 @@
         <image name="movie" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KJV-l8-e65"/>
+        <segue reference="IyU-bQ-IKW"/>
     </inferredMetricsTieBreakers>
 </document>
