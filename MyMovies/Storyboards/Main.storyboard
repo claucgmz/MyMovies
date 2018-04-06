@@ -16,102 +16,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="h5f-xy-EuP">
-            <objects>
-                <viewController id="rqv-5i-RUh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lNr-RN-Gk8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rbg-Gh-51L">
-                                <rect key="frame" x="5" y="20" width="370" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="aNf-Sr-6Qh">
-                                    <rect key="frame" x="0.0" y="528" width="370" height="1"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                </view>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCollectionViewCell" rowHeight="500" id="dlc-8w-4Ef" customClass="MovieCollectionViewCell" customModule="MyMovies" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="370" height="500"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dlc-8w-4Ef" id="byn-y2-Z6S">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="499.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sWO-4m-86I">
-                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="499.5"/>
-                                                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="6" minimumInteritemSpacing="0.0" id="wVF-M1-qT8">
-                                                        <size key="itemSize" width="154" height="231"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionCell" id="gUx-zr-oxR" customClass="MovieCollectionCell" customModule="MyMovies" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="154" height="231"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="154" height="231"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default-poster" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-3m-imA">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="154" height="231"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </imageView>
-                                                                </subviews>
-                                                            </view>
-                                                            <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <size key="customSize" width="154" height="231"/>
-                                                            <connections>
-                                                                <outlet property="movieImage" destination="eIR-3m-imA" id="5Vo-j3-wtT"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="sWO-4m-86I" firstAttribute="top" secondItem="byn-y2-Z6S" secondAttribute="top" id="3RO-uV-Zq8"/>
-                                                <constraint firstItem="sWO-4m-86I" firstAttribute="leading" secondItem="byn-y2-Z6S" secondAttribute="leading" id="ebl-ZX-d5u"/>
-                                                <constraint firstAttribute="trailing" secondItem="sWO-4m-86I" secondAttribute="trailing" id="gtr-tb-zUx"/>
-                                                <constraint firstAttribute="bottom" secondItem="sWO-4m-86I" secondAttribute="bottom" id="iyh-kT-wjG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="collectionView" destination="sWO-4m-86I" id="vmL-DM-71g"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="rqv-5i-RUh" id="YG5-mo-YaX"/>
-                                    <outlet property="delegate" destination="rqv-5i-RUh" id="gF7-gD-hSF"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Rbg-Gh-51L" firstAttribute="top" secondItem="qR4-G6-ih0" secondAttribute="top" id="az6-rH-3Na"/>
-                            <constraint firstItem="qR4-G6-ih0" firstAttribute="bottom" secondItem="Rbg-Gh-51L" secondAttribute="bottom" id="dlf-Ro-36H"/>
-                            <constraint firstItem="Rbg-Gh-51L" firstAttribute="leading" secondItem="qR4-G6-ih0" secondAttribute="leading" constant="5" id="sbY-Bd-gT9"/>
-                            <constraint firstItem="qR4-G6-ih0" firstAttribute="trailing" secondItem="Rbg-Gh-51L" secondAttribute="trailing" id="uzg-rG-caF"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="qR4-G6-ih0"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5FS-rO-ZHR"/>
-                    <connections>
-                        <outlet property="tableView" destination="Rbg-Gh-51L" id="sL0-2t-JjB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Yz-Eg-C2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-207" y="-537"/>
-        </scene>
         <!--Item-->
         <scene sceneID="YHA-xK-1Qc">
             <objects>
@@ -174,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jth-77-PkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="561" y="-1175"/>
+            <point key="canvasLocation" x="-738" y="-1265"/>
         </scene>
         <!--My Movies-->
         <scene sceneID="opg-AZ-Kje">
@@ -253,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdc-fY-hr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266" y="457"/>
+            <point key="canvasLocation" x="-737" y="-200"/>
         </scene>
         <!--Movie Form View Controller-->
         <scene sceneID="b5J-DA-3vC">
@@ -269,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeQ-Q6-tnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="117"/>
+            <point key="canvasLocation" x="36" y="-330"/>
         </scene>
         <!--Lists-->
         <scene sceneID="0OI-t9-J6F">
@@ -397,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dZ-hd-zyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="801.94902548725645"/>
+            <point key="canvasLocation" x="36" y="550"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j3X-F0-bmb">
@@ -417,7 +321,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ma-eD-5QD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1855" y="-44"/>
+            <point key="canvasLocation" x="-3266" y="-200"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="sE7-sv-N4T">
@@ -639,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-8a-VmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="-651.2743628185907"/>
+            <point key="canvasLocation" x="1594" y="-201"/>
         </scene>
         <!--Select List-->
         <scene sceneID="iaT-rj-4F3">
@@ -718,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWX-tN-a7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2598" y="-651"/>
+            <point key="canvasLocation" x="2418" y="-201"/>
         </scene>
         <!--Home-->
         <scene sceneID="SjU-MS-3QT">
@@ -738,7 +642,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-1068" y="-889"/>
+            <point key="canvasLocation" x="-1935" y="-1265"/>
         </scene>
         <!--My Movies-->
         <scene sceneID="gVR-9E-Mlf">
@@ -757,7 +661,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wT8-tQ-Fcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1177" y="736"/>
+            <point key="canvasLocation" x="-1935" y="-200"/>
         </scene>
         <!--Search-->
         <scene sceneID="iBf-lw-VQL">
@@ -819,7 +723,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MX-cr-NZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="1306"/>
+            <point key="canvasLocation" x="-738" y="1030"/>
         </scene>
         <!--Search-->
         <scene sceneID="RV5-CB-I27">
@@ -838,7 +742,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weq-hB-b6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1934" y="1306"/>
+            <point key="canvasLocation" x="-1935" y="1030"/>
         </scene>
     </scenes>
     <resources>
@@ -850,6 +754,6 @@
         <image name="movie" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="on3-YU-Ydu"/>
+        <segue reference="KJV-l8-e65"/>
     </inferredMetricsTieBreakers>
 </document>

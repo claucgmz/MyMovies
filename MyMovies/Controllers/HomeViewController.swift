@@ -15,10 +15,15 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    registerNib()
     getMovies()
   }
     
-  
+    private func registerNib() {
+        let headerNib = UINib(nibName: HeaderCollectionReusableView.reusableId, bundle: nil)
+        collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.reusableId)
+    }
+    
   private func getMovies() {
     self.toogleHUD(show: true)
     Handler.getMovies(for: .featured, page: 1)
@@ -59,43 +64,6 @@ class HomeViewController: UIViewController {
     }
   }
 }
-/*
-// MARK: - CollectionViewDataSource
-extension HomeViewController: UICollectionViewDataSource {
- 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return movieCollectionViews.count
-    }
-   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return movieCollectionViews[section].type.rawValue
-  }
- 
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = (tableView.dequeueReusableCell(withIdentifier: MovieCollectionViewCell.reusableId, for: indexPath) as? MovieCollectionViewCell)!
-    cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.section)
-    let movieCollectonView = movieCollectionViews[indexPath.section]
-    cell.configure(with: movieCollectonView)
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 470.0
-  }
-  
-  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-    guard let header = view as? UITableViewHeaderFooterView else { return }
-    header.backgroundView?.backgroundColor = Color.lead
-    header.textLabel?.textColor = Color.yellow
-    header.textLabel?.font = UIFont(name: Font.regular.rawValue, size: 22.0)
-    header.textLabel?.frame = header.frame
-    header.textLabel?.textAlignment = .left
-  }
-  
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 30
-  }
-}*/
 
 // MARK: - Private
 private extension HomeViewController {
@@ -106,7 +74,8 @@ private extension HomeViewController {
 
 // MARK: - CollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
-  
+    //heightforrow 470
+    //heightforheader 30
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return movieCollectionViews.count
   }
@@ -121,8 +90,24 @@ extension HomeViewController: UICollectionViewDataSource {
     cell.configure(with: movie)
     return cell
   }
+  
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    switch kind {
+    case UICollectionElementKindSectionHeader:
+        let headerView = (collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.reusableId, for: indexPath) as? HeaderCollectionReusableView)!
+        headerView.titleLabel.text = movieCollectionViews[(indexPath as NSIndexPath).section].type.rawValue
+        return headerView
+    default:
+        assert(false, "Unexpected element kind")
+    }
+  }
 }
 
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 1000, height: 40)
+    }
+}
 // MARK: - CollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
