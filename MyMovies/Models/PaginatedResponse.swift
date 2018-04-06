@@ -24,4 +24,3 @@ struct PaginatedResponse: Mappable {
     results     <- map["results"]
   }
 }
-

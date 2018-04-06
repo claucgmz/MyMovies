@@ -65,7 +65,7 @@ class SearchViewController: UIViewController {
       return
     }
     
-    if identifier == .movieDetail {
+    if identifier == .movieDetailFromSearch {
       guard let controller = segue.destination as? MovieDetailViewController else {
         return
       }
@@ -73,7 +73,6 @@ class SearchViewController: UIViewController {
         guard let movie = sender as? Movie else {
           return
         }
-        
         controller.movieId = movie.id
         controller.genres = movie.genres
       }
@@ -107,7 +106,10 @@ extension SearchViewController: UITableViewDataSource {
 }
 // MARK: TableView Delegate
 extension SearchViewController: UITableViewDelegate {
-  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let result = results[indexPath.row]
+    performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearch.rawValue , sender: result)
+  }
 }
 
 extension SearchViewController: UISearchBarDelegate {
