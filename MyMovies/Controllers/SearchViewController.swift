@@ -11,7 +11,6 @@ import PromiseKit
 import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     var movieCollectionViews = [MovieCollectionView]()
     let searchController = UISearchController(searchResultsController: nil)
@@ -26,6 +25,19 @@ class SearchViewController: UIViewController {
         setupSearchController()
         setupScopeBar()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+      
+        self.toogleHUD(show: true)
+        Handler.searchMovies(by: "Zoo", page: 1)
+        .map ({ movies in
+          print(movies)
+        })
+        .done {
+          self.tableView.reloadData()
+          self.toogleHUD(show: false)
+        }
+        .catch({ error -> Void in
+          print(error)
+        })
     }
     
     func setupSearchController() {
