@@ -13,7 +13,7 @@ import DZNEmptyDataSet
 class SearchViewController: UIViewController {
   @IBOutlet weak private var tableView: UITableView!
   @IBOutlet weak private var searchBar: UISearchBar!
-  private var results = [SearchResult]()
+  private var results = [Movie]()
   private var currentpage = 1
   
   override func viewDidLoad() {
@@ -25,18 +25,20 @@ class SearchViewController: UIViewController {
     self.tableView.tableFooterView = UIView()
   }
   
-  private func performSearch() {
+  private func performSearch(clear: Bool) {
     guard let searchText = searchBar.text else {
       return
     }
     
-    cleanSearch()
-    
+    if clear == true {
+      cleanSearch()
+    }
+
     if !searchText.isEmpty {
       self.toogleHUD(show: true)
-      Handler.searchMovies(by: searchText, page: 1)
+      Handler.searchMovies(by: searchText, page: currentpage)
         .map ({ movies in
-          self.results = movies
+          self.results.append(contentsOf: movies)
         })
         .done {
           self.tableView.reloadData()
@@ -87,6 +89,14 @@ extension SearchViewController: UITableViewDataSource {
     cell.configure(with: result)
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    let lastCell = results.count - 1
+    if lastCell == indexPath.row {
+      currentpage += 1
+      performSearch(clear: false)
+    }
+  }
 }
 // MARK: TableView Delegate
 extension SearchViewController: UITableViewDelegate {
@@ -96,7 +106,7 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     searchBar.resignFirstResponder()
-    performSearch()
+    performSearch(clear: true)
   }
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
