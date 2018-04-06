@@ -52,6 +52,8 @@
 		5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C55206417A4002CD20E /* MovieList.swift */; };
 		9BB40E752076A2F80035727A /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB40E732076A2F80035727A /* HeaderCollectionReusableView.xib */; };
 		9BB40E762076A2F80035727A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E742076A2F80035727A /* HeaderCollectionReusableView.swift */; };
+		9BB40E7F2077F23F0035727A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E7E2077F23F0035727A /* CategoryCell.swift */; };
+		9BB40E812077F8670035727A /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E802077F8670035727A /* MovieCategory.swift */; };
 		9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0D206E9BFC0046156C /* AuthHandler.swift */; };
 		9BC23F10206E9C6E0046156C /* ProjectPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0F206E9C6E0046156C /* ProjectPath.swift */; };
 		9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F11206E9D850046156C /* LoginViewController.swift */; };
@@ -109,6 +111,8 @@
 		6AC85C35C42560A044A1437F /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		9BB40E732076A2F80035727A /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		9BB40E742076A2F80035727A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		9BB40E7E2077F23F0035727A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		9BB40E802077F8670035727A /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
 		9BC23F0D206E9BFC0046156C /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		9BC23F0F206E9C6E0046156C /* ProjectPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPath.swift; sourceTree = "<group>"; };
 		9BC23F11206E9D850046156C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				5FBBB3F8206899CA0094F0A2 /* Rating.swift */,
 				5FBB06F82068E29B004E7F98 /* MovieBrief.swift */,
 				5F93A432206B0208003A47CF /* MovieSave.swift */,
+				9BB40E802077F8670035727A /* MovieCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				5F029A742069FFA300DCED36 /* SelectableMovieListCell.swift */,
 				9BB40E732076A2F80035727A /* HeaderCollectionReusableView.xib */,
 				9BB40E742076A2F80035727A /* HeaderCollectionReusableView.swift */,
+				9BB40E7E2077F23F0035727A /* CategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -505,6 +511,7 @@
 				9BC23F83207416420046156C /* ReachabilityManager.swift in Sources */,
 				5F72844E20686C88009D0DBC /* Handler.swift in Sources */,
 				5F914CEB206C3C7F002B4CB7 /* FirebasePath.swift in Sources */,
+				9BB40E7F2077F23F0035727A /* CategoryCell.swift in Sources */,
 				5F6E24B22069A74600B203E9 /* MovieCell.swift in Sources */,
 				5FB08EC32061AF8200DDDC65 /* UITableViewCell+ReusableId.swift in Sources */,
 				5FB08ECD2061C56C00DDDC65 /* MovieType.swift in Sources */,
@@ -512,6 +519,7 @@
 				5F6E24B42069A7A700B203E9 /* MovieListDetailViewController.swift in Sources */,
 				5F029A752069FFA300DCED36 /* SelectableMovieListCell.swift in Sources */,
 				5FB08EB22061964800DDDC65 /* APIManager.swift in Sources */,
+				9BB40E812077F8670035727A /* MovieCategory.swift in Sources */,
 				5FB08EB32061964800DDDC65 /* MyMoviesRouter.swift in Sources */,
 				9BC23F4A207244990046156C /* SearchViewController.swift in Sources */,
 				5F9D84892062F2A2003E61DD /* Genre.swift in Sources */,

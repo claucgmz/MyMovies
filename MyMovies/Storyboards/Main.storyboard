@@ -627,7 +627,6 @@
         <!--Home-->
         <scene sceneID="SjU-MS-3QT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N55-Zl-X7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S04-0T-B3e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="Sa2-sB-hK3"/>
                     <toolbarItems/>
@@ -641,6 +640,7 @@
                         <segue destination="9OF-2x-pi9" kind="relationship" relationship="rootViewController" id="ic5-F5-wBi"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N55-Zl-X7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1935" y="-1265"/>
         </scene>
@@ -754,6 +754,6 @@
         <image name="movie" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KJV-l8-e65"/>
+        <segue reference="on3-YU-Ydu"/>
     </inferredMetricsTieBreakers>
 </document>
