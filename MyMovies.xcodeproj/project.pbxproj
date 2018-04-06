@@ -52,6 +52,7 @@
 		5FC9557D2077EA2A007988C6 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9557C2077EA2A007988C6 /* SearchResultCell.swift */; };
 		5FC9557F2077EA5B007988C6 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9557E2077EA5B007988C6 /* SearchResult.swift */; };
 		5FC955812077FC4F007988C6 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC955802077FC4F007988C6 /* Date+Format.swift */; };
+		5FC9558520780412007988C6 /* PaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9558420780412007988C6 /* PaginatedResponse.swift */; };
 		5FCC4C522064150E002CD20E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC4C512064150E002CD20E /* GoogleService-Info.plist */; };
 		5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C55206417A4002CD20E /* MovieList.swift */; };
 		9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0D206E9BFC0046156C /* AuthHandler.swift */; };
@@ -110,6 +111,7 @@
 		5FC9557C2077EA2A007988C6 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		5FC9557E2077EA5B007988C6 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		5FC955802077FC4F007988C6 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		5FC9558420780412007988C6 /* PaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResponse.swift; sourceTree = "<group>"; };
 		5FCC4C512064150E002CD20E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FCC4C55206417A4002CD20E /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		6AC85C35C42560A044A1437F /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				5FBB06F82068E29B004E7F98 /* MovieBrief.swift */,
 				5F93A432206B0208003A47CF /* MovieSave.swift */,
 				5FC9557E2077EA5B007988C6 /* SearchResult.swift */,
+				5FC9558420780412007988C6 /* PaginatedResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				5FA0F4FC2068DB0300633AA5 /* MovieListViewController.swift in Sources */,
 				9BC23F83207416420046156C /* ReachabilityManager.swift in Sources */,
 				5F72844E20686C88009D0DBC /* Handler.swift in Sources */,
+				5FC9558520780412007988C6 /* PaginatedResponse.swift in Sources */,
 				5F914CEB206C3C7F002B4CB7 /* FirebasePath.swift in Sources */,
 				5F6E24B22069A74600B203E9 /* MovieCell.swift in Sources */,
 				5FB08EC32061AF8200DDDC65 /* UITableViewCell+ReusableId.swift in Sources */,

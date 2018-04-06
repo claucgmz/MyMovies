@@ -15,6 +15,7 @@ class SearchViewController: UIViewController {
   @IBOutlet weak private var searchBar: UISearchBar!
   private var results = [Movie]()
   private var currentpage = 1
+  private var totalPages = 1
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,8 +38,10 @@ class SearchViewController: UIViewController {
     if !searchText.isEmpty {
       self.toogleHUD(show: true)
       Handler.searchMovies(by: searchText, page: currentpage)
-        .map ({ movies in
-          self.results.append(contentsOf: movies)
+        .map ({ response in
+          self.totalPages = response.totalPages
+          self.currentpage = response.currentPage
+          self.results.append(contentsOf: response.results)
         })
         .done {
           self.tableView.reloadData()
@@ -53,6 +56,7 @@ class SearchViewController: UIViewController {
   private func cleanSearch() {
     results = []
     currentpage = 1
+    totalPages = 1
     tableView.reloadData()
   }
   
@@ -93,8 +97,11 @@ extension SearchViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     let lastCell = results.count - 1
     if lastCell == indexPath.row {
-      currentpage += 1
-      performSearch(clear: false)
+      let nextPage = currentpage + 1
+      if nextPage <= totalPages {
+        currentpage = nextPage
+        performSearch(clear: false)
+      }
     }
   }
 }
