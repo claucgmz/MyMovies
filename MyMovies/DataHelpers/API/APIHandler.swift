@@ -40,4 +40,17 @@ struct APIHandler {
         })
     }
   }
+    static func getMovieByName(name: String) -> Promise <[String: Any]> {
+        return Promise { resolve in
+            sessionManager.request(MyMoviesRouter.searchMovie(name: name))
+            .validate()
+            .responseJSON(completionHandler: { response in
+            if let json = response.result.value as? [String: Any] {
+                resolve.fulfill(json)
+            } else if let error = response.error {
+                resolve.reject(error)
+            }
+        })
+        }
+    }
 }
