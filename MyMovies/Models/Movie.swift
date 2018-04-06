@@ -8,12 +8,12 @@
 
 import ObjectMapper
 
-struct Movie: Mappable {
-  var id: Int!
-  var title: String!
+struct Movie: Mappable, SearchResult {
+  var id = 0
+  var title = ""
   var posterPath = ""
   var backPath = ""
-  var sinopsis: String!
+  var sinopsis = ""
   var releaseDate = Date()
   var genres = [Genre]()
   var runtime = 0

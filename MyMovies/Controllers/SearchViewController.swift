@@ -11,25 +11,32 @@ import PromiseKit
 import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    var movieCollectionViews = [MovieCollectionView]()
-    let searchController = UISearchController(searchResultsController: nil)
-    var movies = [Movie]()
-    var filteredMovies = [Movie]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
-        getMovies()
-        setupSearchController()
-        setupScopeBar()
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-      
-        self.toogleHUD(show: true)
-        Handler.searchMovies(by: "Zoo", page: 1)
+  @IBOutlet weak private var tableView: UITableView!
+  @IBOutlet weak private var searchBar: UISearchBar!
+  private var results = [SearchResult]()
+  private var currentpage = 1
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    searchBar.becomeFirstResponder()
+    tableView.emptyDataSetSource = self
+    tableView.emptyDataSetDelegate = self
+    searchBar.placeholder = "Search movies..."
+    self.tableView.tableFooterView = UIView()
+  }
+  
+  private func performSearch() {
+    guard let searchText = searchBar.text else {
+      return
+    }
+    
+    cleanSearch()
+    
+    if !searchText.isEmpty {
+      self.toogleHUD(show: true)
+      Handler.searchMovies(by: searchText, page: 1)
         .map ({ movies in
-          print(movies)
+          self.results = movies
         })
         .done {
           self.tableView.reloadData()
@@ -39,143 +46,77 @@ class SearchViewController: UIViewController {
           print(error)
         })
     }
-    
-    func setupSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Movie"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+  }
+  
+  private func cleanSearch() {
+    results = []
+    currentpage = 1
+    tableView.reloadData()
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
+      return
     }
     
-    func setupScopeBar() {
-        searchController.searchBar.scopeButtonTitles = [Genre.all.description, Genre.action.description, Genre.adventure.description, Genre.comedy.description]
-        searchController.searchBar.delegate = self
-    }
-    
-    private func getMovies() {
-        self.toogleHUD(show: true)
-        Handler.getMovies(for: .featured, page: 1)
-            .then ({ movies -> Promise<[Movie]> in
-                self.movies = movies
-                return Handler.getMovies(for: .upcoming, page: 1)
-            })
-            .map ({ movies in
-                self.movies = movies
-            })
-            .done {
-                self.tableView.reloadData()
-                self.toogleHUD(show: false)
-            }
-            .catch({ error -> Void in
-                print(error)
-            })
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
-            return
+    if identifier == .movieDetail {
+      guard let controller = segue.destination as? MovieDetailViewController else {
+        return
+      }
+      if sender is Movie {
+        guard let movie = sender as? Movie else {
+          return
         }
         
-        if identifier == .movieDetail {
-            guard let controller = segue.destination as? MovieDetailViewController else {
-                return
-            }
-            if sender is Movie {
-                guard let movie = sender as? Movie else {
-                    return
-                }
-                
-                controller.movieId = movie.id
-                controller.genres = movie.genres
-            }
-        }
+        controller.movieId = movie.id
+        controller.genres = movie.genres
+      }
     }
+  }
 }
-// MARK: DataSource
-extension SearchViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering() {
-            return filteredMovies.count
-        }
-        return movies.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let movie: Movie
-        if isFiltering() {
-            movie = filteredMovies[indexPath.row]
-        } else {
-            movie = movies[indexPath.row]
-        }
-        cell.textLabel!.text = movie.title
-        cell.detailTextLabel!.text = movie.tagline
-        return cell
-    }
-    // MARK: - Private instance methods
-    
-    func filterContentForSearchText(_ searchText: String, scope: String = Genre.all.description) {
-        filteredMovies = movies.filter({(movie: Movie) -> Bool in
-            let genres = movie.genresString.components(separatedBy: " | ")
-            let doesCategoryMatch = ( scope == Genre.all.description ) || ( genres.contains(scope))
-            
-            if searchBarIsEmpty() {
-                return doesCategoryMatch
-            } else {
-                return doesCategoryMatch && movie.title.lowercased().contains(searchText.lowercased())
-            }
-        })
-        tableView.reloadData()
-    }
-    
-    func searchBarIsEmpty() -> Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
-    func isFiltering() -> Bool {
-        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
-        return searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
-    }
 
+// MARK: TableView DataSource
+extension SearchViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return results.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = (tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reusableId, for: indexPath) as? SearchResultCell)!
+    let result = results[indexPath.row]
+    cell.configure(with: result)
+    return cell
+  }
 }
-    // MARK: TableView Delegate
+// MARK: TableView Delegate
 extension SearchViewController: UITableViewDelegate {
-    
+  
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    // MARK: - UISearchBar Delegate
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+    performSearch()
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText.isEmpty {
+      cleanSearch()
     }
+  }
 }
 
-extension SearchViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
-    }
-}
-    //Mark: - DZNEmptyDataSetSource Protocol
 extension SearchViewController: DZNEmptyDataSetSource {
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "list")
-    }
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Sorry, We couldn't find any review.")
-    }
+  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    return UIImage(named: "search")
+  }
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    return NSAttributedString(string: "No results to show")
+  }
 }
 
 extension SearchViewController: DZNEmptyDataSetDelegate {
-    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        return true
-    }
+  func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    return true
+  }
 }
