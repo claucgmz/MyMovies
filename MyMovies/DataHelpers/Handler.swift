@@ -25,9 +25,9 @@ struct Handler {
     }
   }
   
-  static func searchMovies(by name: String, page: Int = 1) -> Promise <[Movie]> {
-    return APIHandler.searchMovies(by: name, page: page).map { data -> [Movie] in
-      return ParseHandler.parseMovies(with: data)
+  static func searchMovies(by name: String, page: Int = 1) -> Promise <PaginatedResponse> {
+    return APIHandler.searchMovies(by: name, page: page).map { data -> PaginatedResponse in
+      return ParseHandler.parsePaginatedResponse(with: data)
     }
   }
   

@@ -235,7 +235,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-Sj-NPV">
                                                     <rect key="frame" x="10" y="10" width="322" height="79.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-FD-PF7">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie-b" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-FD-PF7">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="79.5"/>
                                                             <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -334,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dZ-hd-zyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="963"/>
+            <point key="canvasLocation" x="433" y="888"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j3X-F0-bmb">
@@ -576,7 +576,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-8a-VmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="-651.2743628185907"/>
+            <point key="canvasLocation" x="1660" y="176"/>
         </scene>
         <!--Select List-->
         <scene sceneID="iaT-rj-4F3">
@@ -655,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWX-tN-a7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2598" y="-651"/>
+            <point key="canvasLocation" x="2558" y="348"/>
         </scene>
         <!--Home-->
         <scene sceneID="SjU-MS-3QT">
@@ -718,8 +718,9 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-FF-LBm">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-XG-dnC">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie-b" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-XG-dnC">
                                                             <rect key="frame" x="0.0" y="10" width="60" height="60"/>
+                                                            <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="17g-Bh-1bs"/>
                                                                 <constraint firstAttribute="width" constant="60" id="nb9-7l-LB0"/>
@@ -798,11 +799,12 @@
                     <connections>
                         <outlet property="searchBar" destination="W3e-XA-cfC" id="N9X-Rq-zHI"/>
                         <outlet property="tableView" destination="Zzr-F3-TKK" id="rCf-mM-0nI"/>
+                        <segue destination="V24-5j-fdA" kind="show" identifier="movieDetailFromSearch" id="Zko-Gq-DKd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MX-cr-NZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271.19999999999999" y="1226.5367316341831"/>
+            <point key="canvasLocation" x="433" y="1754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RV5-CB-I27">
@@ -831,6 +833,7 @@
         <image name="home" width="25" height="25"/>
         <image name="list" width="100" height="100"/>
         <image name="movie" width="25" height="25"/>
+        <image name="movie-b" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KJV-l8-e65"/>
