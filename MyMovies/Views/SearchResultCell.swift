@@ -26,4 +26,8 @@ class SearchResultCell: UITableViewCell {
       thumbnailView.af_setImage(withURL: url)
     }
   }
+  
+  override func prepareForReuse() {
+    thumbnailView.image = nil
+  }
 }

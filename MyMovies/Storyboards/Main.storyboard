@@ -235,7 +235,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-Sj-NPV">
                                                     <rect key="frame" x="10" y="10" width="322" height="79.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-FD-PF7">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie-b" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-FD-PF7">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="79.5"/>
                                                             <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -718,8 +718,9 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-FF-LBm">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-XG-dnC">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie-b" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-XG-dnC">
                                                             <rect key="frame" x="0.0" y="10" width="60" height="60"/>
+                                                            <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="17g-Bh-1bs"/>
                                                                 <constraint firstAttribute="width" constant="60" id="nb9-7l-LB0"/>
@@ -832,8 +833,9 @@
         <image name="home" width="25" height="25"/>
         <image name="list" width="100" height="100"/>
         <image name="movie" width="25" height="25"/>
+        <image name="movie-b" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zko-Gq-DKd"/>
+        <segue reference="KJV-l8-e65"/>
     </inferredMetricsTieBreakers>
 </document>
