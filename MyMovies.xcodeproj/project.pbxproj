@@ -231,6 +231,7 @@
 			children = (
 				5F07A3BE206182CE00209566 /* Extensions */,
 				5FB08ECC2061C56C00DDDC65 /* MovieType.swift */,
+				9BC23F0F206E9C6E0046156C /* ProjectPath.swift */,
 				5F9D84862062C75F003E61DD /* SegueIdentifier.swift */,
 				5F9D84882062F2A2003E61DD /* Genre.swift */,
 				5F1A169E20632081007B272E /* Color.swift */,
@@ -298,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				9BC23F0D206E9BFC0046156C /* AuthHandler.swift */,
-				9BC23F0F206E9C6E0046156C /* ProjectPath.swift */,
 			);
 			path = AuthHelpers;
 			sourceTree = "<group>";
