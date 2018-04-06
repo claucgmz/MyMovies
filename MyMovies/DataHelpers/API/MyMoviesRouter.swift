@@ -9,19 +9,12 @@
 import Alamofire
 
 enum MyMoviesRouter: URLRequestConvertible {
-
-  case getFeatured(page: Int)
-  case getUpcoming(page: Int)
   case getMovie(id: String)
   case getMovies(type: MovieType, page: Int)
-  case searchMovie(name: String)
+  case searchMovie(name: String, page: Int)
   
   var path: String {
     switch self {
-    case .getFeatured:
-      return "/movie/popular"
-    case .getUpcoming:
-      return "/movie/upcoming"
     case .getMovie(let id):
       return "/movie/\(id)"
     case .getMovies(let type, _):
@@ -32,23 +25,19 @@ enum MyMoviesRouter: URLRequestConvertible {
         return "/movie/popular"
       }
     case .searchMovie:
-        return "/search/keyword"
+        return "/search/movie"
     }
   }
   
   var parameters: [String: Any] {
     var parameters: [String: Any] = [:]
     switch self {
-    case .getFeatured(let page):
-      parameters = ["page": page]
-    case .getUpcoming(let page):
-      parameters = ["page": page]
     case .getMovie:
       parameters = [:]
     case .getMovies(_, let page):
       parameters = ["page": page]
-    case .searchMovie(let name):
-        parameters = ["keyword": name]
+    case .searchMovie(let name, let page):
+        parameters = ["query": name, "page": page]
     }
     parameters["api_key"] = APIManager.APIkey
     return parameters
@@ -56,7 +45,7 @@ enum MyMoviesRouter: URLRequestConvertible {
   
   var method: HTTPMethod {
     switch self {
-    case .getFeatured, .getUpcoming, .getMovie, .getMovies, .searchMovie:
+    case .getMovie, .getMovies, .searchMovie:
       return .get
     }
   }
