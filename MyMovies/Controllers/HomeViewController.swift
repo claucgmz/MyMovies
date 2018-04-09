@@ -13,8 +13,8 @@ class HomeViewController: UICollectionViewController {
   fileprivate let cellId = "cellId"
   private var movieCollectionViews = [MovieCollectionView]()
   var movieCategories = [MovieCategory]()
-  private var currentpage = 1
-  private var totalPages = 1
+  var currentpage = 1
+  var totalPages = 1
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,17 +23,17 @@ class HomeViewController: UICollectionViewController {
     getMovies()
   }
     
-  private func getMovies() {
+  func getMovies() {
     self.toogleHUD(show: true)
-    Handler.getMovies(for: .featured, page: 1)
-      .then ({ movies -> Promise<[Movie]> in
-        self.movieCategories.append(MovieCategory(name: .featured, movies: movies))
-        self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
-        return Handler.getMovies(for: .upcoming, page: 1)
+    Handler.getMovies(for: .featured, page: currentpage)
+      .then ({ response -> Promise<PaginatedResponse> in
+        self.findOrCreateCategory(type: .featured, movies: response.results)
+        return Handler.getMovies(for: .upcoming, page: self.currentpage)
       })
-      .map ({ movies in
-        self.movieCategories.append(MovieCategory(name: .upcoming, movies: movies))
-        self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
+      .map ({ response in
+        self.totalPages = response.totalPages
+        self.currentpage = response.currentPage
+        self.findOrCreateCategory(type: .upcoming, movies: response.results)
       })
       .done {
         self.collectionView?.reloadData()
@@ -43,6 +43,17 @@ class HomeViewController: UICollectionViewController {
         print(error)
       })
   }
+    
+    private func findOrCreateCategory(type: MovieType, movies: [Movie]) {
+        if let categoryIndex = self.movieCategories.index(where: {$0.type == type.rawValue}) {
+            self.movieCategories[categoryIndex].movies?.append(contentsOf: movies)
+            self.movieCollectionViews[categoryIndex].movies.append(contentsOf: movies)
+        } else {
+            self.movieCategories.append(MovieCategory(name: type, movies: movies))
+            self.movieCollectionViews.append(MovieCollectionView(type: type, movies: movies))
+        }
+        
+    }
     
     func showMovieDetailForMovie(_ movie: Movie) {
         performSegue(withIdentifier: SegueIdentifier.movieDetail.rawValue, sender: movie)
@@ -79,7 +90,6 @@ class HomeViewController: UICollectionViewController {
     
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if !movieCategories.isEmpty {
-        print("regresa count \(movieCategories.count)")
         return movieCategories.count
     }
     return 0

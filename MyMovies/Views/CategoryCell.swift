@@ -87,10 +87,21 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieCollectionCell)
+        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? MovieCollectionCell)!
         let movie = (movieCategory?.movies![indexPath.item])!
         cell.configure(with: movie)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastCell = (movieCategory?.movies?.count)! - 1
+        if lastCell == indexPath.row {
+            let nextPage = (featuredAppsController?.currentpage)! + 1
+            if nextPage <= (featuredAppsController?.totalPages)! {
+                featuredAppsController?.currentpage = nextPage
+                featuredAppsController?.getMovies()
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
