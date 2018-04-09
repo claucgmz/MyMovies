@@ -16,6 +16,7 @@ class SearchViewController: UIViewController {
   private var currentpage = 1
   private var totalPages = 1
   var genre: Genre?
+  var searchText: String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,6 +24,11 @@ class SearchViewController: UIViewController {
     tableView.emptyDataSetDelegate = self
     self.tableView.tableFooterView = UIView()
     performGenreSearch()
+  }
+  
+  func performSearch(with text: String) {
+    searchText = text
+    performSearch(clear: true)
   }
   
   private func performGenreSearch() {
@@ -48,8 +54,10 @@ class SearchViewController: UIViewController {
   }
   
   private func performSearch(clear: Bool) {
-    let searchText = ""
-    
+    guard let searchText = searchText else {
+      return
+    }
+
     if clear == true {
       cleanSearch()
     }

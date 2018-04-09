@@ -13,6 +13,8 @@ class MovieGenresViewController: UIViewController {
   @IBOutlet private weak var searchBarContainer: UIView!
   private var searchController: UISearchController?
   private var genres = [Genre]()
+  private var resultsController: SearchViewController?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSearchController()
@@ -20,10 +22,10 @@ class MovieGenresViewController: UIViewController {
   }
   
   private func configureSearchController() {
+    let storyboard = UIStoryboard(name: StoryboardPath.main.rawValue, bundle: nil)
+    resultsController = (storyboard.instantiateViewController(withIdentifier: ViewControllerPath.searchViewController.rawValue) as? SearchViewController)!
+    
     searchController = ({
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let resultsController = (storyboard.instantiateViewController(withIdentifier: "searchResults") as? SearchViewController)!
-      
       let searchController = UISearchController(searchResultsController: resultsController)
       searchController.searchResultsUpdater = self
       searchController.hidesNavigationBarDuringPresentation = true
@@ -94,7 +96,12 @@ extension MovieGenresViewController: UICollectionViewDelegateFlowLayout {
 extension MovieGenresViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     searchBar.resignFirstResponder()
-    print("hellooo")
+    guard let searchText = searchBar.text else {
+      return
+    }
+    
+    resultsController?.performSearch(with: searchText)
+    
   }
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

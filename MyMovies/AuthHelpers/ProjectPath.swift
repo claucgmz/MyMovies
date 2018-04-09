@@ -9,11 +9,12 @@
 import Foundation
 
 enum StoryboardPath: String {
-    case main = "Main"
-    case login = "Login"
+  case main = "Main"
+  case login = "Login"
 }
 
 enum ViewControllerPath: String {
-    case loginViewController = "LoginViewController"
-    case homeViewController = "HomeViewController"
+  case loginViewController = "LoginViewController"
+  case homeViewController = "HomeViewController"
+  case searchViewController = "SearchViewController"
 }
