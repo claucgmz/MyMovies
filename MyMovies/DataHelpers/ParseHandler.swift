@@ -46,6 +46,15 @@ struct ParseHandler {
     return briefs
   }
   
+  static func parsePaginatedResponse(with data: [String: Any]) -> PaginatedResponse {
+    
+    guard let response = Mapper<PaginatedResponse>().map(JSON: data)  else {
+      return PaginatedResponse(JSON: [:])!
+    }
+    
+    return response
+  }
+  
   static func parseDictionaryKeysToArray(with data: [String: Any]) -> [String] {
     return Array(data.keys)
   }
