@@ -140,7 +140,7 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+      //  filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 }
     // MARK: - DZNEmptyDataSetSource Protocol

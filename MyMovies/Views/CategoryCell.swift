@@ -11,15 +11,16 @@ import UIKit
 class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var featuredAppsController: HomeViewController?
-    fileprivate let cellId = "movieCellId"
+    fileprivate let cellId = "MovieCollectionCell"
     var movieCategory: MovieCategory? {
         didSet {
             if let name = movieCategory?.name {
                 nameLabel.text = name
             }
-            appsCollectionView.reloadData()
+            moviesCollectionView.reloadData()
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -37,7 +38,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         return label
     }()
     
-    let appsCollectionView: UICollectionView = {
+    let moviesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -58,22 +59,22 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     func setupViews() {
         backgroundColor = UIColor.clear
         
-        addSubview(appsCollectionView)
+        addSubview(moviesCollectionView)
         addSubview(dividerLineView)
         addSubview(nameLabel)
         
-        appsCollectionView.dataSource = self
-        appsCollectionView.delegate = self
+        moviesCollectionView.dataSource = self
+        moviesCollectionView.delegate = self
         
-        appsCollectionView.register(MovieCollectionCell.self, forCellWithReuseIdentifier: cellId)
+        moviesCollectionView.register(MovieCollectionCell.self, forCellWithReuseIdentifier: cellId)
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-14-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-14-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": dividerLineView]))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": moviesCollectionView]))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[nameLabel(30)][v0][v1(0.5)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView, "v1": dividerLineView, "nameLabel": nameLabel]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[nameLabel(30)][v0][v1(0.5)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": moviesCollectionView, "v1": dividerLineView, "nameLabel": nameLabel]))
         
     }
     
@@ -85,8 +86,10 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieCollectionCell
-        cell.movies = movieCategory?.movies[indexPath.item]
+        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieCollectionCell)
+        let movie = (movieCategory?.movies![indexPath.item])!
+        print("\(movie)")
+        cell.configure(with: movie)
         return cell
     }
     
@@ -99,8 +102,8 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let app = appCategory?.apps?[indexPath.item] {
-            featuredAppsController?.showAppDetailForApp(app)
+        if let movie = movieCategory?.movies?[indexPath.item] {
+            featuredAppsController?.showMovieDetailForMovie(movie)
         }
         
     }
