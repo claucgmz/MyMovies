@@ -9,39 +9,61 @@
 import UIKit
 import PromiseKit
 
-class HomeViewController: UIViewController {
-  @IBOutlet private weak var tableView: UITableView!
+class HomeViewController: UICollectionViewController {
+  fileprivate let cellId = "cellId"
   private var movieCollectionViews = [MovieCollectionView]()
+  var movieCategories = [MovieCategory]()
+  var currentpage = 1
+  var totalPages = 1
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.title = "Movies"
+    collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
     getMovies()
   }
-  
-  private func getMovies() {
+    
+  func getMovies() {
     self.toogleHUD(show: true)
-    Handler.getMovies(for: .featured, page: 1)
-      .then ({ movies -> Promise<[Movie]> in
-        self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
-        return Handler.getMovies(for: .upcoming, page: 1)
+    Handler.getMovies(for: .featured, page: currentpage)
+      .then ({ response -> Promise<PaginatedResponse> in
+        self.findOrCreateCategory(type: .featured, movies: response.results)
+        return Handler.getMovies(for: .upcoming, page: self.currentpage)
       })
-      .map ({ movies in
-        self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
+      .map ({ response in
+        self.totalPages = response.totalPages
+        self.currentpage = response.currentPage
+        self.findOrCreateCategory(type: .upcoming, movies: response.results)
       })
       .done {
-        self.tableView.reloadData()
+        self.collectionView?.reloadData()
         self.toogleHUD(show: false)
       }
       .catch({ error -> Void in
         print(error)
       })
   }
+    
+    private func findOrCreateCategory(type: MovieType, movies: [Movie]) {
+        if let categoryIndex = self.movieCategories.index(where: {$0.type == type.rawValue}) {
+            self.movieCategories[categoryIndex].movies?.append(contentsOf: movies)
+            self.movieCollectionViews[categoryIndex].movies.append(contentsOf: movies)
+        } else {
+            self.movieCategories.append(MovieCategory(name: type, movies: movies))
+            self.movieCollectionViews.append(MovieCollectionView(type: type, movies: movies))
+        }
+        
+    }
+    
+    func showMovieDetailForMovie(_ movie: Movie) {
+        performSegue(withIdentifier: SegueIdentifier.movieDetail.rawValue, sender: movie)
+    }
   
+    // MARK: - Navigation with segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
       return
     }
-    
     if identifier == .movieDetail {
       guard let controller = segue.destination as? MovieDetailViewController else {
         return
@@ -50,74 +72,39 @@ class HomeViewController: UIViewController {
         guard let movie = sender as? Movie else {
           return
         }
-        
+        //May we need to change this for just configure(movie) the complete movie
+        // because in this way we need a second request
         controller.movieId = movie.id
         controller.genres = movie.genres
       }
     }
   }
-}
 
-extension HomeViewController: UITableViewDataSource {
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return movieCollectionViews.count
-  }
-  
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return movieCollectionViews[section].type.rawValue
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func movieForIndexPath(indexPath: IndexPath) -> Movie {
+        return movieCollectionViews[(indexPath as NSIndexPath).section].movies[(indexPath as IndexPath).row]
+    }
+
+  override func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = (tableView.dequeueReusableCell(withIdentifier: MovieCollectionViewCell.reusableId, for: indexPath) as? MovieCollectionViewCell)!
-    cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.section)
-    let movieCollectonView = movieCollectionViews[indexPath.section]
-    cell.configure(with: movieCollectonView)
-    return cell
+    
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    if !movieCategories.isEmpty {
+        return movieCategories.count
+    }
+    return 0
   }
   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 470.0
-  }
-  
-  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-    guard let header = view as? UITableViewHeaderFooterView else { return }
-    header.backgroundView?.backgroundColor = Color.lead
-    header.textLabel?.textColor = Color.yellow
-    header.textLabel?.font = UIFont(name: Font.regular.rawValue, size: 22.0)
-    header.textLabel?.frame = header.frame
-    header.textLabel?.textAlignment = .left
-  }
-  
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 30
-  }
-}
-
-extension HomeViewController: UITableViewDelegate {
-  
-}
-
-extension HomeViewController: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return movieCollectionViews[collectionView.tag].movies.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionCell.reusableId, for: indexPath) as? MovieCollectionCell)!
-    let movie = movieCollectionViews[collectionView.tag].movies[indexPath.row]
-    cell.configure(with: movie)
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell)
+    cell.movieCategory = movieCategories[indexPath.item]
+    cell.featuredAppsController = self
     return cell
   }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let movie = movieCollectionViews[collectionView.tag].movies[indexPath.row]
-    performSegue(withIdentifier: SegueIdentifier.movieDetail.rawValue, sender: movie)
-  }
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 230)
+    }
 }
