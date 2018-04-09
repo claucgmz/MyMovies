@@ -12,7 +12,9 @@ import PromiseKit
 class HomeViewController: UICollectionViewController {
   fileprivate let cellId = "cellId"
   private var movieCollectionViews = [MovieCollectionView]()
-    var movieCategories = [MovieCategory]()
+  var movieCategories = [MovieCategory]()
+  private var currentpage = 1
+  private var totalPages = 1
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,18 +27,12 @@ class HomeViewController: UICollectionViewController {
     self.toogleHUD(show: true)
     Handler.getMovies(for: .featured, page: 1)
       .then ({ movies -> Promise<[Movie]> in
-        let featuredCategory = MovieCategory()
-        featuredCategory.name = "The best featured movies"
-        featuredCategory.movies = movies
-        self.movieCategories.append(featuredCategory)
+        self.movieCategories.append(MovieCategory(name: .featured, movies: movies))
         self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
         return Handler.getMovies(for: .upcoming, page: 1)
       })
       .map ({ movies in
-        let upcomingCategory = MovieCategory()
-        upcomingCategory.name = "The best upcoming movies"
-        upcomingCategory.movies = movies
-        self.movieCategories.append(upcomingCategory)
+        self.movieCategories.append(MovieCategory(name: .upcoming, movies: movies))
         self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
       })
       .done {

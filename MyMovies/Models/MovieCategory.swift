@@ -11,4 +11,9 @@ import Foundation
 class MovieCategory {
     var name: String?
     var movies: [Movie]?
+    
+    init(name: MovieType, movies: [Movie]) {
+        self.movies = movies
+        self.name = "The best \(name) movies"
+    }
 }
