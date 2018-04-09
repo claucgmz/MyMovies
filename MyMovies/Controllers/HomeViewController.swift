@@ -9,8 +9,7 @@
 import UIKit
 import PromiseKit
 
-class HomeViewController: UIViewController {
-  @IBOutlet weak var collectionView: UICollectionView!
+class HomeViewController: UICollectionViewController {
   private var movieCollectionViews = [MovieCollectionView]()
   
   override func viewDidLoad() {
@@ -21,7 +20,7 @@ class HomeViewController: UIViewController {
     
     private func registerNib() {
         let headerNib = UINib(nibName: HeaderCollectionReusableView.reusableId, bundle: nil)
-        collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.reusableId)
+        collectionView?.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.reusableId)
     }
     
   private func getMovies() {
@@ -35,7 +34,7 @@ class HomeViewController: UIViewController {
         self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
       })
       .done {
-        self.collectionView.reloadData()
+        self.collectionView?.reloadData()
         self.toogleHUD(show: false)
       }
       .catch({ error -> Void in

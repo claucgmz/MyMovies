@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var featuredAppsController: UICollectionViewController?
+    var featuredAppsController: HomeViewController?
     fileprivate let cellId = "movieCellId"
     var movieCategory: MovieCategory? {
         didSet {
