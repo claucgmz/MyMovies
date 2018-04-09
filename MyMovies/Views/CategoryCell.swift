@@ -108,9 +108,9 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         return CGSize(width: 198, height: frame.height - 32)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 14, 0, 14)
-    }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+  }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let movie = movieCategory?.movies?[indexPath.item] {
