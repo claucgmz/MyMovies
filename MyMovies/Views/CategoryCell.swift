@@ -32,8 +32,9 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     
     let nameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = UIColor.white
         label.text = "Best New Movies"
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -88,13 +89,12 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieCollectionCell)
         let movie = (movieCategory?.movies![indexPath.item])!
-        print("\(movie)")
         cell.configure(with: movie)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: frame.height - 32)
+        return CGSize(width: 198, height: frame.height - 32)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -105,7 +105,6 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         if let movie = movieCategory?.movies?[indexPath.item] {
             featuredAppsController?.showMovieDetailForMovie(movie)
         }
-        
     }
     
 }

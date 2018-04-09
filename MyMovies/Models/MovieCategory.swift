@@ -11,5 +11,4 @@ import Foundation
 class MovieCategory {
     var name: String?
     var movies: [Movie]?
-    
 }

@@ -17,7 +17,6 @@ class HomeViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = "Movies"
-    collectionView?.backgroundColor = UIColor.white
     collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
     getMovies()
   }
@@ -27,6 +26,7 @@ class HomeViewController: UICollectionViewController {
     Handler.getMovies(for: .featured, page: 1)
       .then ({ movies -> Promise<[Movie]> in
         let featuredCategory = MovieCategory()
+        featuredCategory.name = "The best featured movies"
         featuredCategory.movies = movies
         self.movieCategories.append(featuredCategory)
         self.movieCollectionViews.append(MovieCollectionView(type: .featured, movies: movies))
@@ -34,6 +34,7 @@ class HomeViewController: UICollectionViewController {
       })
       .map ({ movies in
         let upcomingCategory = MovieCategory()
+        upcomingCategory.name = "The best upcoming movies"
         upcomingCategory.movies = movies
         self.movieCategories.append(upcomingCategory)
         self.movieCollectionViews.append(MovieCollectionView(type: .upcoming, movies: movies))
@@ -48,10 +49,7 @@ class HomeViewController: UICollectionViewController {
   }
     
     func showMovieDetailForMovie(_ movie: Movie) {
-        let movieDetailController = MovieDetailViewController()
-        movieDetailController.movieId = movie.id
-        movieDetailController.genres = movie.genres
-        navigationController?.pushViewController(movieDetailController, animated: true)
+        performSegue(withIdentifier: SegueIdentifier.movieDetail.rawValue, sender: movie)
     }
   
     // MARK: - Navigation with segue
@@ -79,8 +77,6 @@ class HomeViewController: UICollectionViewController {
         return movieCollectionViews[(indexPath as NSIndexPath).section].movies[(indexPath as IndexPath).row]
     }
 
-    //heightforrow 470
-    //heightforheader 30
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
