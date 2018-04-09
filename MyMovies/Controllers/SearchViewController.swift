@@ -12,24 +12,43 @@ import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
   @IBOutlet weak private var tableView: UITableView!
-  @IBOutlet weak private var searchBar: UISearchBar!
   private var results = [Movie]()
   private var currentpage = 1
   private var totalPages = 1
+  var genre: Genre?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    searchBar.becomeFirstResponder()
     tableView.emptyDataSetSource = self
     tableView.emptyDataSetDelegate = self
-    searchBar.placeholder = "Search movies..."
     self.tableView.tableFooterView = UIView()
+    performGenreSearch()
+  }
+  
+  private func performGenreSearch() {
+    guard let genre = genre else {
+      return
+    }
+    
+    let genreId = genre.rawValue
+    self.toogleHUD(show: true)
+    Handler.getMoviesByGenre(by: genreId, page: currentpage)
+      .map ({ response in
+        self.totalPages = response.totalPages
+        self.currentpage = response.currentPage
+        self.results.append(contentsOf: response.results)
+      })
+      .done {
+        self.tableView.reloadData()
+        self.toogleHUD(show: false)
+      }
+      .catch({ error -> Void in
+        print(error)
+      })
   }
   
   private func performSearch(clear: Bool) {
-    guard let searchText = searchBar.text else {
-      return
-    }
+    let searchText = ""
     
     if clear == true {
       cleanSearch()
@@ -108,7 +127,7 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let result = results[indexPath.row]
-    performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearch.rawValue , sender: result)
+    performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearch.rawValue, sender: result)
   }
 }
 
