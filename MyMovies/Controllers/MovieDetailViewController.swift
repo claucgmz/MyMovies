@@ -26,7 +26,6 @@ class MovieDetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    cosmosViewActions()
     guard let movieId = movieId else {
       return
     }
@@ -44,6 +43,7 @@ class MovieDetailViewController: UIViewController {
       .done {
         self.updateUI()
         self.toogleHUD(show: false)
+        self.cosmosViewActions()
       }
       .catch({ error -> Void in
         print(error)

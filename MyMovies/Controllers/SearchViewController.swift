@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
   var genre: Genre?
   var searchText: String?
   weak var delegate: SearchViewControllerDelegate?
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.emptyDataSetSource = self
@@ -63,11 +63,11 @@ class SearchViewController: UIViewController {
     guard let searchText = searchText else {
       return
     }
-
+    
     if clear == true {
       cleanSearch()
     }
-
+    
     if !searchText.isEmpty {
       self.toogleHUD(show: true)
       Handler.searchMovies(by: searchText, page: currentpage)

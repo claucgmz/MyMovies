@@ -32,7 +32,7 @@ class MovieGenresViewController: UIViewController {
     searchController = ({
       let searchController = UISearchController(searchResultsController: resultsController)
       searchController.searchResultsUpdater = resultsController
-      searchController.hidesNavigationBarDuringPresentation = true
+      searchController.hidesNavigationBarDuringPresentation = false
       searchController.dimsBackgroundDuringPresentation = false
       searchController.searchBar.delegate = self
       //setup the search bar
