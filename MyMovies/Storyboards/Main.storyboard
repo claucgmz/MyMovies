@@ -470,6 +470,9 @@
                                                     <constraint firstAttribute="width" constant="40" id="bKS-S9-Qao"/>
                                                 </constraints>
                                                 <state key="normal" image="eye"/>
+                                                <connections>
+                                                    <action selector="setMovieWatched:" destination="V24-5j-fdA" eventType="touchUpInside" id="kxF-cv-n6b"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
@@ -509,6 +512,7 @@
                         <outlet property="cosmosView" destination="daS-Jr-fMo" id="RPg-vt-tfT"/>
                         <outlet property="genresLabel" destination="Ku8-cN-aKm" id="BG2-zN-zvb"/>
                         <outlet property="movieImageView" destination="NtQ-go-CSG" id="7nq-Dz-x54"/>
+                        <outlet property="movieWatchedButton" destination="eND-j2-CoK" id="FdO-Hp-x4m"/>
                         <outlet property="overviewLabel" destination="smc-8G-8Jf" id="Hck-la-3Px"/>
                         <outlet property="runtimeLabel" destination="zwl-DW-fae" id="QvX-3k-wZz"/>
                         <outlet property="taglineLabel" destination="fCu-LM-Yt2" id="6ue-DQ-GEE"/>

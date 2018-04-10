@@ -220,4 +220,47 @@ struct DBHandler {
       .child(FirebasePath.brief.rawValue)
       .setValue(movieBrief.toDictionary())
   }
+  
+  /// Connection handler to check if movie has been watched
+  ///
+  /// - Parameters:
+  ///  - movieId: String
+  /// - Returns: Nothing
+  
+  static func isMovieWatched(movieId: String) -> Promise <Bool> {
+    return Promise { resolve in
+      guard let userId = AuthHandler.getCurrentAuth() else {
+        return
+      }
+      moviesRef.child(movieId)
+        .child(FirebasePath.watched.rawValue)
+        .child(userId)
+        .observeSingleEvent(of: .value, with: { snapshot in
+          let data = snapshot.value as? Bool ?? false
+          resolve.fulfill(data)
+        })
+    }
+  }
+  
+  /// Connection handler to set if movie has been watched
+  ///
+  /// - Parameters:
+  ///  - movieId: String
+  ///  - watched: Bool
+  /// - Returns: Nothing
+  static func setMovieWatched(movieId: String, watched: Bool) {
+    guard let userId = AuthHandler.getCurrentAuth() else {
+      return
+    }
+    
+    let watchRef = moviesRef.child(movieId)
+      .child(FirebasePath.watched.rawValue)
+      .child(userId)
+    
+    if watched {
+      watchRef.setValue(true)
+    } else {
+      watchRef.removeValue()
+    }
+  }
 }
