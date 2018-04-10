@@ -20,7 +20,7 @@ class SearchResultCell: UITableViewCell {
     selectedBackgroundView = selectedView
   }
   func configure(with result: SearchResult) {
-    nameLabel.text = result.title
+    nameLabel.text = !result.title.isEmpty ? result.title : "No title"
     detailLabel.text = result.releaseDate.toString(withFormat: "MMM-dd-YYYY")
     if let url = URL(string: APIManager.baseImageURLthumbnail+result.posterPath) {
       thumbnailView.af_setImage(withURL: url)

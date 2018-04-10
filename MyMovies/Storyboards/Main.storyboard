@@ -58,7 +58,7 @@
                                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieListCell" textLabel="4i1-IR-kB1" style="IBUITableViewCellStyleDefault" id="lmJ-3x-3ic" customClass="MovieListCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieListCell" textLabel="4i1-IR-kB1" style="IBUITableViewCellStyleDefault" id="lmJ-3x-3ic" customClass="MovieListCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lmJ-3x-3ic" id="nBY-if-Mm4">
@@ -153,7 +153,7 @@
                                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="100" id="0uh-ei-02j" customClass="MovieCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="100" id="0uh-ei-02j" customClass="MovieCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0uh-ei-02j" id="uoY-ke-1N7">
@@ -527,7 +527,7 @@
                                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectableMovieListCell" editingAccessoryType="checkmark" textLabel="Guy-Mo-EJU" rowHeight="50" style="IBUITableViewCellStyleDefault" id="M7S-MF-DQG" customClass="SelectableMovieListCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectableMovieListCell" editingAccessoryType="checkmark" textLabel="Guy-Mo-EJU" rowHeight="50" style="IBUITableViewCellStyleDefault" id="M7S-MF-DQG" customClass="SelectableMovieListCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M7S-MF-DQG" id="zPa-og-92x">
@@ -640,7 +640,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="80" id="Qha-zC-fst" customClass="SearchResultCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="80" id="Qha-zC-fst" customClass="SearchResultCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qha-zC-fst" id="I3T-Fp-gy7">
@@ -735,15 +735,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWO-b9-KcE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="n5p-Lt-6NC"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qcz-B3-1zb">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="II8-MP-jav">
                                     <size key="itemSize" width="158" height="159"/>
@@ -806,12 +799,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qcz-B3-1zb" firstAttribute="top" secondItem="XWO-b9-KcE" secondAttribute="bottom" id="KUD-FR-zcN"/>
                             <constraint firstItem="GD1-le-xbJ" firstAttribute="trailing" secondItem="Qcz-B3-1zb" secondAttribute="trailing" id="LCH-h3-42v"/>
-                            <constraint firstItem="GD1-le-xbJ" firstAttribute="trailing" secondItem="XWO-b9-KcE" secondAttribute="trailing" id="Ry2-U6-h8V"/>
+                            <constraint firstItem="Qcz-B3-1zb" firstAttribute="top" secondItem="GD1-le-xbJ" secondAttribute="top" id="SjY-Vx-5iw"/>
                             <constraint firstItem="GD1-le-xbJ" firstAttribute="bottom" secondItem="Qcz-B3-1zb" secondAttribute="bottom" id="csL-GW-qXC"/>
-                            <constraint firstItem="XWO-b9-KcE" firstAttribute="leading" secondItem="GD1-le-xbJ" secondAttribute="leading" id="kTi-03-5tl"/>
-                            <constraint firstItem="XWO-b9-KcE" firstAttribute="top" secondItem="GD1-le-xbJ" secondAttribute="top" id="sh2-Bu-HOU"/>
                             <constraint firstItem="Qcz-B3-1zb" firstAttribute="leading" secondItem="GD1-le-xbJ" secondAttribute="leading" id="uwZ-Bc-t3b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GD1-le-xbJ"/>
@@ -819,7 +809,6 @@
                     <navigationItem key="navigationItem" id="KWA-oI-X9u"/>
                     <connections>
                         <outlet property="collectionView" destination="Qcz-B3-1zb" id="MJx-Ba-JJN"/>
-                        <outlet property="searchBarContainer" destination="XWO-b9-KcE" id="aVA-PJ-3pD"/>
                         <segue destination="67Y-vk-KFC" kind="show" identifier="genreMovieSearch" id="K8b-eL-BM7"/>
                         <segue destination="V24-5j-fdA" kind="show" identifier="movieDetailFromSearchDelegate" id="rGt-C8-MGn"/>
                     </connections>
@@ -828,7 +817,7 @@
             </objects>
             <point key="canvasLocation" x="-343" y="1800"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search-->
         <scene sceneID="RV5-CB-I27">
             <objects>
                 <navigationController title="Search" automaticallyAdjustsScrollViewInsets="NO" id="qhf-Zk-Vxu" sceneMemberID="viewController">
@@ -858,6 +847,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rGt-C8-MGn"/>
-        <segue reference="vda-n5-RKM"/>
     </inferredMetricsTieBreakers>
 </document>
