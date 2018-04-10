@@ -58,7 +58,7 @@
                                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieListCell" textLabel="4i1-IR-kB1" style="IBUITableViewCellStyleDefault" id="lmJ-3x-3ic" customClass="MovieListCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieListCell" textLabel="4i1-IR-kB1" style="IBUITableViewCellStyleDefault" id="lmJ-3x-3ic" customClass="MovieListCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lmJ-3x-3ic" id="nBY-if-Mm4">
@@ -153,7 +153,7 @@
                                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="100" id="0uh-ei-02j" customClass="MovieCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="100" id="0uh-ei-02j" customClass="MovieCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0uh-ei-02j" id="uoY-ke-1N7">
@@ -463,12 +463,22 @@
                                                     <segue destination="yvH-bf-VZH" kind="show" identifier="movieListSelection" id="bXd-i4-zhd"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eND-j2-CoK">
+                                                <rect key="frame" x="265" y="15" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Jhz-KD-CwE"/>
+                                                    <constraint firstAttribute="width" constant="40" id="bKS-S9-Qao"/>
+                                                </constraints>
+                                                <state key="normal" image="eye"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="ezB-pE-S0K" firstAttribute="top" secondItem="EaK-hq-I1P" secondAttribute="top" constant="15" id="3WS-31-Jqw"/>
                                             <constraint firstItem="VTg-7Q-TB3" firstAttribute="top" secondItem="EaK-hq-I1P" secondAttribute="top" id="AnK-pT-YtY"/>
                                             <constraint firstAttribute="trailing" secondItem="ezB-pE-S0K" secondAttribute="trailing" constant="15" id="INi-ej-TGP"/>
+                                            <constraint firstItem="ezB-pE-S0K" firstAttribute="leading" secondItem="eND-j2-CoK" secondAttribute="trailing" constant="15" id="aks-Uy-LNX"/>
+                                            <constraint firstItem="eND-j2-CoK" firstAttribute="top" secondItem="ezB-pE-S0K" secondAttribute="top" id="iTt-2s-Y6O"/>
                                             <constraint firstItem="VTg-7Q-TB3" firstAttribute="centerX" secondItem="EaK-hq-I1P" secondAttribute="centerX" id="jf8-4U-xyN"/>
                                             <constraint firstItem="VTg-7Q-TB3" firstAttribute="width" secondItem="EaK-hq-I1P" secondAttribute="width" id="lCT-lp-w2J"/>
                                             <constraint firstAttribute="bottom" secondItem="VTg-7Q-TB3" secondAttribute="bottom" constant="50" id="uE3-D9-rxJ"/>
@@ -508,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-8a-VmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="176"/>
+            <point key="canvasLocation" x="1660" y="175.41229385307346"/>
         </scene>
         <!--Select List-->
         <scene sceneID="iaT-rj-4F3">
@@ -527,7 +537,7 @@
                                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectableMovieListCell" editingAccessoryType="checkmark" textLabel="Guy-Mo-EJU" rowHeight="50" style="IBUITableViewCellStyleDefault" id="M7S-MF-DQG" customClass="SelectableMovieListCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectableMovieListCell" editingAccessoryType="checkmark" textLabel="Guy-Mo-EJU" rowHeight="50" style="IBUITableViewCellStyleDefault" id="M7S-MF-DQG" customClass="SelectableMovieListCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M7S-MF-DQG" id="zPa-og-92x">
@@ -640,7 +650,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="80" id="Qha-zC-fst" customClass="SearchResultCell" customModule="MyMovies" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="80" id="Qha-zC-fst" customClass="SearchResultCell" customModule="MyMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qha-zC-fst" id="I3T-Fp-gy7">
@@ -840,6 +850,7 @@
     <resources>
         <image name="add" width="50" height="50"/>
         <image name="default-image" width="375" height="211"/>
+        <image name="eye" width="100" height="100"/>
         <image name="home" width="25" height="25"/>
         <image name="list" width="100" height="100"/>
         <image name="movie" width="25" height="25"/>
