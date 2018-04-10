@@ -10,7 +10,7 @@ import ObjectMapper
 
 struct Movie: Mappable, SearchResult {
   var id = 0
-  var title = ""
+  var title = "No title"
   var posterPath = ""
   var backPath = ""
   var sinopsis = ""

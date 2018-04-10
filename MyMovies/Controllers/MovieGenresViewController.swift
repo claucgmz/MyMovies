@@ -10,7 +10,6 @@ import UIKit
 
 class MovieGenresViewController: UIViewController {
   @IBOutlet private weak var collectionView: UICollectionView!
-  @IBOutlet private weak var searchBarContainer: UIView!
   private var searchController: UISearchController?
   private var genres = [Genre]()
   private var resultsController: SearchViewController?
@@ -37,7 +36,6 @@ class MovieGenresViewController: UIViewController {
       searchController.searchBar.delegate = self
       //setup the search bar
       searchController.searchBar.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-      self.searchBarContainer?.addSubview(searchController.searchBar)
       searchController.searchBar.placeholder = "Search by movie title..."
       searchController.searchBar.sizeToFit()
       navigationItem.titleView = searchController.searchBar
@@ -103,7 +101,7 @@ extension MovieGenresViewController: UICollectionViewDelegate {
 
 extension MovieGenresViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.width * 0.45, height: collectionView.frame.width * 0.45)
+    return CGSize(width: collectionView.frame.width * 0.45, height: 150.0)
   }
 }
 

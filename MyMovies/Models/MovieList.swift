@@ -11,7 +11,7 @@ import ObjectMapper
 
 struct MovieList: DBModel, Mappable {
   var id = UUID().uuidString
-  var name = ""
+  var name = "No name"
   var movies = [MovieBrief]()
 
   init?(map: Map) {

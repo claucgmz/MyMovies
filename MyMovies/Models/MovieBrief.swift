@@ -11,7 +11,7 @@ import ObjectMapper
 
 struct MovieBrief: DBModel, Mappable {
   var id = ""
-  var title = ""
+  var title = "No title"
   var posterPath = ""
   var rating = 0
   

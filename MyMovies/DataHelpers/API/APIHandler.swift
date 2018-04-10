@@ -13,7 +13,7 @@ import PromiseKit
 struct APIHandler {
   static let sessionManager = Server.manager
   
-  static func getMovies(for type: MovieType, page: Int = 1) -> Promise <[String: Any]> {
+  static func getMovies(for type: MovieType, page: Int) -> Promise <[String: Any]> {
     return Promise { resolve in
       sessionManager.request(MyMoviesRouter.getMovies(type: type, page: page))
         .validate()
@@ -41,7 +41,7 @@ struct APIHandler {
     }
   }
   
-  static func searchMovies(by name: String, page: Int = 1) -> Promise <[String: Any]> {
+  static func searchMovies(by name: String, page: Int) -> Promise <[String: Any]> {
     return Promise { resolve in
         sessionManager.request(MyMoviesRouter.searchMovie(name: name, page: page))
         .validate()
@@ -55,7 +55,7 @@ struct APIHandler {
     }
   }
   
-  static func getMoviesByGenre(by genreId: Int, page: Int = 1) -> Promise <[String: Any]> {
+  static func getMoviesByGenre(by genreId: Int, page: Int) -> Promise <[String: Any]> {
     return Promise { resolve in
       sessionManager.request(MyMoviesRouter.getMoviesByGenre(genreId: genreId, page: page))
         .validate()
