@@ -59,6 +59,7 @@
 		5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C55206417A4002CD20E /* MovieList.swift */; };
 		9BB40E7F2077F23F0035727A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E7E2077F23F0035727A /* CategoryCell.swift */; };
 		9BB40E812077F8670035727A /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E802077F8670035727A /* MovieCategory.swift */; };
+		9BB40E84207D66E00035727A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E83207D66E00035727A /* ErrorHandler.swift */; };
 		9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0D206E9BFC0046156C /* AuthHandler.swift */; };
 		9BC23F10206E9C6E0046156C /* ProjectPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0F206E9C6E0046156C /* ProjectPath.swift */; };
 		9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F11206E9D850046156C /* LoginViewController.swift */; };
@@ -123,6 +124,7 @@
 		6AC85C35C42560A044A1437F /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		9BB40E7E2077F23F0035727A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		9BB40E802077F8670035727A /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
+		9BB40E83207D66E00035727A /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		9BC23F0D206E9BFC0046156C /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		9BC23F0F206E9C6E0046156C /* ProjectPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPath.swift; sourceTree = "<group>"; };
 		9BC23F11206E9D850046156C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		5F07A3A320617F6D00209566 /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				9BB40E82207D66C70035727A /* ErrorHelpers */,
 				9BC23F7D207401750046156C /* NetworkHelpers */,
 				9BC23F0C206E9BB20046156C /* AuthHelpers */,
 				5FBBB3FA20689A720094F0A2 /* DataHelpers */,
@@ -314,6 +317,14 @@
 				5F914CE8206C3C7F002B4CB7 /* FirebasePath.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		9BB40E82207D66C70035727A /* ErrorHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				9BB40E83207D66E00035727A /* ErrorHandler.swift */,
+			);
+			path = ErrorHelpers;
 			sourceTree = "<group>";
 		};
 		9BC23F0C206E9BB20046156C /* AuthHelpers */ = {
@@ -517,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB40E84207D66E00035727A /* ErrorHandler.swift in Sources */,
 				5FC9557F2077EA5B007988C6 /* SearchResult.swift in Sources */,
 				5FB08ECB2061B93700DDDC65 /* UICollectionViewCell+ReusableId.swift in Sources */,
 				5F9D84852062BF3C003E61DD /* MovieDetailViewController.swift in Sources */,

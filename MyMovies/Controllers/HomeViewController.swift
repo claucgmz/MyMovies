@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import NotificationBannerSwift
 
 class HomeViewController: UICollectionViewController {
   fileprivate let cellId = "cellId"
@@ -40,7 +41,10 @@ class HomeViewController: UICollectionViewController {
         self.toogleHUD(show: false)
       }
       .catch({ error -> Void in
-        print(error)
+        if error._code == NSURLErrorTimedOut {
+            let banner = NotificationBanner(title: "Network", subtitle: "You have troubles with your conectivity", style: .danger)
+            banner.show()
+        }
       })
   }
     
