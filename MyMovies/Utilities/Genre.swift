@@ -72,4 +72,13 @@ enum Genre: Int {
       return "All"
     }
   }
+  
+  static var allElements: [Genre] {
+    return [
+      .action, .adventure, .animation, .comedy, .crime,
+      .documentary, .drama, .family, .fantasy, .history,
+      .horror, .music, .mystery, .romance, .sciencefiction,
+      .tvmovie, .thriller, .war, .western
+    ]
+  }
 }

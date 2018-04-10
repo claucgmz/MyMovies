@@ -15,4 +15,6 @@ enum SegueIdentifier: String {
   case movieListSelection
   case movieDetailFromList
   case movieDetailFromSearch
+  case movieDetailFromSearchDelegate
+  case genreMovieSearch
 }

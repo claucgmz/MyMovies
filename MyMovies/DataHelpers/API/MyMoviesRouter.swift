@@ -12,6 +12,7 @@ enum MyMoviesRouter: URLRequestConvertible {
   case getMovie(id: String)
   case getMovies(type: MovieType, page: Int)
   case searchMovie(name: String, page: Int)
+  case getMoviesByGenre(genreId: Int, page: Int)
   
   var path: String {
     switch self {
@@ -26,6 +27,9 @@ enum MyMoviesRouter: URLRequestConvertible {
       }
     case .searchMovie:
         return "/search/movie"
+    case .getMoviesByGenre(let genreId, _):
+      return "/genre/\(genreId)/movies"
+  
     }
   }
   
@@ -38,6 +42,8 @@ enum MyMoviesRouter: URLRequestConvertible {
       parameters = ["page": page]
     case .searchMovie(let name, let page):
         parameters = ["query": name, "page": page]
+    case .getMoviesByGenre(_, let page):
+      parameters = ["page": page]
     }
     parameters["api_key"] = APIManager.APIkey
     return parameters
@@ -45,7 +51,7 @@ enum MyMoviesRouter: URLRequestConvertible {
   
   var method: HTTPMethod {
     switch self {
-    case .getMovie, .getMovies, .searchMovie:
+    case .getMovie, .getMovies, .searchMovie, .getMoviesByGenre:
       return .get
     }
   }
