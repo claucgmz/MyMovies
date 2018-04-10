@@ -9,33 +9,65 @@
 import UIKit
 import PromiseKit
 import DZNEmptyDataSet
-import ReachabilitySwift
+
+protocol SearchViewControllerDelegate: class {
+  func segueToMovieDetail(for movie: Movie?)
+}
 
 class SearchViewController: UIViewController {
   @IBOutlet weak private var tableView: UITableView!
-  @IBOutlet weak private var searchBar: UISearchBar!
   private var results = [Movie]()
   private var currentpage = 1
   private var totalPages = 1
+  var genre: Genre?
+  var searchText: String?
+  weak var delegate: SearchViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    searchBar.becomeFirstResponder()
     tableView.emptyDataSetSource = self
     tableView.emptyDataSetDelegate = self
-    searchBar.placeholder = "Search movies..."
     self.tableView.tableFooterView = UIView()
+    performGenreSearch()
+  }
+  
+  func performSearch(with text: String) {
+    searchText = text
+    performSearch(clear: true)
+  }
+  
+  private func performGenreSearch() {
+    guard let genre = genre else {
+      return
+    }
+    
+    title = genre.description
+    let genreId = genre.rawValue
+    self.toogleHUD(show: true)
+    Handler.getMoviesByGenre(by: genreId, page: currentpage)
+      .map ({ response in
+        self.totalPages = response.totalPages
+        self.currentpage = response.currentPage
+        self.results.append(contentsOf: response.results)
+      })
+      .done {
+        self.tableView.reloadData()
+        self.toogleHUD(show: false)
+      }
+      .catch({ error -> Void in
+        print(error)
+      })
   }
   
   private func performSearch(clear: Bool) {
-    guard let searchText = searchBar.text else {
+    guard let searchText = searchText else {
       return
     }
     
     if clear == true {
       cleanSearch()
     }
-
+    
     if !searchText.isEmpty {
       self.toogleHUD(show: true)
       Handler.searchMovies(by: searchText, page: currentpage)
@@ -54,7 +86,7 @@ class SearchViewController: UIViewController {
     }
   }
   
-  private func cleanSearch() {
+  func cleanSearch() {
     results = []
     currentpage = 1
     totalPages = 1
@@ -79,15 +111,6 @@ class SearchViewController: UIViewController {
       }
     }
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-      ReachabilityManager.shared.addListener(listener: self)
-  }
-  
-  override func viewDidDisappear(_ animated: Bool) {
-      ReachabilityManager.shared.removeListener(listener: self)
-  }
-  
 }
 
 // MARK: TableView DataSource
@@ -118,7 +141,11 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let result = results[indexPath.row]
-    performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearch.rawValue , sender: result)
+    if genre != nil {
+      performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearch.rawValue, sender: result)
+    } else {
+      delegate?.segueToMovieDetail(for: result)
+    }
   }
 }
 
@@ -135,15 +162,6 @@ extension SearchViewController: UISearchBarDelegate {
   }
 }
 
-extension SearchViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-      //  filterContentForSearchText(searchController.searchBar.text!, scope: scope)
-    }
-}
-    // MARK: - DZNEmptyDataSetSource Protocol
 extension SearchViewController: DZNEmptyDataSetSource {
   func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
     return UIImage(named: "search")
@@ -158,19 +176,9 @@ extension SearchViewController: DZNEmptyDataSetDelegate {
     return true
   }
 }
-    // MARK: - NetworkError Protocol
-extension SearchViewController: NetworkStatusListener {
+
+extension SearchViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
     
-    func networkStatusDidChange(status: Reachability.NetworkStatus) {
-    
-        switch status {
-        case .notReachable:
-            debugPrint("ViewController: Network became unreachable")
-        case .reachableViaWiFi:
-            debugPrint("ViewController: Network reachable through WiFi")
-        case .reachableViaWWAN:
-            debugPrint("ViewController: Network reachable through Cellular Data")
-        }
-        
-    }
+  }
 }

@@ -52,7 +52,20 @@ struct APIHandler {
             resolve.reject(error)
           }
         })
-      
+    }
+  }
+  
+  static func getMoviesByGenre(by genreId: Int, page: Int = 1) -> Promise <[String: Any]> {
+    return Promise { resolve in
+      sessionManager.request(MyMoviesRouter.getMoviesByGenre(genreId: genreId, page: page))
+        .validate()
+        .responseJSON(completionHandler: { response in
+          if let json = response.result.value as? [String: Any] {
+            resolve.fulfill(json)
+          } else if let error = response.error {
+            resolve.reject(error)
+          }
+        })
     }
   }
 }

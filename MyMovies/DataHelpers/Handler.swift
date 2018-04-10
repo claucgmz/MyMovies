@@ -37,6 +37,12 @@ struct Handler {
     }
   }
   
+  static func getMoviesByGenre(by genre: Int, page: Int = 1) -> Promise <PaginatedResponse> {
+    return APIHandler.getMoviesByGenre(by: genre, page: page).map { data -> PaginatedResponse in
+      return ParseHandler.parsePaginatedResponse(with: data)
+    }
+  }
+  
   static func getRating(for id: String) -> Promise <Int> {
     return DBHandler.getRating(for: id).map { data in
       return data
@@ -60,4 +66,5 @@ struct Handler {
       return ParseHandler.parseMovieBrief(with: data)
     }
   }
+  
 }
