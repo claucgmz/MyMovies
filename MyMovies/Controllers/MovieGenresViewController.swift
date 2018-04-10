@@ -38,6 +38,7 @@ class MovieGenresViewController: UIViewController {
       //setup the search bar
       searchController.searchBar.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
       self.searchBarContainer?.addSubview(searchController.searchBar)
+      searchController.searchBar.placeholder = "Search by movie title..."
       searchController.searchBar.sizeToFit()
       navigationItem.titleView = searchController.searchBar
       definesPresentationContext = true
