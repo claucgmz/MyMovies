@@ -18,7 +18,7 @@ class HomeViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationItem.title = "Movies"
+    navigationItem.title = "My Movies"
     collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
     getMovies()
   }
@@ -96,7 +96,7 @@ class HomeViewController: UICollectionViewController {
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell)
+    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CategoryCell)!
     cell.movieCategory = movieCategories[indexPath.item]
     cell.featuredAppsController = self
     return cell

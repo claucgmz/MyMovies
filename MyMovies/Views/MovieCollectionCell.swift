@@ -10,10 +10,6 @@ import UIKit
 import AlamofireImage
 
 class MovieCollectionCell: UICollectionViewCell {
-    /*
-  @IBOutlet private weak var movieImage: UIImageView!
-  */
-   
     let imageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
