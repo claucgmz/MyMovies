@@ -8,7 +8,6 @@
 
 import Foundation
 import ReachabilitySwift
-import NotificationBannerSwift
 
 public protocol NetworkStatusListener: class {
     func networkStatusDidChange(status: Reachability.NetworkStatus)
@@ -35,10 +34,6 @@ class ReachabilityManager: NSObject {
         switch reachability.currentReachabilityStatus {
         case .notReachable:
             debugPrint("Network became unreachable")
-            DispatchQueue.main.async {
-                let banner = NotificationBanner(title: "Network", subtitle: "You don't have conectivity", style: .danger)
-                banner.show()
-            }
         case .reachableViaWiFi:
             debugPrint("Network reachable through WiFi")
         case .reachableViaWWAN:
