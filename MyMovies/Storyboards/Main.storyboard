@@ -389,8 +389,12 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daS-Jr-fMo" customClass="CosmosView" customModule="Cosmos">
-                                                                        <rect key="frame" x="122.5" y="94.5" width="130" height="22"/>
+                                                                        <rect key="frame" x="123" y="95" width="130" height="22"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="130" id="0Bq-ho-Gna"/>
+                                                                            <constraint firstAttribute="height" constant="22" id="XHu-1v-Ssr"/>
+                                                                        </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
                                                                                 <color key="value" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -804,14 +808,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWO-b9-KcE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="n5p-Lt-6NC"/>
+                                    <constraint firstAttribute="height" constant="44" id="n5p-Lt-6NC"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qcz-B3-1zb">
-                                <rect key="frame" x="0.0" y="112" width="375" height="506"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="II8-MP-jav">
                                     <size key="itemSize" width="158" height="159"/>
@@ -889,6 +893,7 @@
                         <outlet property="collectionView" destination="Qcz-B3-1zb" id="MJx-Ba-JJN"/>
                         <outlet property="searchBarContainer" destination="XWO-b9-KcE" id="aVA-PJ-3pD"/>
                         <segue destination="67Y-vk-KFC" kind="show" identifier="genreMovieSearch" id="K8b-eL-BM7"/>
+                        <segue destination="V24-5j-fdA" kind="show" identifier="movieDetailFromSearchDelegate" id="rGt-C8-MGn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5M-cG-9Wt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -925,6 +930,6 @@
         <image name="movie-b" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zko-Gq-DKd"/>
+        <segue reference="rGt-C8-MGn"/>
     </inferredMetricsTieBreakers>
 </document>

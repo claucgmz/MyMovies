@@ -10,6 +10,10 @@ import UIKit
 import PromiseKit
 import DZNEmptyDataSet
 
+protocol SearchViewControllerDelegate: class {
+  func segueToMovieDetail(for movie: Movie?)
+}
+
 class SearchViewController: UIViewController {
   @IBOutlet weak private var tableView: UITableView!
   private var results = [Movie]()
@@ -17,7 +21,8 @@ class SearchViewController: UIViewController {
   private var totalPages = 1
   var genre: Genre?
   var searchText: String?
-  
+  weak var delegate: SearchViewControllerDelegate?
+
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.emptyDataSetSource = self
@@ -36,6 +41,7 @@ class SearchViewController: UIViewController {
       return
     }
     
+    title = genre.description
     let genreId = genre.rawValue
     self.toogleHUD(show: true)
     Handler.getMoviesByGenre(by: genreId, page: currentpage)
@@ -80,7 +86,7 @@ class SearchViewController: UIViewController {
     }
   }
   
-  private func cleanSearch() {
+  func cleanSearch() {
     results = []
     currentpage = 1
     totalPages = 1
@@ -135,7 +141,11 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let result = results[indexPath.row]
-    performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearch.rawValue, sender: result)
+    if genre != nil {
+      performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearch.rawValue, sender: result)
+    } else {
+      delegate?.segueToMovieDetail(for: result)
+    }
   }
 }
 
@@ -164,5 +174,11 @@ extension SearchViewController: DZNEmptyDataSetSource {
 extension SearchViewController: DZNEmptyDataSetDelegate {
   func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
     return true
+  }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    
   }
 }

@@ -15,6 +15,10 @@ class MovieGenresViewController: UIViewController {
   private var genres = [Genre]()
   private var resultsController: SearchViewController?
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSearchController()
@@ -24,10 +28,10 @@ class MovieGenresViewController: UIViewController {
   private func configureSearchController() {
     let storyboard = UIStoryboard(name: StoryboardPath.main.rawValue, bundle: nil)
     resultsController = (storyboard.instantiateViewController(withIdentifier: ViewControllerPath.searchViewController.rawValue) as? SearchViewController)!
-    
+    resultsController?.delegate = self
     searchController = ({
       let searchController = UISearchController(searchResultsController: resultsController)
-      searchController.searchResultsUpdater = self
+      searchController.searchResultsUpdater = resultsController
       searchController.hidesNavigationBarDuringPresentation = true
       searchController.dimsBackgroundDuringPresentation = false
       searchController.searchBar.delegate = self
@@ -35,9 +39,11 @@ class MovieGenresViewController: UIViewController {
       searchController.searchBar.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
       self.searchBarContainer?.addSubview(searchController.searchBar)
       searchController.searchBar.sizeToFit()
-      
+      navigationItem.titleView = searchController.searchBar
+      definesPresentationContext = true
       return searchController
     })()
+    
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,15 +63,22 @@ class MovieGenresViewController: UIViewController {
         
         controller.genre = genre
       }
+    } else if identifier == .movieDetailFromSearchDelegate {
+      guard let controller = segue.destination as? MovieDetailViewController else {
+        return
+      }
+      
+      if sender is Movie {
+        guard let movie = sender as? Movie else {
+          return
+        }
+        
+        controller.movieId = movie.id
+      }
     }
   }
 }
 
-extension MovieGenresViewController: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
-    
-  }
-}
 extension MovieGenresViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return genres.count
@@ -99,14 +112,22 @@ extension MovieGenresViewController: UISearchBarDelegate {
     guard let searchText = searchBar.text else {
       return
     }
-    
     resultsController?.performSearch(with: searchText)
-    
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    resultsController?.cleanSearch()
   }
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     if searchText.isEmpty {
-      
+      resultsController?.cleanSearch()
     }
+  }
+}
+
+extension MovieGenresViewController: SearchViewControllerDelegate {
+  func segueToMovieDetail(for movie: Movie?) {
+   performSegue(withIdentifier: SegueIdentifier.movieDetailFromSearchDelegate.rawValue, sender: movie)
   }
 }
