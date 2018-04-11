@@ -53,7 +53,7 @@ struct DBHandler {
       let userListPath = "\(FirebasePath.lists.rawValue)/\(userId)/\(listId)"
       moviesRef.queryOrdered(byChild: userListPath)
         .queryEqual(toValue: true)
-        .observeSingleEvent(of: .value, with: { snapshot in
+        .observe(.value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
         var movieDictArray: [[String: Any]] = []
         for snData in data {

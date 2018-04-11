@@ -22,6 +22,21 @@ class MovieListDetailViewController: UIViewController {
     tableView.emptyDataSetSource = self
     tableView.emptyDataSetDelegate = self
     registerNibs()
+    getMovieListData()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    guard let tableView = tableView else { return }
+    getMovieListData()
+    tableView.reloadData()
+  }
+  
+  private func registerNibs() {
+    tableView.register(UINib(nibName: ProgressHeaderCell.reusableId, bundle: nil), forHeaderFooterViewReuseIdentifier: ProgressHeaderCell.reusableId)
+  }
+  
+  private func getMovieListData() {
     guard let movieList = movieList else {
       return
     }
@@ -40,8 +55,9 @@ class MovieListDetailViewController: UIViewController {
       })
   }
   
-  private func registerNibs() {
-    tableView.register(UINib(nibName: ProgressHeaderCell.reusableId, bundle: nil), forHeaderFooterViewReuseIdentifier: ProgressHeaderCell.reusableId)
+  private func updateProgressView() {
+    guard let tableView = tableView else { return }
+    tableView.reloadSections(IndexSet(integer: 0), with: .none)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -109,6 +125,7 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
       self.movieList.movies.remove(at: indexPath.row)
       DBHandler.removeMovie(withId: movieId, from: list.id)
       tableView.deleteRows(at: [indexPath], with: .fade)
+      self.updateProgressView()
       
       if tableView.numberOfRows(inSection: 0) == 0 {
         tableView.reloadData()
