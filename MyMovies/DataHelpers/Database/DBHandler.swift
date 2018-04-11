@@ -233,8 +233,9 @@ struct DBHandler {
         return
       }
       moviesRef.child(movieId)
-        .child(FirebasePath.watched.rawValue)
+        .child(FirebasePath.lists.rawValue)
         .child(userId)
+        .child(FirebasePath.watched.rawValue)
         .observeSingleEvent(of: .value, with: { snapshot in
           let data = snapshot.value as? Bool ?? false
           resolve.fulfill(data)
@@ -254,8 +255,9 @@ struct DBHandler {
     }
     
     let watchRef = moviesRef.child(movieId)
-      .child(FirebasePath.watched.rawValue)
+      .child(FirebasePath.lists.rawValue)
       .child(userId)
+      .child(FirebasePath.watched.rawValue)
     
     if watched {
       watchRef.setValue(true)

@@ -18,13 +18,14 @@ class MovieListViewController: UIViewController {
     super.viewDidLoad()
     tableView.emptyDataSetSource = self
     tableView.emptyDataSetDelegate = self
-    getMovies()
+    getLists()
   }
   
-  private func getMovies() {
+  private func getLists() {
     self.toogleHUD(show: true)
     Handler.getLists().map({ movieLists -> Void in
       self.movieLists = movieLists
+      self.movieLists.insert(MovieList.getWatchedList(), at: 0)
     })
     .done {
         self.tableView.reloadData()
@@ -88,7 +89,7 @@ extension MovieListViewController: UITableViewDelegate {
 
 extension MovieListViewController: MovieFormViewControllerDelegate {
   func movieFormViewController(_ controller: MovieFormViewController) {
-    getMovies()
+    getLists()
   }
 }
 
