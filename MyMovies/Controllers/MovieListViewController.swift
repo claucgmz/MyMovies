@@ -21,19 +21,25 @@ class MovieListViewController: UIViewController {
     getLists()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    if let index = tableView.indexPathForSelectedRow {
+      tableView.deselectRow(at: index, animated: true)
+    }
+  }
+  
   private func getLists() {
     self.toogleHUD(show: true)
     Handler.getLists().map({ movieLists -> Void in
       self.movieLists = movieLists
       self.movieLists.insert(MovieList.getWatchedList(), at: 0)
     })
-    .done {
+      .done {
         self.tableView.reloadData()
         self.toogleHUD(show: false)
-    }
-    .catch({ error in
-      print(error)
-    })
+      }
+      .catch({ error in
+        print(error)
+      })
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,10 +79,19 @@ extension MovieListViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = (tableView.dequeueReusableCell(withIdentifier: MovieListCell.reusableId, for: indexPath) as? MovieListCell)!
+    
     let list = movieLists[indexPath.row]
-    cell.configure(with: list, delegate: self)
-    return cell
+    
+    switch list.id {
+    case MovieList.watchedListId:
+      let cell = (tableView.dequeueReusableCell(withIdentifier: WatchedListCell.reusableId, for: indexPath) as? WatchedListCell)!
+      cell.configure(with: list)
+      return cell
+    default:
+      let cell = (tableView.dequeueReusableCell(withIdentifier: MovieListCell.reusableId, for: indexPath) as? MovieListCell)!
+      cell.configure(with: list, delegate: self)
+      return cell
+    }
   }
 }
 
@@ -84,6 +99,7 @@ extension MovieListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let movieList = movieLists[indexPath.row]
     performSegue(withIdentifier: SegueIdentifier.movieListDetail.rawValue, sender: movieList)
+    
   }
 }
 

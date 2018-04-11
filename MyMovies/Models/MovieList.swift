@@ -13,6 +13,8 @@ struct MovieList: DBModel, Mappable {
   var id = UUID().uuidString
   var name = "No name"
   var movies = [MovieBrief]()
+  
+  static var watchedListId = FirebasePath.watched.rawValue
 
   init?(map: Map) {
     
@@ -39,8 +41,8 @@ struct MovieList: DBModel, Mappable {
   }
   
   static func getWatchedList() -> MovieList {
-    var movieList = MovieList(name: "Movies watched")
-    movieList.id = "watched"
+    var movieList = MovieList(name: "Movies you already watched")
+    movieList.id = watchedListId
     return movieList
   }
 }
