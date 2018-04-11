@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dZ-hd-zyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="888"/>
+            <point key="canvasLocation" x="772" y="887.40629685157433"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j3X-F0-bmb">
@@ -305,6 +305,7 @@
                         <segue destination="S04-0T-B3e" kind="relationship" relationship="viewControllers" id="Qbq-Nj-M0l"/>
                         <segue destination="O4t-qt-bFi" kind="relationship" relationship="viewControllers" id="d65-8m-9Xh"/>
                         <segue destination="qhf-Zk-Vxu" kind="relationship" relationship="viewControllers" id="jh6-OA-4kK"/>
+                        <segue destination="QNM-hm-Zdd" kind="relationship" relationship="viewControllers" id="VlW-lu-TmF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ma-eD-5QD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -858,6 +859,22 @@
             </objects>
             <point key="canvasLocation" x="-343" y="1800"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="pjw-Jv-shs">
+            <objects>
+                <viewController id="zfg-fX-nAf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BvX-q8-WdX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vbg-Io-DxJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MDh-SF-aGS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N7C-mE-VWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2656.8000000000002" y="1033.1334332833585"/>
+        </scene>
         <!--Search-->
         <scene sceneID="RV5-CB-I27">
             <objects>
@@ -875,7 +892,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weq-hB-b6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1070" y="1020"/>
+            <point key="canvasLocation" x="-732" y="1019.640179910045"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="zJY-gm-ank">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QNM-hm-Zdd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="DR4-27-xhh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="htI-lx-YKf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zfg-fX-nAf" kind="relationship" relationship="rootViewController" id="LBS-G4-fJm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a1j-Rq-VXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3378" y="1033"/>
         </scene>
     </scenes>
     <resources>
@@ -887,6 +923,7 @@
         <image name="list" width="100" height="100"/>
         <image name="movie" width="25" height="25"/>
         <image name="movie-b" width="100" height="100"/>
+        <image name="profile" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vda-n5-RKM"/>
