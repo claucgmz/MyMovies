@@ -29,16 +29,32 @@ class MovieListDetailViewController: UIViewController {
     
     self.toogleHUD(show: true)
     Handler.getMovies(forList: movieList.id)
-    .map({ briefs -> Void in
-      self.movies = briefs
+      .map({ briefs -> Void in
+        self.movies = briefs
+      })
+      .done {
+        self.updateProgress()
+        self.tableView.reloadData()
+        self.toogleHUD(show: false)
+      }
+      .catch({ error in
+        print (error)
+      })
+  }
+  
+  private func updateProgress() {
+    let total = movies.count
+    let totalWatched = movies.reduce(0, { result, movie in
+      return result + (movie.watched ? 1 : 0 )
     })
-    .done {
-      self.tableView.reloadData()
-      self.toogleHUD(show: false)
+    
+    var progress = 0.0
+    if total > 0 {
+      progress = Double(totalWatched) / Double(total)
     }
-    .catch({ error in
-      print (error)
-    })
+    print(total)
+    print(totalWatched)
+    print(progress)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
