@@ -33,6 +33,7 @@ target 'MyMovies' do
   pod 'SVProgressHUD'
   # Replacement for apple's Reachability sample
   pod 'ReachabilitySwift', '~> 3' 
-
+  #Notification for conectivity errors
+  pod 'NotificationBannerSwift'
 end
 

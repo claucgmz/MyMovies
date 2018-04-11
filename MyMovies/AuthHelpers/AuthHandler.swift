@@ -17,9 +17,9 @@ struct AuthHandler {
         fbLoginManager.logIn(readPermissions: [.publicProfile, .email], viewController: loginVC) { (loginResult) in
             switch loginResult {
             case .failed(let error):
-                print(error)
+                ErrorHandler.handle(spellError: ErrorType.notFound)
             case .cancelled:
-                print("User cancelled login.")
+                ErrorHandler.handle(spellError: ErrorType.loginCancel)
             case .success(grantedPermissions: _, _, let token):
                 successLogin(loginVC: loginVC, token: token.authenticationToken)
             }
@@ -30,7 +30,7 @@ struct AuthHandler {
         let credential = FacebookAuthProvider.credential(withAccessToken: token)
         Auth.auth().signIn(with: credential) { (_, error) in
             if let error = error {
-                print("\(error)")
+                ErrorHandler.handle(spellError: ErrorType.loginCancel)
             }
             loginVC.changeView(with: StoryboardPath.main.rawValue, viewControllerName: ViewControllerPath.homeViewController.rawValue)
         }
@@ -41,7 +41,7 @@ struct AuthHandler {
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            ErrorHandler.handle(spellError: ErrorType.loginCancel)
         }
         
     }
@@ -50,6 +50,7 @@ struct AuthHandler {
         if Auth.auth().currentUser != nil {
             return Auth.auth().currentUser!.uid
         } else {
+            ErrorHandler.handle(spellError: ErrorType.connectivity)
             return nil
         }
     }
