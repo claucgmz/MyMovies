@@ -18,7 +18,7 @@ struct Handler {
       return movie
     }
   }
-
+    
   static func getMovies(for type: MovieType, page: Int = 1) -> Promise <PaginatedResponse> {
       return APIHandler.getMovies(for: type, page: page).map { data -> PaginatedResponse in
           return ParseHandler.parsePaginatedResponse(with: data)

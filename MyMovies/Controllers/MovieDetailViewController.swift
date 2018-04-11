@@ -10,7 +10,6 @@ import UIKit
 import AlamofireImage
 import Cosmos
 import PromiseKit
-import NotificationBannerSwift
 
 class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var movieImageView: UIImageView!
@@ -47,10 +46,7 @@ class MovieDetailViewController: UIViewController {
         self.cosmosViewActions()
       }
       .catch({ error -> Void in
-        if error._code == NSURLErrorTimedOut {
-            let banner = NotificationBanner(title: "Network", subtitle: "You have troubles with your conectivity", style: .danger)
-            banner.show()
-        }
+        ErrorHandler.handle(spellError: ErrorType.connectivity)
       })
   }
   

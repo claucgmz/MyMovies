@@ -37,8 +37,8 @@ class MovieListDetailViewController: UIViewController {
       self.toogleHUD(show: false)
     }
     .catch({ error in
-      print (error)
-    })
+        self.toogleHUD(show: false)
+        ErrorHandler.handle(spellError: ErrorType.connectivity)    })
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

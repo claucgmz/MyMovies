@@ -60,12 +60,12 @@
 		9BB40E7F2077F23F0035727A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E7E2077F23F0035727A /* CategoryCell.swift */; };
 		9BB40E812077F8670035727A /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E802077F8670035727A /* MovieCategory.swift */; };
 		9BB40E84207D66E00035727A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E83207D66E00035727A /* ErrorHandler.swift */; };
+		9BB40E86207E6E1C0035727A /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E85207E6E1C0035727A /* ErrorType.swift */; };
 		9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0D206E9BFC0046156C /* AuthHandler.swift */; };
 		9BC23F10206E9C6E0046156C /* ProjectPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0F206E9C6E0046156C /* ProjectPath.swift */; };
 		9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F11206E9D850046156C /* LoginViewController.swift */; };
 		9BC23F4A207244990046156C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F49207244990046156C /* SearchViewController.swift */; };
 		9BC23F83207416420046156C /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F82207416420046156C /* ReachabilityManager.swift */; };
-		9BC23F8520741BB20046156C /* LoginViewController+NetworkStatusListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F8420741BB20046156C /* LoginViewController+NetworkStatusListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,12 +125,12 @@
 		9BB40E7E2077F23F0035727A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		9BB40E802077F8670035727A /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
 		9BB40E83207D66E00035727A /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		9BB40E85207E6E1C0035727A /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		9BC23F0D206E9BFC0046156C /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		9BC23F0F206E9C6E0046156C /* ProjectPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPath.swift; sourceTree = "<group>"; };
 		9BC23F11206E9D850046156C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9BC23F49207244990046156C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9BC23F82207416420046156C /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		9BC23F8420741BB20046156C /* LoginViewController+NetworkStatusListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+NetworkStatusListener.swift"; sourceTree = "<group>"; };
 		A5306B6B4365E67F657F979A /* Pods_MyMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -270,7 +270,6 @@
 				5F1227092068BFB900D13352 /* UIView+Autolayout.swift */,
 				5F524AD8206C19D8009B623C /* Array+Dictionary.swift */,
 				5F0BCB362073296C00EEB63E /* UIViewController+HUD.swift */,
-				9BC23F8420741BB20046156C /* LoginViewController+NetworkStatusListener.swift */,
 				5FC955802077FC4F007988C6 /* Date+Format.swift */,
 				5F6B017B207BC31700ABC9F5 /* String+Whitespace.swift */,
 			);
@@ -323,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				9BB40E83207D66E00035727A /* ErrorHandler.swift */,
+				9BB40E85207E6E1C0035727A /* ErrorType.swift */,
 			);
 			path = ErrorHelpers;
 			sourceTree = "<group>";
@@ -556,12 +556,12 @@
 				5F029A752069FFA300DCED36 /* SelectableMovieListCell.swift in Sources */,
 				5FB08EB22061964800DDDC65 /* APIManager.swift in Sources */,
 				9BB40E812077F8670035727A /* MovieCategory.swift in Sources */,
+				9BB40E86207E6E1C0035727A /* ErrorType.swift in Sources */,
 				5FB08EB32061964800DDDC65 /* MyMoviesRouter.swift in Sources */,
 				9BC23F4A207244990046156C /* SearchViewController.swift in Sources */,
 				5F9D84892062F2A2003E61DD /* Genre.swift in Sources */,
 				5F6B017A207BB45500ABC9F5 /* MovieGenresViewController.swift in Sources */,
 				5F07A3A520617F6D00209566 /* AppDelegate.swift in Sources */,
-				9BC23F8520741BB20046156C /* LoginViewController+NetworkStatusListener.swift in Sources */,
 				5F0BCB372073296C00EEB63E /* UIViewController+HUD.swift in Sources */,
 				5F9D84872062C75F003E61DD /* SegueIdentifier.swift in Sources */,
 				5F8CBBBB20684EA0000A6598 /* ParseHandler.swift in Sources */,
