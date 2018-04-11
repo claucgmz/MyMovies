@@ -103,12 +103,18 @@ class MovieDetailViewController: UIViewController {
     }
     movieWatchedButton.setImage(tintedImage, for: .normal)
     movieWatchedButton.tintColor = color
-    
   }
+  
+  private func saveMovieBrief() {
+    let brief = MovieBrief(id: movie.idString, title: movie.title, posterPath: movie.posterPath)
+    DBHandler.saveMovieBrief(brief)
+  }
+  
   @IBAction func setMovieWatched(_ sender: Any) {
     movieWatched = !movieWatched
     DBHandler.setMovieWatched(movieId: movie.idString, watched: movieWatched)
-    self.updateMovieWatchedImage()
+    updateMovieWatchedImage()
+    saveMovieBrief()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -128,7 +134,6 @@ class MovieDetailViewController: UIViewController {
 
 extension MovieDetailViewController: MovieListSelectionViewControllerDelegate {
   func movieListSelectionViewControllerDidFinishSaving(_ controller: UIViewController) {
-    let brief = MovieBrief(id: movie.idString, title: movie.title, posterPath: movie.posterPath)
-    DBHandler.saveMovieBrief(brief)
+    saveMovieBrief()
   }
 }
