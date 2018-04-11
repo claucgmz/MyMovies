@@ -37,4 +37,10 @@ struct MovieList: DBModel, Mappable {
       "movie": movies
     ]
   }
+  
+  static func getWatchedList() -> MovieList {
+    var movieList = MovieList(name: "Movies watched")
+    movieList.id = "watched"
+    return movieList
+  }
 }

@@ -20,17 +20,27 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var genresLabel: UILabel!
   @IBOutlet private weak var overviewLabel: UILabel!
   @IBOutlet private weak var cosmosView: CosmosView!
+  @IBOutlet private weak var movieWatchedButton: UIButton!
+  
   private var movie: Movie!
+  private var movieWatched = false
   var genres = [Genre]()
   var movieId: Int?
+  
+  enum MovieWatchedImageName: String {
+    case eye
+    case eyefilled
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     guard let movieId = movieId else {
       return
     }
+    
+    let movieStringId = String(movieId)
     self.toogleHUD(show: true)
-    Handler.getMovie(withId: String(movieId))
+    Handler.getMovie(withId: movieStringId)
       .then ({ movie -> Promise<Int> in
         self.movie = movie
         self.movie.genres = self.genres
@@ -45,6 +55,15 @@ class MovieDetailViewController: UIViewController {
         self.toogleHUD(show: false)
         self.cosmosViewActions()
       }
+      .catch({ error -> Void in
+        print(error)
+      })
+    
+    Handler.isMovieWatched(movieId: movieStringId)
+      .map({ watched -> Void in
+        self.movieWatched = watched
+        self.updateMovieWatchedImage()
+      })
       .catch({ error -> Void in
         print(error)
       })
@@ -73,6 +92,31 @@ class MovieDetailViewController: UIViewController {
     cosmosView.rating = 0
   }
   
+  private func updateMovieWatchedImage() {
+    let buttonImage = UIImage(named: MovieWatchedImageName.eye.rawValue)
+    let buttonImageFilled = UIImage(named: MovieWatchedImageName.eyefilled.rawValue)
+    var tintedImage = buttonImage?.withRenderingMode(.alwaysTemplate)
+    var color = Color.main
+    if movieWatched {
+      tintedImage = buttonImageFilled?.withRenderingMode(.alwaysTemplate)
+      color = Color.green
+    }
+    movieWatchedButton.setImage(tintedImage, for: .normal)
+    movieWatchedButton.tintColor = color
+  }
+  
+  private func saveMovieBrief() {
+    let brief = MovieBrief(id: movie.idString, title: movie.title, posterPath: movie.posterPath)
+    DBHandler.saveMovieBrief(brief)
+  }
+  
+  @IBAction func setMovieWatched(_ sender: Any) {
+    movieWatched = !movieWatched
+    DBHandler.setMovieWatched(movieId: movie.idString, watched: movieWatched)
+    updateMovieWatchedImage()
+    saveMovieBrief()
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
       return
@@ -90,7 +134,6 @@ class MovieDetailViewController: UIViewController {
 
 extension MovieDetailViewController: MovieListSelectionViewControllerDelegate {
   func movieListSelectionViewControllerDidFinishSaving(_ controller: UIViewController) {
-    let brief = MovieBrief(id: movie.idString, title: movie.title, posterPath: movie.posterPath)
-    DBHandler.saveMovieBrief(brief)
+    saveMovieBrief()
   }
 }

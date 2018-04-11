@@ -67,4 +67,9 @@ struct Handler {
     }
   }
   
+  static func isMovieWatched(movieId: String) -> Promise <Bool> {
+    return DBHandler.isMovieWatched(movieId: movieId).map { data in
+      return data
+    }
+  }
 }

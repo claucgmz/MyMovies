@@ -13,4 +13,5 @@ enum FirebasePath: String {
   case rating
   case movies
   case brief
+  case watched
 }
