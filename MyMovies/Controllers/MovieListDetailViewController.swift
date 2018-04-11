@@ -15,9 +15,7 @@ import DZNEmptyDataSet
 class MovieListDetailViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var cosmosView: CosmosView!
-  
-  var movieList: MovieList?
-  private var movies = [MovieBrief]()
+  var movieList: MovieList!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,7 +28,7 @@ class MovieListDetailViewController: UIViewController {
     self.toogleHUD(show: true)
     Handler.getMovies(forList: movieList.id)
       .map({ briefs -> Void in
-        self.movies = briefs
+        self.movieList.movies = briefs
       })
       .done {
         self.updateProgress()
@@ -43,18 +41,7 @@ class MovieListDetailViewController: UIViewController {
   }
   
   private func updateProgress() {
-    let total = movies.count
-    let totalWatched = movies.reduce(0, { result, movie in
-      return result + (movie.watched ? 1 : 0 )
-    })
-    
-    var progress = 0.0
-    if total > 0 {
-      progress = Double(totalWatched) / Double(total)
-    }
-    print(total)
-    print(totalWatched)
-    print(progress)
+
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,12 +65,12 @@ class MovieListDetailViewController: UIViewController {
 
 extension MovieListDetailViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return movies.count
+    return movieList.movies.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = (tableView.dequeueReusableCell(withIdentifier: MovieCell.reusableId, for: indexPath) as? MovieCell)!
-    let movie = movies[indexPath.row]
+    let movie = movieList.movies[indexPath.row]
     cell.configure(with: movie, delegate: self)
     return cell
   }
@@ -91,7 +78,7 @@ extension MovieListDetailViewController: UITableViewDataSource {
 
 extension MovieListDetailViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let movie = movies[indexPath.row]
+    let movie = movieList.movies[indexPath.row]
     performSegue(withIdentifier: SegueIdentifier.movieDetailFromList.rawValue, sender: movie)
   }
 }
@@ -105,8 +92,8 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
         return
       }
       
-      let movieId = self.movies[indexPath.row].id
-      self.movies.remove(at: indexPath.row)
+      let movieId = self.movieList.movies[indexPath.row].id
+      self.movieList.movies.remove(at: indexPath.row)
       DBHandler.removeMovie(withId: movieId, from: list.id)
       tableView.deleteRows(at: [indexPath], with: .fade)
       
