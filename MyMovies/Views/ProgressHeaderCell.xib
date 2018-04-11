@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProgressHeaderCell" customModule="MyMovies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHe-FD-uKY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 movie(s) watched out of 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYH-fa-j37">
+                            <rect key="frame" x="15" y="57" width="185" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                            <color key="textColor" red="0.3803921569" green="0.37647058820000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="q5q-Z3-xG3">
+                            <rect key="frame" x="10" y="89" width="313" height="2"/>
+                        </progressView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKH-sH-HDI">
+                            <rect key="frame" x="339" y="84" width="26" height="12"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
+                            <color key="textColor" red="0.3803921569" green="0.37647058820000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieList" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9gS-kh-rbl">
+                            <rect key="frame" x="15" y="15" width="345" height="34"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                            <color key="textColor" red="0.3803921569" green="0.37647058820000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9gS-kh-rbl" firstAttribute="leading" secondItem="QU6-iG-Z6h" secondAttribute="leading" constant="15" id="3Sy-Ia-Vpe"/>
+                        <constraint firstItem="sKH-sH-HDI" firstAttribute="centerY" secondItem="q5q-Z3-xG3" secondAttribute="centerY" id="7hh-JZ-yAb"/>
+                        <constraint firstItem="9gS-kh-rbl" firstAttribute="top" secondItem="QU6-iG-Z6h" secondAttribute="top" constant="15" id="BVo-MH-jes"/>
+                        <constraint firstItem="sKH-sH-HDI" firstAttribute="leading" secondItem="q5q-Z3-xG3" secondAttribute="trailing" constant="16" id="P4y-28-AEU"/>
+                        <constraint firstItem="QU6-iG-Z6h" firstAttribute="trailing" secondItem="sKH-sH-HDI" secondAttribute="trailing" constant="10" id="PiS-oS-HzD"/>
+                        <constraint firstItem="KYH-fa-j37" firstAttribute="top" secondItem="9gS-kh-rbl" secondAttribute="bottom" constant="8" id="TyB-6z-bGg"/>
+                        <constraint firstItem="q5q-Z3-xG3" firstAttribute="leading" secondItem="OHe-FD-uKY" secondAttribute="leading" constant="10" id="ZHf-i8-mlW"/>
+                        <constraint firstItem="KYH-fa-j37" firstAttribute="leading" secondItem="9gS-kh-rbl" secondAttribute="leading" id="g0F-My-B48"/>
+                        <constraint firstItem="q5q-Z3-xG3" firstAttribute="top" secondItem="KYH-fa-j37" secondAttribute="bottom" constant="15" id="oDT-h4-QdA"/>
+                        <constraint firstItem="QU6-iG-Z6h" firstAttribute="trailing" secondItem="9gS-kh-rbl" secondAttribute="trailing" constant="15" id="rhy-eV-PXt"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="QU6-iG-Z6h"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OHe-FD-uKY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8sb-Kz-OVh"/>
+                <constraint firstAttribute="bottom" secondItem="OHe-FD-uKY" secondAttribute="bottom" id="Eav-nj-I5S"/>
+                <constraint firstItem="OHe-FD-uKY" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="eCU-4L-j3T"/>
+                <constraint firstItem="OHe-FD-uKY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="xEc-Ez-SyG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="movieNameLabel" destination="9gS-kh-rbl" id="ryE-0W-PaX"/>
+                <outlet property="percentageLabel" destination="sKH-sH-HDI" id="Gto-zR-Tze"/>
+                <outlet property="progressBar" destination="q5q-Z3-xG3" id="QY7-86-dwW"/>
+                <outlet property="totalMoviesLabel" destination="KYH-fa-j37" id="ntJ-Ro-EAG"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="-280"/>
+        </view>
+    </objects>
+</document>

@@ -14,6 +14,7 @@ struct MovieBrief: DBModel, Mappable {
   var title = "No title"
   var posterPath = ""
   var rating = 0
+  var watched = false
   
   init?(map: Map) {
   }
@@ -29,6 +30,7 @@ struct MovieBrief: DBModel, Mappable {
     title      <- map["brief.title"]
     posterPath <- map["brief.poster_path"]
     rating     <- map["rating"]
+    watched    <- map["watched"]
   }
   
   func toDictionary() -> [String: Any] {

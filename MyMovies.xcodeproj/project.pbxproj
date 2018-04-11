@@ -58,6 +58,9 @@
 		5FCC4C522064150E002CD20E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC4C512064150E002CD20E /* GoogleService-Info.plist */; };
 		5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC4C55206417A4002CD20E /* MovieList.swift */; };
 		5FF990DB207E6B6D00D6584F /* WatchedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF990DA207E6B6D00D6584F /* WatchedListCell.swift */; };
+		5FF990DD207E9AA100D6584F /* ProgressHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF990DC207E9AA100D6584F /* ProgressHeaderCell.swift */; };
+		5FF990DF207E9AFA00D6584F /* ProgressHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF990DE207E9AFA00D6584F /* ProgressHeaderCell.xib */; };
+		5FF990E1207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF990E0207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift */; };
 		9BB40E7F2077F23F0035727A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E7E2077F23F0035727A /* CategoryCell.swift */; };
 		9BB40E812077F8670035727A /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E802077F8670035727A /* MovieCategory.swift */; };
 		9BB40E84207D66E00035727A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E83207D66E00035727A /* ErrorHandler.swift */; };
@@ -123,6 +126,9 @@
 		5FCC4C512064150E002CD20E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FCC4C55206417A4002CD20E /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		5FF990DA207E6B6D00D6584F /* WatchedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedListCell.swift; sourceTree = "<group>"; };
+		5FF990DC207E9AA100D6584F /* ProgressHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderCell.swift; sourceTree = "<group>"; };
+		5FF990DE207E9AFA00D6584F /* ProgressHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressHeaderCell.xib; sourceTree = "<group>"; };
+		5FF990E0207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+ReusableId.swift"; sourceTree = "<group>"; };
 		6AC85C35C42560A044A1437F /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		9BB40E7E2077F23F0035727A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		9BB40E802077F8670035727A /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
@@ -247,6 +253,8 @@
 				9BB40E7E2077F23F0035727A /* CategoryCell.swift */,
 				5FC9557C2077EA2A007988C6 /* SearchResultCell.swift */,
 				5F6B0177207BB38A00ABC9F5 /* GenreCell.swift */,
+				5FF990DC207E9AA100D6584F /* ProgressHeaderCell.swift */,
+				5FF990DE207E9AFA00D6584F /* ProgressHeaderCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				5F0BCB362073296C00EEB63E /* UIViewController+HUD.swift */,
 				5FC955802077FC4F007988C6 /* Date+Format.swift */,
 				5F6B017B207BC31700ABC9F5 /* String+Whitespace.swift */,
+				5FF990E0207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F07A3B220617F6D00209566 /* LaunchScreen.storyboard in Resources */,
+				5FF990DF207E9AFA00D6584F /* ProgressHeaderCell.xib in Resources */,
 				5F07A3AF20617F6D00209566 /* Assets.xcassets in Resources */,
 				5FCC4C522064150E002CD20E /* GoogleService-Info.plist in Resources */,
 				5F07A3AA20617F6D00209566 /* Login.storyboard in Resources */,
@@ -537,6 +547,7 @@
 				5F9D84852062BF3C003E61DD /* MovieDetailViewController.swift in Sources */,
 				5F6B017C207BC31700ABC9F5 /* String+Whitespace.swift in Sources */,
 				5FF990DB207E6B6D00D6584F /* WatchedListCell.swift in Sources */,
+				5FF990E1207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift in Sources */,
 				5F029A732069FC8900DCED36 /* MovieListSelectionViewController.swift in Sources */,
 				5FA0F4FA2068D92F00633AA5 /* MovieListCell.swift in Sources */,
 				9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */,
@@ -569,6 +580,7 @@
 				5F0BCB372073296C00EEB63E /* UIViewController+HUD.swift in Sources */,
 				5F9D84872062C75F003E61DD /* SegueIdentifier.swift in Sources */,
 				5F8CBBBB20684EA0000A6598 /* ParseHandler.swift in Sources */,
+				5FF990DD207E9AA100D6584F /* ProgressHeaderCell.swift in Sources */,
 				5FBB06F92068E29B004E7F98 /* MovieBrief.swift in Sources */,
 				5F1227062068B23300D13352 /* MovieFormViewController.swift in Sources */,
 				5F1227082068B93200D13352 /* MovieFormView.swift in Sources */,

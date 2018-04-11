@@ -53,13 +53,18 @@ struct DBHandler {
       let userListPath = "\(FirebasePath.lists.rawValue)/\(userId)/\(listId)"
       moviesRef.queryOrdered(byChild: userListPath)
         .queryEqual(toValue: true)
-        .observeSingleEvent(of: .value, with: { snapshot in
+        .observe(.value, with: { snapshot in
         let data = snapshot.value as? [String: Any] ?? [:]
         var movieDictArray: [[String: Any]] = []
         for snData in data {
           if var movieData = snData.value as? [String: Any] {
             if let rating = movieData["rating"] as? [String: Any] {
               movieData["rating"] = rating[userId]
+            }
+            if let lists = movieData["lists"] as? [String: Any] {
+              if let watched = lists[userId] as? [String: Any] {
+                movieData["watched"] = watched["watched"]
+              }
             }
             movieDictArray.append(movieData)
           }
@@ -264,5 +269,9 @@ struct DBHandler {
     } else {
       watchRef.removeValue()
     }
+  }
+  
+  static func getTotalMoviesWatch(from listId: String) {
+    
   }
 }

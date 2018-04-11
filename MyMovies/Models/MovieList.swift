@@ -13,6 +13,18 @@ struct MovieList: DBModel, Mappable {
   var id = UUID().uuidString
   var name = "No name"
   var movies = [MovieBrief]()
+  var totalWatched: Int {
+    return movies.reduce(0, { result, movie in
+      return result + (movie.watched ? 1 : 0 )
+    })
+  }
+  var percentage: Double {
+    let total = movies.count
+    if total > 0 {
+      return Double(totalWatched) / Double(total)
+    }
+    return 0.0
+  }
   
   static var watchedListId = FirebasePath.watched.rawValue
 

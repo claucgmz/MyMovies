@@ -15,30 +15,49 @@ import DZNEmptyDataSet
 class MovieListDetailViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var cosmosView: CosmosView!
-  
-  var movieList: MovieList?
-  private var movies = [MovieBrief]()
+  var movieList: MovieList!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.emptyDataSetSource = self
     tableView.emptyDataSetDelegate = self
+    registerNibs()
+    getMovieListData()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    guard let tableView = tableView else { return }
+    getMovieListData()
+    tableView.reloadData()
+  }
+  
+  private func registerNibs() {
+    tableView.register(UINib(nibName: ProgressHeaderCell.reusableId, bundle: nil), forHeaderFooterViewReuseIdentifier: ProgressHeaderCell.reusableId)
+  }
+  
+  private func getMovieListData() {
     guard let movieList = movieList else {
       return
     }
     
     self.toogleHUD(show: true)
     Handler.getMovies(forList: movieList.id)
-    .map({ briefs -> Void in
-      self.movies = briefs
-    })
-    .done {
-      self.tableView.reloadData()
-      self.toogleHUD(show: false)
-    }
-    .catch({ error in
+      .map({ briefs -> Void in
+        self.movieList.movies = briefs
+      })
+      .done {
+        self.tableView.reloadData()
         self.toogleHUD(show: false)
-        ErrorHandler.handle(spellError: ErrorType.connectivity)    })
+      }
+      .catch({ error in
+        ErrorHandler.handle(spellError: ErrorType.connectivity)
+      })
+  }
+  
+  private func updateProgressView() {
+    guard let tableView = tableView else { return }
+    tableView.reloadSections(IndexSet(integer: 0), with: .none)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,21 +81,34 @@ class MovieListDetailViewController: UIViewController {
 
 extension MovieListDetailViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return movies.count
+    return movieList.movies.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = (tableView.dequeueReusableCell(withIdentifier: MovieCell.reusableId, for: indexPath) as? MovieCell)!
-    let movie = movies[indexPath.row]
+    let movie = movieList.movies[indexPath.row]
     cell.configure(with: movie, delegate: self)
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 120
   }
 }
 
 extension MovieListDetailViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let movie = movies[indexPath.row]
+    let movie = movieList.movies[indexPath.row]
     performSegue(withIdentifier: SegueIdentifier.movieDetailFromList.rawValue, sender: movie)
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProgressHeaderCell.reusableId) as? ProgressHeaderCell
+    guard let movieList = movieList else {
+      return nil
+    }
+    header?.configure(with: movieList)
+    return header
   }
 }
 
@@ -89,10 +121,11 @@ extension MovieListDetailViewController: SwipeTableViewCellDelegate {
         return
       }
       
-      let movieId = self.movies[indexPath.row].id
-      self.movies.remove(at: indexPath.row)
+      let movieId = self.movieList.movies[indexPath.row].id
+      self.movieList.movies.remove(at: indexPath.row)
       DBHandler.removeMovie(withId: movieId, from: list.id)
       tableView.deleteRows(at: [indexPath], with: .fade)
+      self.updateProgressView()
       
       if tableView.numberOfRows(inSection: 0) == 0 {
         tableView.reloadData()
