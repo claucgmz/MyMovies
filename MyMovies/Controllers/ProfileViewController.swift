@@ -15,9 +15,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserInfo()
-        // Do any additional setup after loading the view.
+        getImageProfile()
     }
-
+    
     @IBAction func logoutAction(_ sender: Any) {
         AuthHandler.logOut(logoutVC: self)
     }
@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
             }
         }, onFailure: { error in
             print(error.localizedDescription)
-            ErrorHandler.handle(spellError: ErrorType.connectivity)
+            ErrorHandler.handle(spellError: ErrorType.notFound)
         })
     }
     
@@ -39,5 +39,16 @@ class ProfileViewController: UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: viewControllerName) as UIViewController
         present(initialViewController, animated: true, completion: nil)
+    }
+    
+    private func getImageProfile() {
+        if let imageUrl = AuthHandler.getUrlImageProfile() {
+        ImageManager.shared.get(from: imageUrl, completionHandler: { (image) in
+            self.profileImage.image = image
+        })
+        } else {
+            ErrorHandler.handle(spellError: ErrorType.notFound)
+        }
+        
     }
 }

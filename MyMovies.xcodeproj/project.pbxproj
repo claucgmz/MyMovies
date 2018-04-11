@@ -63,6 +63,7 @@
 		9BB40E84207D66E00035727A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E83207D66E00035727A /* ErrorHandler.swift */; };
 		9BB40E86207E6E1C0035727A /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E85207E6E1C0035727A /* ErrorType.swift */; };
 		9BC03FF7207E9937006FD0F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC03FF6207E9937006FD0F0 /* ProfileViewController.swift */; };
+		9BC03FF9207ECE2D006FD0F0 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC03FF8207ECE2D006FD0F0 /* ImageManager.swift */; };
 		9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0D206E9BFC0046156C /* AuthHandler.swift */; };
 		9BC23F10206E9C6E0046156C /* ProjectPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0F206E9C6E0046156C /* ProjectPath.swift */; };
 		9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F11206E9D850046156C /* LoginViewController.swift */; };
@@ -130,6 +131,7 @@
 		9BB40E83207D66E00035727A /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		9BB40E85207E6E1C0035727A /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		9BC03FF6207E9937006FD0F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9BC03FF8207ECE2D006FD0F0 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		9BC23F0D206E9BFC0046156C /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		9BC23F0F206E9C6E0046156C /* ProjectPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPath.swift; sourceTree = "<group>"; };
 		9BC23F11206E9D850046156C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				9BC23F0D206E9BFC0046156C /* AuthHandler.swift */,
+				9BC03FF8207ECE2D006FD0F0 /* ImageManager.swift */,
 			);
 			path = AuthHelpers;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				9BC03FF7207E9937006FD0F0 /* ProfileViewController.swift in Sources */,
 				5FB08EB820619A1000DDDC65 /* HomeViewController.swift in Sources */,
 				5FCC4C56206417A4002CD20E /* MovieList.swift in Sources */,
+				9BC03FF9207ECE2D006FD0F0 /* ImageManager.swift in Sources */,
 				5FBE8E762071959B00F19BD0 /* Font.swift in Sources */,
 				5F042590206EA162007A18EC /* Server.swift in Sources */,
 				9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */,

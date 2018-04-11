@@ -14,8 +14,6 @@ import AlamofireImage
 
 struct AuthHandler {
     
-    private let imageCache = AutoPurgingImageCache()
-    
     static func facebookLogin(loginVC: LoginViewController) {
         let fbLoginManager = LoginManager()
         fbLoginManager.logIn(readPermissions: [.publicProfile, .email], viewController: loginVC) { (loginResult) in
@@ -71,5 +69,23 @@ struct AuthHandler {
                                     }
         }
         connection.start()
+    }
+    
+    static func getProviderId(for provider: String) -> String? {
+        guard let providerData = Auth.auth().currentUser?.providerData else {
+            return nil
+        }
+        for providerInfo in providerData where providerInfo.providerID == provider {
+            return providerInfo.uid
+        }
+        return nil
+    }
+    
+    static func getUrlImageProfile() -> URL? {
+        if let fbId = getProviderId(for: "facebook.com") {
+            return URL(string: "https://graph.facebook.com/\(fbId)/picture?type=large")!
+        } else {
+            return nil
+        }
     }
 }
