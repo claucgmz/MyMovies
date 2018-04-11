@@ -51,7 +51,7 @@ class MovieListDetailViewController: UIViewController {
         self.toogleHUD(show: false)
       }
       .catch({ error in
-        print (error)
+        ErrorHandler.handle(spellError: ErrorType.connectivity)
       })
   }
   

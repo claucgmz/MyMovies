@@ -29,12 +29,4 @@ class LoginViewController: UIViewController {
         let initialViewController = storyboard.instantiateViewController(withIdentifier: viewControllerName) as UIViewController
         present(initialViewController, animated: true, completion: nil)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        ReachabilityManager.shared.addListener(listener: self)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        ReachabilityManager.shared.removeListener(listener: self)
-    }
 }

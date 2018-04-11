@@ -55,7 +55,8 @@ class SearchViewController: UIViewController {
         self.toogleHUD(show: false)
       }
       .catch({ error -> Void in
-        print(error)
+        self.toogleHUD(show: false)
+        ErrorHandler.handle(spellError: ErrorType.connectivity)
       })
   }
   
@@ -81,7 +82,8 @@ class SearchViewController: UIViewController {
           self.toogleHUD(show: false)
         }
         .catch({ error -> Void in
-          print(error)
+        self.toogleHUD(show: false)
+        ErrorHandler.handle(spellError: ErrorType.connectivity)
         })
     }
   }

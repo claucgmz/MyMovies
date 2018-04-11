@@ -46,6 +46,8 @@ class MovieListSelectionViewController: UIViewController {
         self.toogleHUD(show: false)
       }
       .catch({ _ -> Void in
+        self.toogleHUD(show: false)
+        ErrorHandler.handle(spellError: ErrorType.connectivity)
       })
   }
 

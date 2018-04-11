@@ -56,7 +56,7 @@ class MovieDetailViewController: UIViewController {
         self.cosmosViewActions()
       }
       .catch({ error -> Void in
-        print(error)
+        ErrorHandler.handle(spellError: ErrorType.connectivity)
       })
     
     Handler.isMovieWatched(movieId: movieStringId)
