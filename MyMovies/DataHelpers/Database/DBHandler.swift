@@ -61,6 +61,11 @@ struct DBHandler {
             if let rating = movieData["rating"] as? [String: Any] {
               movieData["rating"] = rating[userId]
             }
+            if let lists = movieData["lists"] as? [String: Any] {
+              if let watched = lists[userId] as? [String: Any] {
+                movieData["watched"] = watched["watched"]
+              }
+            }
             movieDictArray.append(movieData)
           }
         }
@@ -264,5 +269,9 @@ struct DBHandler {
     } else {
       watchRef.removeValue()
     }
+  }
+  
+  static func getTotalMoviesWatch(from listId: String) {
+    
   }
 }

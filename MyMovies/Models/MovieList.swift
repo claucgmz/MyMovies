@@ -13,7 +13,6 @@ struct MovieList: DBModel, Mappable {
   var id = UUID().uuidString
   var name = "No name"
   var movies = [MovieBrief]()
-  
   static var watchedListId = FirebasePath.watched.rawValue
 
   init?(map: Map) {

@@ -14,12 +14,20 @@ class MovieCell: SwipeTableViewCell {
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var posterImage: UIImageView!
   @IBOutlet private weak var cosmosView: CosmosView!
+  @IBOutlet private weak var watchImageView: UIImageView!
   
   func configure(with movie: MovieBrief, delegate: SwipeTableViewCellDelegate) {
     titleLabel.text = movie.title
     if let url = URL(string: APIManager.baseImageURLthumbnail+movie.posterPath) {
       posterImage.af_setImage(withURL: url)
     }
+    
+    if movie.watched {
+      watchImageView.isHidden = false
+      watchImageView.image = watchImageView.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+      watchImageView.tintColor = Color.green
+    }
+    
     update(Double(movie.rating))
     cosmosViewActions(for: movie.id)
     self.delegate = delegate
@@ -37,5 +45,6 @@ class MovieCell: SwipeTableViewCell {
   
   override public func prepareForReuse() {
     cosmosView.prepareForReuse()
+    watchImageView.isHidden = true
   }
 }
