@@ -859,17 +859,54 @@
             </objects>
             <point key="canvasLocation" x="-343" y="1800"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="pjw-Jv-shs">
             <objects>
-                <viewController id="zfg-fX-nAf" sceneMemberID="viewController">
+                <viewController id="zfg-fX-nAf" customClass="ProfileViewController" customModule="MyMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BvX-q8-WdX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PUv-lc-Blc">
+                                <rect key="frame" x="30" y="94" width="315" height="110.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noProfile" translatesAutoresizingMaskIntoConstraints="NO" id="uMy-tU-tIv">
+                                        <rect key="frame" x="117.5" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcc-ud-NhY">
+                                        <rect key="frame" x="116" y="90" width="83" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.68569468560000002" green="0.73433438520000005" blue="0.73627752589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGY-eM-AOA">
+                                <rect key="frame" x="151.5" y="313.5" width="71" height="39"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.68569468560000002" green="0.73433438520000005" blue="0.73627752589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutAction:" destination="zfg-fX-nAf" eventType="touchUpInside" id="Afa-W9-V07"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="PUv-lc-Blc" firstAttribute="top" secondItem="vbg-Io-DxJ" secondAttribute="top" constant="30" id="6gw-Ef-a5l"/>
+                            <constraint firstItem="PUv-lc-Blc" firstAttribute="leading" secondItem="vbg-Io-DxJ" secondAttribute="leading" constant="30" id="b9f-a0-ZGw"/>
+                            <constraint firstItem="HGY-eM-AOA" firstAttribute="centerX" secondItem="BvX-q8-WdX" secondAttribute="centerX" id="gPb-Sn-8Go"/>
+                            <constraint firstItem="vbg-Io-DxJ" firstAttribute="trailing" secondItem="PUv-lc-Blc" secondAttribute="trailing" constant="30" id="hVm-Tr-sKS"/>
+                            <constraint firstItem="HGY-eM-AOA" firstAttribute="centerY" secondItem="BvX-q8-WdX" secondAttribute="centerY" id="il2-Wb-pzY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vbg-Io-DxJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="MDh-SF-aGS"/>
+                    <connections>
+                        <outlet property="profileImage" destination="uMy-tU-tIv" id="hDQ-jM-hRg"/>
+                        <outlet property="profileName" destination="qcc-ud-NhY" id="zGI-Rn-ieg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7C-mE-VWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -923,6 +960,7 @@
         <image name="list" width="100" height="100"/>
         <image name="movie" width="25" height="25"/>
         <image name="movie-b" width="100" height="100"/>
+        <image name="noProfile" width="80" height="80"/>
         <image name="profile" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
