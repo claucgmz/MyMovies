@@ -21,6 +21,7 @@ class MovieListDetailViewController: UIViewController {
     super.viewDidLoad()
     tableView.emptyDataSetSource = self
     tableView.emptyDataSetDelegate = self
+    registerNibs()
     guard let movieList = movieList else {
       return
     }
@@ -31,7 +32,6 @@ class MovieListDetailViewController: UIViewController {
         self.movieList.movies = briefs
       })
       .done {
-        self.updateProgress()
         self.tableView.reloadData()
         self.toogleHUD(show: false)
       }
@@ -40,8 +40,8 @@ class MovieListDetailViewController: UIViewController {
       })
   }
   
-  private func updateProgress() {
-
+  private func registerNibs() {
+    tableView.register(UINib(nibName: ProgressHeaderCell.reusableId, bundle: nil), forHeaderFooterViewReuseIdentifier: ProgressHeaderCell.reusableId)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,12 +74,25 @@ extension MovieListDetailViewController: UITableViewDataSource {
     cell.configure(with: movie, delegate: self)
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 120
+  }
 }
 
 extension MovieListDetailViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let movie = movieList.movies[indexPath.row]
     performSegue(withIdentifier: SegueIdentifier.movieDetailFromList.rawValue, sender: movie)
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProgressHeaderCell.reusableId) as? ProgressHeaderCell
+    guard let movieList = movieList else {
+      return nil
+    }
+    header?.configure(with: movieList)
+    return header
   }
 }
 

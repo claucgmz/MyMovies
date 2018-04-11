@@ -15,7 +15,8 @@ class ProgressHeaderCell: UITableViewHeaderFooterView {
   @IBOutlet private weak var percentageLabel: UILabel!
   
   func configure(with list: MovieList) {
-    totalMoviesLabel.text = "\(list.movies.count) movies"
+    movieNameLabel.text = list.name
+    totalMoviesLabel.text = "\(list.totalWatched) movie(s) watched out of \(list.movies.count)"
     updateProgressBar(percentage: list.percentage)
   }
   

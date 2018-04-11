@@ -60,6 +60,7 @@
 		5FF990DB207E6B6D00D6584F /* WatchedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF990DA207E6B6D00D6584F /* WatchedListCell.swift */; };
 		5FF990DD207E9AA100D6584F /* ProgressHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF990DC207E9AA100D6584F /* ProgressHeaderCell.swift */; };
 		5FF990DF207E9AFA00D6584F /* ProgressHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF990DE207E9AFA00D6584F /* ProgressHeaderCell.xib */; };
+		5FF990E1207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF990E0207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift */; };
 		9BB40E7F2077F23F0035727A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E7E2077F23F0035727A /* CategoryCell.swift */; };
 		9BB40E812077F8670035727A /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E802077F8670035727A /* MovieCategory.swift */; };
 		9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0D206E9BFC0046156C /* AuthHandler.swift */; };
@@ -126,6 +127,7 @@
 		5FF990DA207E6B6D00D6584F /* WatchedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedListCell.swift; sourceTree = "<group>"; };
 		5FF990DC207E9AA100D6584F /* ProgressHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderCell.swift; sourceTree = "<group>"; };
 		5FF990DE207E9AFA00D6584F /* ProgressHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressHeaderCell.xib; sourceTree = "<group>"; };
+		5FF990E0207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+ReusableId.swift"; sourceTree = "<group>"; };
 		6AC85C35C42560A044A1437F /* Pods-MyMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMovies/Pods-MyMovies.release.xcconfig"; sourceTree = "<group>"; };
 		9BB40E7E2077F23F0035727A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		9BB40E802077F8670035727A /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				9BC23F8420741BB20046156C /* LoginViewController+NetworkStatusListener.swift */,
 				5FC955802077FC4F007988C6 /* Date+Format.swift */,
 				5F6B017B207BC31700ABC9F5 /* String+Whitespace.swift */,
+				5FF990E0207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				5F9D84852062BF3C003E61DD /* MovieDetailViewController.swift in Sources */,
 				5F6B017C207BC31700ABC9F5 /* String+Whitespace.swift in Sources */,
 				5FF990DB207E6B6D00D6584F /* WatchedListCell.swift in Sources */,
+				5FF990E1207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift in Sources */,
 				5F029A732069FC8900DCED36 /* MovieListSelectionViewController.swift in Sources */,
 				5FA0F4FA2068D92F00633AA5 /* MovieListCell.swift in Sources */,
 				9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */,
