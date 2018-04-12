@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 import Cosmos
 import PromiseKit
+import FacebookShare
 
 class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var movieImageView: UIImageView!
@@ -117,6 +118,22 @@ class MovieDetailViewController: UIViewController {
     saveMovieBrief()
   }
   
+    @IBAction func shareMovie(_ sender: Any) {
+        let photo = Photo(image: movieImageView.image!, userGenerated: true)
+        let content = PhotoShareContent(photos: [photo])
+        let shareDialog = ShareDialog(content: content)
+        shareDialog.mode = .native
+        shareDialog.failsOnInvalidData = true
+        shareDialog.completion = { result in
+            // Handle share results
+        }
+        do {
+            try shareDialog.show()
+        } catch {
+            ErrorHandler.handle(spellError: ErrorType.notFound)
+        }
+    }
+    
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let identifierString = segue.identifier, let identifier = SegueIdentifier(rawValue: identifierString) else {
       return
