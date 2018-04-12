@@ -520,12 +520,22 @@
                                                     <action selector="setMovieWatched:" destination="V24-5j-fdA" eventType="touchUpInside" id="kxF-cv-n6b"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4I-uf-r9p">
+                                                <rect key="frame" x="210" y="15" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="md8-JN-q2u"/>
+                                                    <constraint firstAttribute="height" constant="40" id="ube-xY-PPb"/>
+                                                </constraints>
+                                                <state key="normal" image="shareBtn"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="eND-j2-CoK" firstAttribute="leading" secondItem="n4I-uf-r9p" secondAttribute="trailing" constant="15" id="050-dK-005"/>
                                             <constraint firstItem="ezB-pE-S0K" firstAttribute="top" secondItem="EaK-hq-I1P" secondAttribute="top" constant="15" id="3WS-31-Jqw"/>
                                             <constraint firstItem="VTg-7Q-TB3" firstAttribute="top" secondItem="EaK-hq-I1P" secondAttribute="top" id="AnK-pT-YtY"/>
                                             <constraint firstAttribute="trailing" secondItem="ezB-pE-S0K" secondAttribute="trailing" constant="15" id="INi-ej-TGP"/>
+                                            <constraint firstItem="n4I-uf-r9p" firstAttribute="top" secondItem="eND-j2-CoK" secondAttribute="top" id="Owu-OY-rGA"/>
                                             <constraint firstItem="ezB-pE-S0K" firstAttribute="leading" secondItem="eND-j2-CoK" secondAttribute="trailing" constant="15" id="aks-Uy-LNX"/>
                                             <constraint firstItem="eND-j2-CoK" firstAttribute="top" secondItem="ezB-pE-S0K" secondAttribute="top" id="iTt-2s-Y6O"/>
                                             <constraint firstItem="VTg-7Q-TB3" firstAttribute="centerX" secondItem="EaK-hq-I1P" secondAttribute="centerX" id="jf8-4U-xyN"/>
@@ -980,6 +990,7 @@
         <image name="movie-b" width="100" height="100"/>
         <image name="noProfile" width="80" height="80"/>
         <image name="profile" width="25" height="25"/>
+        <image name="shareBtn" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KJV-l8-e65"/>
