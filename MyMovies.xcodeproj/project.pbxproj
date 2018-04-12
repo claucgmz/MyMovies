@@ -51,6 +51,7 @@
 		5FBB06F92068E29B004E7F98 /* MovieBrief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBB06F82068E29B004E7F98 /* MovieBrief.swift */; };
 		5FBBB3F9206899CA0094F0A2 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBB3F8206899CA0094F0A2 /* Rating.swift */; };
 		5FBE8E762071959B00F19BD0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE8E752071959B00F19BD0 /* Font.swift */; };
+		5FC88BCB207FB35200E266FA /* UIImageView+TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC88BCA207FB35200E266FA /* UIImageView+TintColor.swift */; };
 		5FC9557D2077EA2A007988C6 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9557C2077EA2A007988C6 /* SearchResultCell.swift */; };
 		5FC9557F2077EA5B007988C6 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9557E2077EA5B007988C6 /* SearchResult.swift */; };
 		5FC955812077FC4F007988C6 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC955802077FC4F007988C6 /* Date+Format.swift */; };
@@ -121,6 +122,7 @@
 		5FBB06F82068E29B004E7F98 /* MovieBrief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBrief.swift; sourceTree = "<group>"; };
 		5FBBB3F8206899CA0094F0A2 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		5FBE8E752071959B00F19BD0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5FC88BCA207FB35200E266FA /* UIImageView+TintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+TintColor.swift"; sourceTree = "<group>"; };
 		5FC9557C2077EA2A007988C6 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		5FC9557E2077EA5B007988C6 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		5FC955802077FC4F007988C6 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				5FC955802077FC4F007988C6 /* Date+Format.swift */,
 				5F6B017B207BC31700ABC9F5 /* String+Whitespace.swift */,
 				5FF990E0207EA07600D6584F /* UITableViewHeaderFooterView+ReusableId.swift */,
+				5FC88BCA207FB35200E266FA /* UIImageView+TintColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				5F029A732069FC8900DCED36 /* MovieListSelectionViewController.swift in Sources */,
 				5FA0F4FA2068D92F00633AA5 /* MovieListCell.swift in Sources */,
 				9BC23F12206E9D850046156C /* LoginViewController.swift in Sources */,
+				5FC88BCB207FB35200E266FA /* UIImageView+TintColor.swift in Sources */,
 				5FB08EC92061B91A00DDDC65 /* MovieCollectionCell.swift in Sources */,
 				5FB08EBA2061A77400DDDC65 /* Movie.swift in Sources */,
 				5F914CEA206C3C7F002B4CB7 /* DBModel.swift in Sources */,
