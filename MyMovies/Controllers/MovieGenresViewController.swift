@@ -101,7 +101,8 @@ extension MovieGenresViewController: UICollectionViewDelegate {
 
 extension MovieGenresViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.width * 0.45, height: 150.0)
+    let size = collectionView.frame.width * 0.45
+    return CGSize(width: size, height: size)
   }
 }
 
