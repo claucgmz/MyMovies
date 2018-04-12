@@ -16,8 +16,10 @@ class GenreCell: UICollectionViewCell {
     genreLabel.text = genre.description
     let imageString = genre.description.lowercased().removeWhitespace()
     imageView.image = UIImage(named: imageString)
-    self.layer.cornerRadius = 8.0
-    self.layer.borderWidth = 2.0
-    self.layer.borderColor = Color.lead.cgColor
+    imageView.tintImageColor(color: Color.main)
+    self.layer.backgroundColor = Color.lead.cgColor
+    self.layer.cornerRadius = self.frame.width/2
+    self.layer.borderWidth = 4.0
+    self.layer.borderColor = Color.secondary.cgColor
   }
 }
