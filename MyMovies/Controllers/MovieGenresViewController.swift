@@ -24,24 +24,6 @@ class MovieGenresViewController: UIViewController {
     genres = Genre.allElements
   }
   
-  override func viewWillLayoutSubviews() {
-    super.viewWillLayoutSubviews()
-    guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-      return
-    }
-    
-    var size = (self.view.frame.size.width - 15 * 2) / 2
-    
-    if UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) {
-      size = (self.view.frame.size.width - 15 * 3) / 3
-
-      //self.layer.cornerRadius = self.frame.width/2
-    }
-    
-    flowLayout.itemSize = CGSize(width: size, height: size)
-    flowLayout.invalidateLayout()
-  }
-  
   private func configureSearchController() {
     let storyboard = UIStoryboard(name: StoryboardPath.main.rawValue, bundle: nil)
     resultsController = (storyboard.instantiateViewController(withIdentifier: ViewControllerPath.searchViewController.rawValue) as? SearchViewController)!
@@ -114,6 +96,13 @@ extension MovieGenresViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let genre = genres[indexPath.row]
     performSegue(withIdentifier: SegueIdentifier.genreMovieSearch.rawValue, sender: genre)
+  }
+}
+
+extension MovieGenresViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let size = (self.view.frame.size.width - 15 * 2) / 2
+    return CGSize(width: size, height: size)
   }
 }
 
