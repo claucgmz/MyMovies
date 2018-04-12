@@ -17,9 +17,8 @@ class GenreCell: UICollectionViewCell {
     let imageString = genre.description.lowercased().removeWhitespace()
     imageView.image = UIImage(named: imageString)
     imageView.tintImageColor(color: Color.main)
-    self.layer.cornerRadius = self.frame.width/2
     self.layer.backgroundColor = Color.lead.cgColor
-    self.layer.borderWidth = 2.0
-    self.layer.borderColor = Color.green.cgColor
+    self.layer.borderWidth = 4.0
+    self.layer.borderColor = Color.secondary.cgColor
   }
 }
