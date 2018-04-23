@@ -66,6 +66,8 @@
 		9BB40E812077F8670035727A /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E802077F8670035727A /* MovieCategory.swift */; };
 		9BB40E84207D66E00035727A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E83207D66E00035727A /* ErrorHandler.swift */; };
 		9BB40E86207E6E1C0035727A /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40E85207E6E1C0035727A /* ErrorType.swift */; };
+		9BB9BB59208851C700883281 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB9BB57208851C700883281 /* Crashlytics.framework */; };
+		9BB9BB5A208851C700883281 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB9BB58208851C700883281 /* Fabric.framework */; };
 		9BC03FF7207E9937006FD0F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC03FF6207E9937006FD0F0 /* ProfileViewController.swift */; };
 		9BC03FF9207ECE2D006FD0F0 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC03FF8207ECE2D006FD0F0 /* ImageManager.swift */; };
 		9BC23F0E206E9BFC0046156C /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC23F0D206E9BFC0046156C /* AuthHandler.swift */; };
@@ -138,6 +140,8 @@
 		9BB40E802077F8670035727A /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
 		9BB40E83207D66E00035727A /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		9BB40E85207E6E1C0035727A /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		9BB9BB57208851C700883281 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		9BB9BB58208851C700883281 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		9BC03FF6207E9937006FD0F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9BC03FF8207ECE2D006FD0F0 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		9BC23F0D206E9BFC0046156C /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
@@ -153,7 +157,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB9BB59208851C700883281 /* Crashlytics.framework in Frameworks */,
 				29817FED0F57DC713DC1AAE3 /* Pods_MyMovies.framework in Frameworks */,
+				9BB9BB5A208851C700883281 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +186,8 @@
 		5F07A39820617F6D00209566 = {
 			isa = PBXGroup;
 			children = (
+				9BB9BB57208851C700883281 /* Crashlytics.framework */,
+				9BB9BB58208851C700883281 /* Fabric.framework */,
 				5F07A3A320617F6D00209566 /* MyMovies */,
 				5F07A3A220617F6D00209566 /* Products */,
 				039637EF22666C7E6FC65516 /* Pods */,
@@ -378,6 +386,7 @@
 				5F07A3C02061838200209566 /* ShellScript */,
 				9D8FC6E323B830EBC7E6DD7F /* [CP] Embed Pods Frameworks */,
 				AA5D1A2578FFFEF880FAD64A /* [CP] Copy Pods Resources */,
+				9BB9BB5620884FD900883281 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -400,7 +409,7 @@
 				TargetAttributes = {
 					5F07A3A020617F6D00209566 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -451,6 +460,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		9BB9BB5620884FD900883281 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run ede050f558023b921a02ba7d247dd0383dc4255a 1052eea842658b36baa7c014759affc7370201a10492c6b64777e989cb3b0639";
 		};
 		9D8FC6E323B830EBC7E6DD7F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -750,12 +772,19 @@
 			baseConfigurationReference = 28C408811B99A6F90C01EE80 /* Pods-MyMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TF76XBAQC8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nearsoft.MyMovies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nearsoft.mymovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2baed948-d917-4c80-b4f0-4ab6d95c83a0";
+				PROVISIONING_PROFILE_SPECIFIER = "MyMovies development";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -766,12 +795,19 @@
 			baseConfigurationReference = 6AC85C35C42560A044A1437F /* Pods-MyMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TF76XBAQC8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nearsoft.MyMovies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nearsoft.mymovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "179e9ec0-2c5a-4dcc-b624-cb4aaf579ecf";
+				PROVISIONING_PROFILE_SPECIFIER = "MyMovies ad-hoc";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

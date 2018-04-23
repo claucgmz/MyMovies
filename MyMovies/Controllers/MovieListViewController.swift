@@ -25,8 +25,9 @@ class MovieListViewController: UIViewController {
     if let index = tableView.indexPathForSelectedRow {
       tableView.deselectRow(at: index, animated: true)
     }
+    getLists()
   }
-  
+    
   private func getLists() {
     self.toogleHUD(show: true)
     Handler.getLists().map({ movieLists -> Void in

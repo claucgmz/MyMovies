@@ -12,7 +12,7 @@ import AlamofireImage
 class MovieCollectionCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleToFill
         iv.layer.cornerRadius = 16
         iv.layer.masksToBounds = true
         return iv

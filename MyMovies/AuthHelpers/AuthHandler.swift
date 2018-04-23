@@ -31,7 +31,7 @@ struct AuthHandler {
     static func successLogin(loginVC: LoginViewController, token: String) {
         let credential = FacebookAuthProvider.credential(withAccessToken: token)
         Auth.auth().signIn(with: credential) { (_, error) in
-            if let _ = error {
+            if let error = error {
                 ErrorHandler.handle(spellError: ErrorType.loginCancel)
             }
             loginVC.changeView(with: StoryboardPath.main.rawValue, viewControllerName: ViewControllerPath.homeViewController.rawValue)
@@ -52,7 +52,6 @@ struct AuthHandler {
         if Auth.auth().currentUser != nil {
             return Auth.auth().currentUser!.uid
         } else {
-            ErrorHandler.handle(spellError: ErrorType.connectivity)
             return nil
         }
     }
